@@ -1,5 +1,7 @@
 # Shubham Dudhal — Product Manager Portfolio
 
+**🌐 Live Site**: [https://shubhamdudhal.vercel.app](https://shubhamdudhal.vercel.app)
+
 A clean, interactive career portfolio designed to showcase **Shubham Dudhal** as a **Product Manager** specializing in problem discovery, intuitive UX workflows, and cross-functional product execution, supported by a strong Computer Science foundation.
 
 ---
