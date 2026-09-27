@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham Dudhal | Product Manager Portfolio</title>
+  <meta name="description" content="Portfolio of Shubham Dudhal — Product Manager specializing in Agentic AI, Autonomous Workflows, and Scalable Enterprise SaaS Platforms.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  
+  <!-- Google Fonts: Montserrat (Headings) & Inter/Poppins (Body) like Taewoong Seo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #222222;
+      background-color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .product-box {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .product-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+    }
+    .experience-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-slate-900 selection:text-white">
+
+  <!-- NAVIGATION (Taewoong Seo Style: Clean, Minimal, Sticky) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all">
+    <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Monogram / Signature Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-slate-900 text-white font-heading font-black text-sm flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+          SD
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-sm tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">Shubham Dudhal</span>
+          <span class="text-[11px] text-slate-400 font-medium">Product Manager</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-[13px] font-heading font-semibold text-slate-600">
+        <a href="#home" class="hover:text-slate-900 transition-colors">Home</a>
+        <a href="#lifecycle" class="hover:text-slate-900 transition-colors">How I Build</a>
+        <a href="#products" class="hover:text-slate-900 transition-colors">Case Studies</a>
+        <a href="#experience" class="hover:text-slate-900 transition-colors">Experience</a>
+        <a href="#framework" class="hover:text-slate-900 transition-colors">Execution Vault</a>
+        <a href="#copilot" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-blue-600">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Career Copilot
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" download="Shubham_Dudhal_Product_Manager_Resume.pdf" class="px-4 py-2 rounded-full text-xs font-heading font-bold bg-slate-900 hover:bg-slate-800 text-white shadow-sm transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-12 md:py-16 space-y-24">
+
+    <!-- HERO / INTRO SECTION (Taewoong Seo Style: Avatar, Warm Welcome, Professional Credentials) -->
+    <section id="home" class="scroll-mt-24">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
+        <!-- Authentic Portrait Avatar -->
+        <div class="relative flex-shrink-0">
+          <div class="w-32 h-32 md:w-40 md:h-40 rounded-full p-1 ring-4 ring-slate-100 shadow-xl overflow-hidden bg-slate-50">
+            <img src="assets/profile.jpg" alt="Shubham Dudhal" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white" title="Active & Open to Opportunities">
+            <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          </div>
+        </div>
+
+        <!-- Bio & Headlines -->
+        <div class="space-y-3.5 max-w-2xl">
+          <h1 class="text-3xl md:text-5xl font-heading font-extrabold text-slate-900 tracking-tight leading-tight">
+            Hi, I'm <span class="underline decoration-blue-500/40 underline-offset-4">Shubham Dudhal!</span>
+          </h1>
+          
+          <div class="text-base md:text-lg font-medium text-slate-700 leading-snug">
+            Product Manager 📱 • Problem Discovery, UX Workflows & Execution ⚡
+          </div>
+          
+          <p class="text-sm md:text-base text-slate-600 font-normal leading-relaxed">
+            Product Manager driven by customer empathy, intuitive workflow design, and high-impact product execution. I specialize in uncovering root-cause user pain, eliminating friction through user-centered UX, and aligning cross-functional teams to build software people rely on daily. My Computer Science background (8.81 CGPA) directly strengthens my product craft—enabling me to assess technical feasibility early, partner seamlessly with engineers without translation loss, and deliver reliable, edge-case-hardened solutions.
+          </p>
+
+          <!-- Current Job & Education (Taewoong format) -->
+          <div class="pt-1 text-xs md:text-sm text-slate-600 font-medium space-y-1.5">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span>Product Manager @</span>
+              <strong class="text-slate-900 font-bold">Roadcast 🚗 ⚡</strong>
+              <span class="text-slate-400">•</span>
+              <span class="text-blue-600 font-semibold">Fleet Platforms & Operational Workflows</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap text-slate-500">
+              <strong class="text-slate-800">Mulund College of Commerce, Mumbai University</strong>
+              <span>🎓 B.Sc. in Computer Science</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold font-mono text-[11px]">8.81 CGPA</span>
+            </div>
+          </div>
+
+          <!-- Social Quick Links -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs font-heading font-semibold text-slate-700 hover:text-slate-900 hover:border-slate-400 transition-all flex items-center gap-1.5 bg-slate-50/50">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5 text-blue-600"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:svdudhal777@gmail.com" class="px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs font-heading font-semibold text-slate-700 hover:text-slate-900 hover:border-slate-400 transition-all flex items-center gap-1.5 bg-slate-50/50">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-rose-500"></i>
+              <span>svdudhal777@gmail.com</span>
+            </a>
+            <a href="tel:+919850156959" class="px-3.5 py-1.5 rounded-lg border border-slate-200 text-xs font-heading font-semibold text-slate-700 hover:text-slate-900 hover:border-slate-400 transition-all flex items-center gap-1.5 bg-slate-50/50">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>+91-9850156959</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW I BUILD: END-TO-END PRODUCT LIFECYCLE (Thought Process Across Problem, UX, Tech, QA) -->
+    <section id="lifecycle" class="scroll-mt-24 space-y-8">
+      <div class="border-b border-slate-200 pb-4">
+        <h2 class="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">How I Build: The Product Lifecycle</h2>
+        <p class="text-sm text-slate-500 mt-1">A PM's job goes far beyond writing specs. Here is how I navigate problem discovery, UX architecture, engineering collaboration, and QA sanity to ship reliable software.</p>
+      </div>
+
+      <!-- 5-Pillar Operating Framework Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        
+        <!-- Pillar 1: Problem Discovery -->
+        <div class="border border-slate-200 rounded-2xl p-5 bg-white space-y-3 flex flex-col justify-between hover:border-slate-400 transition-all group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">01</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Discovery</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">Problem Discovery & Root-Cause Signal</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Uncovering the operational reality beneath feature requests. Shadowing fleet dispatchers, analyzing error telemetry, and defining explicit non-goals.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500 space-y-1">
+            <div class="text-slate-800 font-semibold">• Operator Shadowing</div>
+            <div>• Data Signal Trees</div>
+            <div>• Explicit Non-Goals</div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: UX Discovery -->
+        <div class="border border-slate-200 rounded-2xl p-5 bg-white space-y-3 flex flex-col justify-between hover:border-slate-400 transition-all group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">02</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">UX Design</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm group-hover:text-emerald-600 transition-colors">UX Discovery & Workflow Mapping</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Minimizing cognitive load in high-stress environments. Eliminating multi-tab fatigue by mapping natural operator mental models and zero-ambiguity action states.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500 space-y-1">
+            <div class="text-slate-800 font-semibold">• Journey Mapping</div>
+            <div>• Figma Wireframes</div>
+            <div>• Usability Feedback</div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Technical Feasibility Alignment -->
+        <div class="border border-slate-200 rounded-2xl p-5 bg-white space-y-3 flex flex-col justify-between hover:border-slate-400 transition-all group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xs">03</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Tech Alignment</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm group-hover:text-purple-600 transition-colors">Technical Feasibility & Alignment</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Leveraging technical fluency to support product vision. Partnering early with engineering on API contracts, latency trade-offs, and data schemas to de-risk delivery before coding.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500 space-y-1">
+            <div class="text-slate-800 font-semibold">• Early De-risking</div>
+            <div>• Contract Agreements</div>
+            <div>• Engineering Empathy</div>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Sprint Delivery -->
+        <div class="border border-slate-200 rounded-2xl p-5 bg-white space-y-3 flex flex-col justify-between hover:border-slate-400 transition-all group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs">04</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Execution</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm group-hover:text-amber-600 transition-colors">Sprint Execution & Cross-Squad Delivery</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Translating strategy into unblockable, atomic Jira stories with Gherkin acceptance criteria (Given/When/Then). Unblocking developers and resolving scope trade-offs.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500 space-y-1">
+            <div class="text-slate-800 font-semibold">• Gherkin Criteria</div>
+            <div>• Backlog Grooming</div>
+            <div>• Dev Unblocking</div>
+          </div>
+        </div>
+
+        <!-- Pillar 5: QA Sanity -->
+        <div class="border border-slate-200 rounded-2xl p-5 bg-white space-y-3 flex flex-col justify-between hover:border-slate-400 transition-all group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs">05</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">QA & Release</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm group-hover:text-rose-600 transition-colors">QA Sanity, Edge Cases & Rollout Gates</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Hardening software for real-world chaos: testing offline network dropouts, stale cache states, and setting strict telemetry gates (&lt;1.5s P95) before GA rollout.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500 space-y-1">
+            <div class="text-slate-800 font-semibold">• Edge-Case Matrix</div>
+            <div>• Fail-Safe Fallbacks</div>
+            <div>• P95 Rollout Gates</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS (Taewoong Seo Style: 2-Column Product Boxes with Full Lifecycle Stories) -->
+    <section id="products" class="scroll-mt-24 space-y-8">
+      <div class="flex items-baseline justify-between border-b border-slate-200 pb-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Featured Case Studies</h2>
+          <p class="text-sm text-slate-500 mt-1">End-to-end execution across problem statements, UX discovery, technical trade-offs, and measurable outcomes</p>
+        </div>
+        <span class="text-xs font-heading font-semibold text-slate-400">Click any card to read full breakdown</span>
+      </div>
+
+      <!-- Projects Grid (2 Columns, Clean Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: Roadcast Fleet AI Assistant -->
+        <div onclick="openModal('modal-case-1')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
+          <!-- Mockup / Visual Header -->
+          <div class="w-full h-48 rounded-xl bg-gradient-to-br from-slate-900 to-indigo-950 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden group">
+            <div class="flex items-center justify-between z-10">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-blue-200">Roadcast • Telematics</span>
+              <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">MCP + Redis</span>
+            </div>
+            <!-- Mock Terminal / Data UI -->
+            <div class="z-10 font-mono text-xs space-y-1 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
+              <div class="text-emerald-400 font-semibold">$ query: "Show idle trucks in Zone 2"</div>
+              <div class="text-slate-400 text-[11px]">> Tool: roadcast_redis_telemetry (12ms)</div>
+              <div class="text-white text-[11px] font-sans font-medium">> 14 assets identified with >35min idling</div>
+            </div>
+            <!-- Background Decorative Grid -->
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          </div>
+
+          <div class="space-y-1">
+            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between">
+              <span>Fleet AI Query Assistant</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+            </h3>
+            <div class="text-xs font-heading font-bold text-blue-600 uppercase tracking-wider">Product Manager • Roadcast</div>
+          </div>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Identified multi-tab operator triage fatigue and scoped an <strong>MCP-based natural language query tool over Redis telemetry caching</strong>, cutting operator triage time by 75%.
+          </p>
+
+          <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-blue-600">
+            <span>Read full story breakdown</span>
+            <span class="text-slate-400 font-normal">Dec 2025 – Present</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Voice AI Safety Call Workflow -->
+        <div onclick="openModal('modal-case-2')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
+          <!-- Mockup / Visual Header -->
+          <div class="w-full h-48 rounded-xl bg-gradient-to-br from-emerald-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
+            <div class="flex items-center justify-between z-10">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-emerald-200">Roadcast • Voice AI</span>
+              <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">LiveKit + Sarvam</span>
+            </div>
+            <!-- Mock Audio Waveform / State UI -->
+            <div class="z-10 font-mono text-xs space-y-1.5 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
+              <div class="flex items-center gap-2 text-rose-400 font-semibold">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                <span>ADAS Alert: Driver Drowsiness (Severity 1)</span>
+              </div>
+              <div class="text-slate-300 text-[11px]">> Outbound WebRTC safety check triggered in Hindi</div>
+              <div class="text-emerald-400 text-[11px]">> State: Driver Acknowledged & Alert Cleared</div>
+            </div>
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          </div>
+
+          <div class="space-y-1">
+            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-emerald-600 transition-colors flex items-center justify-between">
+              <span>Voice AI Driver Safety Intercom</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+            </h3>
+            <div class="text-xs font-heading font-bold text-emerald-600 uppercase tracking-wider">Product Manager • Roadcast POC</div>
+          </div>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Mapped in-cabin noise contexts, vernacular speech journeys, and <strong>deterministic fail-safe state machines using LiveKit WebRTC</strong> for critical driver drowsiness intervention.
+          </p>
+
+          <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-emerald-600">
+            <span>Read full story breakdown</span>
+            <span class="text-slate-400 font-normal">Production Scope</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Fynd / Reliance Catalogue Cloud -->
+        <div onclick="openModal('modal-case-3')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
+          <!-- Mockup / Visual Header -->
+          <div class="w-full h-48 rounded-xl bg-gradient-to-br from-blue-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
+            <div class="flex items-center justify-between z-10">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-blue-200">Fynd (Reliance)</span>
+              <span class="text-[10px] font-mono bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full">Netmeds • JioMart</span>
+            </div>
+            <!-- Mock Variant Mapping Tree UI -->
+            <div class="z-10 font-mono text-xs space-y-1 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
+              <div class="text-blue-300 font-semibold">SKU Variant Engine v2.4</div>
+              <div class="text-slate-400 text-[11px]">> Hierarchy: Brand -> Parent SKU -> 8 Variants</div>
+              <div class="text-emerald-400 text-[11px]">> Attribute Error Validation: 0 Mismatches (-40%)</div>
+            </div>
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          </div>
+
+          <div class="space-y-1">
+            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between">
+              <span>Catalogue Cloud & SKU Variant Engine</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+            </h3>
+            <div class="text-xs font-heading font-bold text-blue-600 uppercase tracking-wider">Product Manager Intern • Fynd (Reliance)</div>
+          </div>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Architected parent-child SKU variant mapping rules and <strong>schema validation for Netmeds and JioMart</strong>, slashing catalog synchronization errors by 30-40%.
+          </p>
+
+          <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-blue-600">
+            <span>Read full story breakdown</span>
+            <span class="text-slate-400 font-normal">Aug – Nov 2024</span>
+          </div>
+        </div>
+
+        <!-- Project 4: LinkedIn Mentorship UX Teardown & Prototype -->
+        <div onclick="openModal('modal-case-4')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
+          <!-- Mockup / Visual Header -->
+          <div class="w-full h-48 rounded-xl bg-gradient-to-br from-amber-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
+            <div class="flex items-center justify-between z-10">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-amber-200">Product Teardown & UX</span>
+              <span class="text-[10px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full">Figma Prototype</span>
+            </div>
+            <!-- Mock User Research Flow -->
+            <div class="z-10 font-mono text-xs space-y-1 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
+              <div class="text-amber-300 font-semibold">User Research: 25+ Industry Interviews</div>
+              <div class="text-slate-400 text-[11px]">> Pain point: 95% cold InMail drop-off</div>
+              <div class="text-white text-[11px] font-sans font-medium">> Solution: 15-min Micro-Mentorship Sprints</div>
+            </div>
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          </div>
+
+          <div class="space-y-1">
+            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-amber-600 transition-colors flex items-center justify-between">
+              <span>LinkedIn Mentorship Network</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+            </h3>
+            <div class="text-xs font-heading font-bold text-amber-600 uppercase tracking-wider">Product Discovery & UX Prototype</div>
+          </div>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Conducted 25+ user interviews unpacking why 95% of cold mentorship messages fail, followed by an <strong>interactive prototype for 15-minute structured micro-mentorship tracks</strong>.
+          </p>
+
+          <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-amber-600">
+            <span>Explore research & prototype</span>
+            <span class="text-slate-400 font-normal">Design Vault</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- KEY EXPERIENCE (Taewoong Seo Style: "Key Experience" Grid with Logos & Roles) -->
+    <section id="experience" class="scroll-mt-24 space-y-8">
+      <div class="border-b border-slate-200 pb-4">
+        <h2 class="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Key Experience</h2>
+        <p class="text-sm text-slate-500 mt-1">Track record of driving product strategy, cross-squad execution, and operational impact</p>
+      </div>
+
+      <!-- Experience Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        
+        <!-- Experience 1: Roadcast -->
+        <div class="experience-card border border-slate-200 rounded-2xl p-5 bg-white space-y-3 transition-all flex flex-col justify-between">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white font-heading font-black text-sm flex items-center justify-center">
+            RC
+          </div>
+          <div>
+            <div class="font-heading font-bold text-sm text-slate-900">Product Manager</div>
+            <div class="text-xs text-slate-500 font-medium">Roadcast (Telematics & AI)</div>
+            <div class="text-[11px] font-mono text-blue-600 mt-1">Dec 2025 – Present</div>
+          </div>
+        </div>
+
+        <!-- Experience 2: CultureX -->
+        <div class="experience-card border border-slate-200 rounded-2xl p-5 bg-white space-y-3 transition-all flex flex-col justify-between">
+          <div class="w-12 h-12 rounded-xl bg-purple-600 text-white font-heading font-black text-sm flex items-center justify-center">
+            CX
+          </div>
+          <div>
+            <div class="font-heading font-bold text-sm text-slate-900">Associate PM</div>
+            <div class="text-xs text-slate-500 font-medium">CultureX (Founder's Office)</div>
+            <div class="text-[11px] font-mono text-purple-600 mt-1">Mar 2025 – Aug 2025</div>
+          </div>
+        </div>
+
+        <!-- Experience 3: Fynd (Reliance) -->
+        <div class="experience-card border border-slate-200 rounded-2xl p-5 bg-white space-y-3 transition-all flex flex-col justify-between">
+          <div class="w-12 h-12 rounded-xl bg-blue-600 text-white font-heading font-black text-sm flex items-center justify-center">
+            FY
+          </div>
+          <div>
+            <div class="font-heading font-bold text-sm text-slate-900">Product Manager Intern</div>
+            <div class="text-xs text-slate-500 font-medium">Fynd (Reliance Group)</div>
+            <div class="text-[11px] font-mono text-blue-600 mt-1">Aug 2024 – Nov 2024</div>
+          </div>
+        </div>
+
+        <!-- Experience 4: Mummy Ki Rasoi -->
+        <div class="experience-card border border-slate-200 rounded-2xl p-5 bg-white space-y-3 transition-all flex flex-col justify-between">
+          <div class="w-12 h-12 rounded-xl bg-amber-500 text-white font-heading font-black text-sm flex items-center justify-center">
+            MK
+          </div>
+          <div>
+            <div class="font-heading font-bold text-sm text-slate-900">Co-founder & Head of Ops</div>
+            <div class="text-xs text-slate-500 font-medium">Mummy Ki Rasoi (Kitchen)</div>
+            <div class="text-[11px] font-mono text-amber-600 mt-1">Jan 2020 – Jan 2021</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE PM CRAFT & EXECUTION VAULT (End-to-End Thought Process: Problem -> UX -> Tech -> QA -> Release) -->
+    <section id="framework" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <h2 class="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">The PM Craft & Execution Vault</h2>
+        <p class="text-sm text-slate-500 mt-1">Anatomy of how I structure end-to-end product delivery — from root-cause discovery to UX flows, technical schemas, QA sanity, and rollout telemetry.</p>
+      </div>
+
+      <!-- Tabbed Execution Container -->
+      <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
+        <!-- Tab Bar -->
+        <div class="flex border-b border-slate-200 overflow-x-auto bg-white p-2 gap-1.5 text-xs font-heading font-semibold">
+          <button onclick="switchPrdTab('tab-problem')" id="btn-tab-problem" class="prd-tab-btn active px-4 py-2 rounded-lg bg-slate-900 text-white transition-all whitespace-nowrap">
+            1. Problem & Signal
+          </button>
+          <button onclick="switchPrdTab('tab-ux')" id="btn-tab-ux" class="prd-tab-btn px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all whitespace-nowrap">
+            2. UX Discovery & Flow
+          </button>
+          <button onclick="switchPrdTab('tab-architecture')" id="btn-tab-architecture" class="prd-tab-btn px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all whitespace-nowrap">
+            3. Feasibility & Tech Alignment
+          </button>
+          <button onclick="switchPrdTab('tab-edgecases')" id="btn-tab-edgecases" class="prd-tab-btn px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all whitespace-nowrap">
+            4. QA Sanity & Edge Cases
+          </button>
+          <button onclick="switchPrdTab('tab-metrics')" id="btn-tab-metrics" class="prd-tab-btn px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all whitespace-nowrap">
+            5. Rollout & Telemetry Gates
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="p-6 md:p-8 text-sm text-slate-700 bg-white">
+          
+          <!-- Tab 1: Problem Discovery -->
+          <div id="tab-problem" class="prd-tab-content space-y-4">
+            <div class="flex items-center gap-2 text-blue-600 text-xs font-mono font-bold uppercase">
+              <i data-lucide="target" class="w-4 h-4"></i> Phase 1: Problem Statement & Root-Cause Signal
+            </div>
+            <h4 class="text-lg font-heading font-bold text-slate-900">Why are we building this? (The User & Business Friction)</h4>
+            <p class="text-slate-600 leading-relaxed">
+              Commercial fleet supervisors manage between 500 and 3,000 active assets. During field shadowing, I observed operators spending an average of <strong>4.2 minutes per alert</strong> cross-referencing three separate UI tabs (Vehicle Location, Fuel Sensor Logs, Driver Rosters) to diagnose basic operational issues like idling or fuel drops. This lag delayed urgent route and safety interventions.
+            </p>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-slate-700 space-y-1.5">
+              <div class="text-emerald-700 font-bold">// Explicit Non-Goals (Scope Containment to Prevent Creep)</div>
+              <div>• We are NOT replacing historical raw-data XLSX exports in Phase 1.</div>
+              <div>• We are NOT permitting automated vehicle engine immobilization without dual human confirmation.</div>
+              <div>• We are NOT introducing arbitrary SQL input fields that could expose production databases.</div>
+            </div>
+          </div>
+
+          <!-- Tab 2: UX Discovery & Flow -->
+          <div id="tab-ux" class="prd-tab-content hidden space-y-4">
+            <div class="flex items-center gap-2 text-emerald-600 text-xs font-mono font-bold uppercase">
+              <i data-lucide="layout" class="w-4 h-4"></i> Phase 2: UX Discovery & Operator Workflow Mapping
+            </div>
+            <h4 class="text-lg font-heading font-bold text-slate-900">Eliminating Multi-Tab Cognitive Friction</h4>
+            <p class="text-slate-600 leading-relaxed">
+              Operators don't need a conversational chatbot that chats; they need <strong>actionable vehicle intelligence with immediate operational controls</strong>. I mapped the user journey from question to action:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <div class="font-bold text-slate-900">Step 1: Intent Query</div>
+                <div class="text-slate-500 text-[11px]">Operator speaks or types: "Show idle reefers in North Zone".</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <div class="font-bold text-slate-900">Step 2: Structured Cards</div>
+                <div class="text-slate-500 text-[11px]">System renders condensed vehicle status cards with live telemetry tags.</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <div class="font-bold text-slate-900">Step 3: Direct Actions</div>
+                <div class="text-slate-500 text-[11px]">Embedded CTA buttons: [Call Driver], [Ping Telematics], [Assign Route].</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Technical Feasibility & Alignment -->
+          <div id="tab-architecture" class="prd-tab-content hidden space-y-4">
+            <div class="flex items-center gap-2 text-purple-600 text-xs font-mono font-bold uppercase">
+              <i data-lucide="git-branch" class="w-4 h-4"></i> Phase 3: Technical Feasibility & Architecture Alignment
+            </div>
+            <h4 class="text-lg font-heading font-bold text-slate-900">De-Risking Delivery: Protecting User Experience & Infrastructure</h4>
+            <p class="text-slate-600 leading-relaxed">
+              A responsive user experience requires dependable infrastructure. Rather than handing engineering a vague wishlist, I leveraged my CS background to evaluate data volume alongside tech leads. To prevent sluggish queries and database degradation, we defined clear Model Context Protocol (MCP) tool contracts over in-memory Redis caching—guaranteeing sub-second UI response times for operators.
+            </p>
+            <div class="p-4 rounded-xl bg-slate-900 text-indigo-200 font-mono text-xs overflow-x-auto">
+<pre>
+POST /v2/ai/telemetry/query
+{
+  "operator_prompt": "Which reefer trucks in North Zone had temperature violations over 4°C today?",
+  "tool_context": {
+    "mcp_server": "roadcast-telemetry-mcp",
+    "required_scope": ["fleet:read", "sensors:temperature"],
+    "cache_fallback_ttl": 60
+  }
+}
+</pre>
+            </div>
+          </div>
+
+          <!-- Tab 4: QA Sanity & Edge Cases -->
+          <div id="tab-edgecases" class="prd-tab-content hidden space-y-4">
+            <div class="flex items-center gap-2 text-amber-600 text-xs font-mono font-bold uppercase">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i> Phase 4: QA Sanity & Edge-Case Guardrails
+            </div>
+            <h4 class="text-lg font-heading font-bold text-slate-900">Hardening Against Real-World Operational Chaos</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div class="font-bold text-rose-700">Offline & Network Dropouts</div>
+                <div class="text-slate-600">If vehicle GPS drops signal in transit tunnels or underground warehouses, device buffers telemetry into local SQLite with SHA-256 idempotency key; auto-drains upon handshake reconnection.</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div class="font-bold text-rose-700">Voice Safety Intercom Timeout</div>
+                <div class="text-slate-600">If an outbound driver safety call fails after 2 rings, trigger deterministic fallback SMS and escalate an immediate Priority-1 ticket to the 24/7 human operations control desk.</div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs font-mono">
+              <span class="font-bold text-slate-900">Engineering User Story & Gherkin Acceptance Criteria:</span>
+              <div class="text-slate-600">
+                • <strong>Given</strong> a truck moving at &gt;40 km/h with a Severity-1 DMS drowsiness alert,<br>
+                • <strong>When</strong> the system triggers an outbound WebRTC call in Hindi,<br>
+                • <strong>Then</strong> audio playback must start within &lt;1,200ms; if no driver response in 8 seconds, transition state to [UNRESPONSIVE_ESCALATION].
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 5: Rollout & Telemetry -->
+          <div id="tab-metrics" class="prd-tab-content hidden space-y-4">
+            <div class="flex items-center gap-2 text-rose-600 text-xs font-mono font-bold uppercase">
+              <i data-lucide="activity" class="w-4 h-4"></i> Phase 5: Staged Rollout Gates & Telemetry Monitoring
+            </div>
+            <h4 class="text-lg font-heading font-bold text-slate-900">Canary Rollout & Target Performance Gates</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+              <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-3xl font-heading font-black text-slate-900">&lt; 1.5s</div>
+                <div class="text-xs text-slate-500 mt-1 font-medium">P95 LLM Response Latency</div>
+              </div>
+              <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-3xl font-heading font-black text-slate-900">&gt; 92%</div>
+                <div class="text-xs text-slate-500 mt-1 font-medium">Autonomous Query Resolution</div>
+              </div>
+              <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-3xl font-heading font-black text-slate-900">0%</div>
+                <div class="text-xs text-slate-500 mt-1 font-medium">Critical False Safety Triggers</div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 italic">Rollout cadence: 50 pilot assets in Week 1 -> 500 regional fleet units in Week 2 -> Full production GA after green telemetry gates.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE "ASK SHUBHAM'S CAREER COPILOT" -->
+    <section id="copilot" class="scroll-mt-24">
+      <div class="border border-slate-200 rounded-3xl p-6 md:p-8 bg-slate-50/70 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center">
+              <i data-lucide="bot" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-heading font-bold text-slate-900 flex items-center gap-2">
+                <span>Ask Shubham’s Career Copilot</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-blue-100 text-blue-700 font-bold">Interactive Demo</span>
+              </h3>
+              <p class="text-xs text-slate-500">Instant answers about Shubham's journey, product thinking, and technical skills</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-[11px] font-mono text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Agent Online</span>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Area -->
+        <div id="copilot-chat" class="space-y-3 max-h-80 overflow-y-auto pr-2">
+          <div class="flex gap-3 text-xs sm:text-sm">
+            <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
+            <div class="p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed">
+              Hey! I'm an interactive agent trained on Shubham's real work history, product documentation style, and career milestones. Ask me anything or try a prompt below!
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Suggestions -->
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
+          <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-xs px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium">
+            "Why PM with a Computer Science degree?"
+          </button>
+          <button onclick="askCopilot('What did you actually build at Roadcast?')" class="text-xs px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium">
+            "What did you build at Roadcast?"
+          </button>
+          <button onclick="askCopilot('How did you help scale Catalogue Cloud at Fynd?')" class="text-xs px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium">
+            "How did you help scale Catalogue Cloud at Fynd?"
+          </button>
+          <button onclick="askCopilot('How did founding a cloud kitchen shape your product thinking?')" class="text-xs px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium">
+            "How did founding a cloud kitchen shape you?"
+          </button>
+        </div>
+
+        <!-- Input Bar -->
+        <form onsubmit="handleCopilotSubmit(event)" class="flex gap-2">
+          <input type="text" id="copilot-input" placeholder="Ask about MCP, Roadcast, Fynd, or sprint execution..." class="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 transition-colors shadow-sm">
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm transition-all">
+            <span>Send</span>
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER (Taewoong Seo Style: Clean, minimal footer links) -->
+    <footer class="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-heading font-bold text-slate-500">
+      <div>
+        © 2026 Shubham Dudhal. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="hover:text-slate-900 transition-colors">LINKEDIN</a>
+        <a href="mailto:svdudhal777@gmail.com" class="hover:text-slate-900 transition-colors">EMAIL</a>
+        <a href="tel:+919850156959" class="hover:text-slate-900 transition-colors">PHONE</a>
+        <a href="assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="hover:text-slate-900 transition-colors">RESUME</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL 1: Roadcast Fleet AI Assistant -->
+  <div id="modal-case-1" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <!-- Header -->
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-blue-600 uppercase">Case Study Breakdown</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Fleet AI Query Assistant & Telematics MCP</h3>
+        </div>
+        <button onclick="closeModal('modal-case-1')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Overview (2-Column Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Commercial fleet managers monitor thousands of sensor data points per second. During field shadowing, I observed operators spending 4+ minutes cross-referencing multi-tab dashboards to diagnose basic idling alerts. I scoped an Agentic AI solution utilizing Model Context Protocol (MCP) and Redis to turn complex operational queries into instant natural-language responses.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Role:</strong> Product Manager</div>
+          <div><strong class="text-slate-900">Company:</strong> Roadcast</div>
+          <div><strong class="text-slate-900">Duration:</strong> Dec 2025 – Present</div>
+          <div><strong class="text-slate-900">Impact:</strong> 75% faster diagnosis, 0% relational DB rate exhaustion</div>
+        </div>
+      </div>
+
+      <!-- 5-Stage Story Breakdown -->
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Signal Discovery
+          </h4>
+          <p class="text-slate-600">
+            Operators manage 500 to 3,000 active trucks. When an alert spikes (e.g. erratic idling or fuel anomaly), operators spent an average of 4.2 minutes switching between Vehicle Lists, Sensor Logs, and Shift Rosters. The root cause wasn't lack of data—it was high retrieval friction in a time-critical control room.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & Workflow Mapping
+          </h4>
+          <p class="text-slate-600">
+            Interviewed 12 dispatchers and mapped their mental model. We realized dispatchers didn't want a freeform conversational chatbot—they needed immediate structured vehicle cards with embedded action controls (e.g. [Ping Telematics], [Call Driver], [Snooze Alert]). Designed low-friction interaction wireframes in Figma to eliminate multi-tab jumping.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">03</span> Technical Scoping & Architecture
+          </h4>
+          <p class="text-slate-600">
+            Rather than letting the LLM execute arbitrary SQL directly against TimescaleDB (which risked table locks and rate exhaustion), I worked with backend engineers to define specialized Model Context Protocol (MCP) tool schemas. The model translates user intent into pre-structured queries routed to a high-throughput Redis cache layer with short TTLs.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">04</span> QA Sanity, Fail-safes & Edge Cases
+          </h4>
+          <p class="text-slate-600">
+            Hardened the pipeline for edge conditions: (a) handling stale GPS packets in transit tunnels by falling back to the last known coordinate with a visual timestamp badge, (b) rate-limiting queries per dispatcher seat, and (c) preventing LLM hallucinations with strict Gherkin acceptance criteria in Jira.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> Measurable Impact & Telemetry
+          </h4>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>Cut diagnostic turnaround time by <strong>75%</strong> across participating fleet managers.</li>
+            <li>Maintained a P95 response latency under <strong>1.5 seconds</strong>.</li>
+            <li>Eliminated primary database strain through pre-warmed Redis telemetry caching.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Voice AI Safety Intercom -->
+  <div id="modal-case-2" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-emerald-600 uppercase">Case Study Breakdown</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Autonomous Voice AI Driver Safety Intercom</h3>
+        </div>
+        <button onclick="closeModal('modal-case-2')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Severe driver fatigue and drowsiness events require immediate verbal intervention. In a large fleet, human dispatchers cannot manually place calls within seconds of a sensor alert. I mapped user journeys and scoped the deterministic state-machine workflow for an automated voice alert POC.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Role:</strong> Product Manager</div>
+          <div><strong class="text-slate-900">Company:</strong> Roadcast POC</div>
+          <div><strong class="text-slate-900">Tech:</strong> LiveKit WebRTC, Sarvam AI, State Machines</div>
+          <div><strong class="text-slate-900">Outcome:</strong> Sub-second automated driver intervention</div>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Safety Signal
+          </h4>
+          <p class="text-slate-600">
+            Camera-based DMS alerts detect microsleeps, but mobile push notifications are easily ignored while driving at highway speeds. Waiting for a human operator to pick up the phone took over 90 seconds on average—far too late to prevent high-speed collisions.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & In-Cabin Context
+          </h4>
+          <p class="text-slate-600">
+            A commercial truck cabin is noisy, and drivers speak colloquial vernacular languages (primarily Hindi). The user experience required zero visual interaction: immediate outbound voice calling that checks on the driver's alertness in natural spoken Hindi without requiring button presses.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">03</span> Technical Implementation & State Machines
+          </h4>
+          <p class="text-slate-600">
+            Paired WebRTC streaming (via LiveKit) with Sarvam AI's low-latency Indic speech models. Designed a deterministic state machine: ADAS Alert -> Outbound Call Initiated -> Speech Acknowledged -> Alert Cleared. If the driver answers and confirms alertness, the alert transitions to [RESOLVED].
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">04</span> QA Sanity & Fail-Safe Fallbacks
+          </h4>
+          <p class="text-slate-600">
+            Critical safety guardrails: If the driver call does not connect within 2 rings (network failure) or the driver remains silent after two spoken prompts, the system immediately sends a high-priority SMS and escalates a red ticket directly to the 24/7 human operations desk for manual emergency dispatch.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> Outcomes & Feasibility
+          </h4>
+          <p class="text-slate-600">
+            Demonstrated a functional prototype delivering an automated voice safety check within <strong>&lt;1.2 seconds</strong> of sensor alert trigger, proving the viability of autonomous safety workflows in commercial telematics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Fynd Catalogue Cloud -->
+  <div id="modal-case-3" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-blue-600 uppercase">Case Study Breakdown</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Catalogue Cloud & SKU Variant Engine</h3>
+        </div>
+        <button onclick="closeModal('modal-case-3')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Enterprise rollout of Catalogue Cloud for Reliance retail brands. Supported the onboarding of enterprise giants like Netmeds and JioMart by designing SKU relationship mapping, error detection rules, and QA test coverage matrices.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Role:</strong> Product Manager Intern</div>
+          <div><strong class="text-slate-900">Company:</strong> Fynd (Reliance Group)</div>
+          <div><strong class="text-slate-900">Duration:</strong> Aug – Nov 2024</div>
+          <div><strong class="text-slate-900">Results:</strong> 3+ Enterprise clients live, -40% data errors</div>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Enterprise Friction
+          </h4>
+          <p class="text-slate-600">
+            Onboarding massive pharmacy catalogs (Netmeds) involved hundreds of thousands of SKU combinations (dosages, packaging, brand variations). Mismatched attribute fields caused batch feed imports to fail silently or corrupt live catalog listings.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & Operations Friction
+          </h4>
+          <p class="text-slate-600">
+            Catalog operation managers were spending entire days combing through obscure backend error logs. They needed an intuitive, proactive validation layer that surfaced exact column and value mismatches prior to batch ingestion.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">03</span> Technical Scoping & Schema Mapping
+          </h4>
+          <p class="text-slate-600">
+            Designed hierarchical parent-child SKU relations and strict schema validation rules across incoming JSON feeds. Ensured attribute inheritance so variant-level updates didn't overwrite brand-level metadata.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">04</span> QA Sanity & Test Coverage
+          </h4>
+          <p class="text-slate-600">
+            Authored exhaustive edge-case test matrices covering circular variant references, missing mandatory regulatory drug tags, and special-character sanitization in bulk CSV uploads, reducing QA cycle times by 30%.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> Measurable Impact
+          </h4>
+          <p class="text-slate-600">
+            Successfully supported the onboarding of <strong>Netmeds, JioMart, and Milkbasket</strong>, slashing catalog sync error rates by <strong>30-40%</strong> and accelerating brand launch timelines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: LinkedIn Mentorship -->
+  <div id="modal-case-4" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-amber-600 uppercase">Case Study Breakdown</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">LinkedIn Mentorship Network & UX Teardown</h3>
+        </div>
+        <button onclick="closeModal('modal-case-4')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            A comprehensive 0-to-1 product discovery project tackling cold-start networking friction on LinkedIn. Conducted 25+ user interviews and built an interactive Figma prototype for structured 15-minute micro-mentorship sprints.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Focus:</strong> Discovery & UX Craft</div>
+          <div><strong class="text-slate-900">Interviews:</strong> 25+ Participants</div>
+          <div><strong class="text-slate-900">Prototype:</strong> High-Fidelity Figma</div>
+          <div><strong class="text-slate-900">Usability:</strong> 80% Unassisted Task Completion</div>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Signal
+          </h4>
+          <p class="text-slate-600">
+            Over 95% of cold mentorship messages on LinkedIn go unanswered. Both mentors and mentees expressed mutual frustration: seekers felt ignored, while mentors felt overwhelmed by vague requests to "pick your brain".
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & Behavioral Insights
+          </h4>
+          <p class="text-slate-600">
+            Synthesized 25+ interviews into clear personas. Key discovery: Mentors are actually very willing to help early-career individuals, but they fear open-ended time waste. Bounding the commitment to a structured 15-minute format removes 90% of the cognitive barrier.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">03</span> Product Architecture & Solution Design
+          </h4>
+          <p class="text-slate-600">
+            Designed 15-minute "Micro-Mentorship Sprints" with mandatory agenda selection (e.g. Resume Feedback, Mock PM Interview, Career Pivot Advice), automated Google Calendar syncing, and mutual accountability ratings.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">04</span> Usability Testing & Refinements
+          </h4>
+          <p class="text-slate-600">
+            Conducted usability testing sessions with 10 participants on Figma. Identified drop-offs during calendar slot booking and revised the UI to display 3 immediate one-click availability chips instead of a dense monthly picker.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> Product Insights & Learnings
+          </h4>
+          <p class="text-slate-600">
+            Demonstrated that reducing ambiguity through structured constraints is the single most powerful lever for converting passive community goodwill into active mentorship interactions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Initialize Lucide Icons
+    function initIcons() {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+    initIcons();
+    document.addEventListener('DOMContentLoaded', initIcons);
+    window.addEventListener('load', initIcons);
+
+    // Modal Handlers
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      ['modal-case-1', 'modal-case-2', 'modal-case-3', 'modal-case-4'].forEach(id => {
+        const modal = document.getElementById(id);
+        if (e.target === modal) {
+          closeModal(id);
+        }
+      });
+    });
+
+    // PRD Tab Switching
+    function switchPrdTab(tabId) {
+      document.querySelectorAll('.prd-tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.prd-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-slate-900', 'text-white');
+        btn.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+      });
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-slate-900', 'text-white');
+        activeBtn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+      }
+    }
+
+    // Copilot Simulation (Comprehensive PM Thought Process)
+    const copilotAnswers = {
+      lifecycle: "My product thought process spans five interconnected phases: (1) Problem Discovery & Root-Cause Signal, (2) UX Discovery & Workflow Mapping, (3) Technical Scoping & Architecture Sync, (4) Sprint Delivery & Team Cadence, and (5) QA Sanity & Edge-Case Guardrails. I never treat a PRD as a passive document—I stay actively involved from discovery through staging validation and post-launch telemetry.",
+      cs: "For me, technical skills exist entirely in service of product management. With a Computer Science degree (8.81 CGPA), I can assess feasibility during early customer discovery, write crystal-clear user stories with edge cases already addressed, and partner with engineers without translation loss. It ensures the frictionless experience we design for users actually gets built and shipped reliably.",
+      mcp: "At Roadcast, fleet operators waste valuable minutes switching between tabular views during critical vehicle alerts. I scoped an Agentic AI query assistant using Model Context Protocol (MCP) and Redis caching. The system parses natural operator questions, fetches live telemetry from Redis, and returns structured vehicle cards with embedded action controls like [Call Driver] or [View Route].",
+      fynd: "At Fynd (Reliance Group), I worked on Catalogue Cloud during the enterprise onboarding of Netmeds and JioMart. I helped design hierarchical parent-child SKU variant mapping rules and validation schemas, which eliminated batch import crashes and reduced sync error rates by 30-40%.",
+      unique: "What makes my approach unique is full-lifecycle ownership. I blend user research and wireframing with deep technical fluency, cross-squad Agile execution, and rigorous QA edge-case testing. Combined with my 0-to-1 entrepreneurial background running a cloud kitchen, I care relentlessly about shipping reliable software that moves business metrics.",
+      startup: "In 2020, I co-founded Mummy Ki Rasoi during the pandemic. We started with zero budget and scaled to 80+ orders/day in under 60 days on Swiggy and Zomato. I managed unit economics, kitchen operations, and delivery logistics, renegotiating aggregator commissions down from 31% to 26%. It gave me deep empathy for operational bottlenecks.",
+      agile: "At CultureX and Roadcast, I manage bi-weekly sprint planning, backlog grooming, and daily standups in Jira. I focus on writing atomic user stories with Gherkin acceptance criteria (Given/When/Then), unblocking developers proactively, and making pragmatic trade-off calls when constraints arise."
+    };
+
+    function appendCopilotMessage(sender, text) {
+      const chat = document.getElementById('copilot-chat');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'flex gap-3 text-xs sm:text-sm';
+      
+      if (sender === 'user') {
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-800 flex-shrink-0 flex items-center justify-center font-bold text-xs">You</div>
+          <div class="p-3.5 rounded-2xl rounded-tr-none bg-slate-900 text-white max-w-xl ml-auto leading-relaxed">
+            ${text}
+          </div>
+        `;
+      } else {
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
+          <div class="p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed">
+            ${text}
+          </div>
+        `;
+      }
+      chat.appendChild(msgDiv);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function askCopilot(query) {
+      appendCopilotMessage('user', query);
+      
+      let answer = "";
+      const q = query.toLowerCase();
+      if (q.includes('lifecycle') || q.includes('thought process') || q.includes('how you build') || q.includes('approach')) {
+        answer = copilotAnswers.lifecycle;
+      } else if (q.includes('computer science') || q.includes('degree') || q.includes('engineering') || q.includes('technical')) {
+        answer = copilotAnswers.cs;
+      } else if (q.includes('mcp') || q.includes('roadcast') || q.includes('telemetry') || q.includes('dashboard')) {
+        answer = copilotAnswers.mcp;
+      } else if (q.includes('fynd') || q.includes('netmeds') || q.includes('catalogue')) {
+        answer = copilotAnswers.fynd;
+      } else if (q.includes('unique') || q.includes('why hire') || q.includes('stand out')) {
+        answer = copilotAnswers.unique;
+      } else if (q.includes('startup') || q.includes('kitchen') || q.includes('mummy')) {
+        answer = copilotAnswers.startup;
+      } else if (q.includes('agile') || q.includes('jira') || q.includes('sprint') || q.includes('qa')) {
+        answer = copilotAnswers.agile;
+      } else {
+        answer = "Shubham is a Product Manager with a Computer Science degree (8.81 CGPA) specializing in IoT telematics, AI workflows, and enterprise platforms. He leads products end-to-end across problem discovery, UX journey design, technical architecture, and QA release gates. Feel free to contact him directly at svdudhal777@gmail.com!";
+      }
+
+      setTimeout(() => {
+        appendCopilotMessage('ai', answer);
+      }, 300);
+    }
+
+    function handleCopilotSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('copilot-input');
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = '';
+      askCopilot(val);
+    }
+  </script>
+</body>
+</html>
