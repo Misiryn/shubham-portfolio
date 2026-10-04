@@ -462,54 +462,126 @@
         <p class="text-sm text-slate-500 mt-1">Track record of driving product strategy, cross-squad execution, and operational impact</p>
       </div>
 
-      <!-- Experience Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+      <!-- Experience Grid (5 Columns on Desktop, 2 on Tablet/Mobile) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
         
         <!-- Experience 1: Roadcast -->
-        <div class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-2.5 sm:space-y-3 transition-all flex flex-col justify-between">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-900 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center">
-            RC
+        <div onclick="openModal('modal-case-1')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-slate-900 hover:shadow-md group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-slate-900 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
+                RC
+              </div>
+              <span class="text-[10px] font-mono text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full font-bold">Current</span>
+            </div>
+            <div>
+              <div class="font-heading font-bold text-xs sm:text-sm text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
+                <span>Roadcast</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">Product Manager</div>
+              <div class="text-[10px] text-slate-400 font-medium">IoT Telematics & AI</div>
+              <div class="text-[10px] font-mono text-blue-600 mt-1">Dec 2025 – Present</div>
+            </div>
           </div>
-          <div>
-            <div class="font-heading font-bold text-xs sm:text-sm text-slate-900">Product Manager</div>
-            <div class="text-[11px] sm:text-xs text-slate-500 font-medium">Roadcast (Telematics & AI)</div>
-            <div class="text-[10px] sm:text-[11px] font-mono text-blue-600 mt-1">Dec 2025 – Present</div>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 leading-snug">
+            75% faster diagnosis via MCP & Redis caching
           </div>
         </div>
 
         <!-- Experience 2: CultureX -->
-        <div class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-2.5 sm:space-y-3 transition-all flex flex-col justify-between">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-600 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center">
-            CX
+        <div onclick="openModal('modal-exp-culturex')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-purple-600 hover:shadow-md group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-purple-600 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
+                CX
+              </div>
+              <span class="text-[10px] font-mono text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full font-bold">AI Copilot</span>
+            </div>
+            <div>
+              <div class="font-heading font-bold text-xs sm:text-sm text-slate-900 group-hover:text-purple-600 transition-colors flex items-center justify-between">
+                <span>CultureX</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-colors"></i>
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">Associate PM</div>
+              <div class="text-[10px] text-slate-400 font-medium">Founder's Office</div>
+              <div class="text-[10px] font-mono text-purple-600 mt-1">Mar 2025 – Aug 2025</div>
+            </div>
           </div>
-          <div>
-            <div class="font-heading font-bold text-xs sm:text-sm text-slate-900">Associate PM</div>
-            <div class="text-[11px] sm:text-xs text-slate-500 font-medium">CultureX (Founder's Office)</div>
-            <div class="text-[10px] sm:text-[11px] font-mono text-purple-600 mt-1">Mar 2025 – Aug 2025</div>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 leading-snug">
+            +25% sprint velocity & OpenAI marketing bot
           </div>
         </div>
 
         <!-- Experience 3: Fynd (Reliance) -->
-        <div class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-2.5 sm:space-y-3 transition-all flex flex-col justify-between">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-600 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center">
-            FY
+        <div onclick="openModal('modal-case-3')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-blue-600 hover:shadow-md group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-600 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
+                FY
+              </div>
+              <span class="text-[10px] font-mono text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full font-bold">Enterprise</span>
+            </div>
+            <div>
+              <div class="font-heading font-bold text-xs sm:text-sm text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
+                <span>Fynd (Reliance)</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">Product Manager Intern</div>
+              <div class="text-[10px] text-slate-400 font-medium">Catalogue Cloud</div>
+              <div class="text-[10px] font-mono text-blue-600 mt-1">Aug 2024 – Nov 2024</div>
+            </div>
           </div>
-          <div>
-            <div class="font-heading font-bold text-xs sm:text-sm text-slate-900">Product Manager Intern</div>
-            <div class="text-[11px] sm:text-xs text-slate-500 font-medium">Fynd (Reliance Group)</div>
-            <div class="text-[10px] sm:text-[11px] font-mono text-blue-600 mt-1">Aug 2024 – Nov 2024</div>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 leading-snug">
+            Netmeds & JioMart schema variant engine
           </div>
         </div>
 
         <!-- Experience 4: Mummy Ki Rasoi -->
-        <div class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-2.5 sm:space-y-3 transition-all flex flex-col justify-between">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-500 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center">
-            MK
+        <div onclick="openModal('modal-exp-mkr')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-amber-500 hover:shadow-md group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
+                MK
+              </div>
+              <span class="text-[10px] font-mono text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full font-bold">Startup</span>
+            </div>
+            <div>
+              <div class="font-heading font-bold text-xs sm:text-sm text-slate-900 group-hover:text-amber-600 transition-colors flex items-center justify-between">
+                <span>Mummy Ki Rasoi</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-600 transition-colors"></i>
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">Co-founder & Head of Ops</div>
+              <div class="text-[10px] text-slate-400 font-medium">0-to-1 Cloud Kitchen</div>
+              <div class="text-[10px] font-mono text-amber-600 mt-1">Jan 2020 – Jan 2021</div>
+            </div>
           </div>
-          <div>
-            <div class="font-heading font-bold text-xs sm:text-sm text-slate-900">Co-founder & Head of Ops</div>
-            <div class="text-[11px] sm:text-xs text-slate-500 font-medium">Mummy Ki Rasoi (Kitchen)</div>
-            <div class="text-[10px] sm:text-[11px] font-mono text-amber-600 mt-1">Jan 2020 – Jan 2021</div>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 leading-snug">
+            16x scale (5 → 80+ orders/d) & 26% commission
+          </div>
+        </div>
+
+        <!-- Experience 5: Edgistify -->
+        <div onclick="openModal('modal-exp-edgistify')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-emerald-600 hover:shadow-md group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-600 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
+                ED
+              </div>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-bold">Logistics</span>
+            </div>
+            <div>
+              <div class="font-heading font-bold text-xs sm:text-sm text-slate-900 group-hover:text-emerald-600 transition-colors flex items-center justify-between">
+                <span>Edgistify</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 transition-colors"></i>
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">Product & Tech Intern</div>
+              <div class="text-[10px] text-slate-400 font-medium">Warehousing & DAQ App</div>
+              <div class="text-[10px] font-mono text-emerald-600 mt-1">Jun 2019 – May 2020</div>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 leading-snug">
+            Offline-first DAQ app & keyword SEO
           </div>
         </div>
 
@@ -702,16 +774,19 @@ POST /v2/ai/telemetry/query
         <!-- Prompt Suggestions -->
         <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-slate-200">
           <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "Why PM with a Computer Science degree?"
+            "Why PM with a CS degree?"
           </button>
           <button onclick="askCopilot('What did you actually build at Roadcast?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
             "What did you build at Roadcast?"
           </button>
-          <button onclick="askCopilot('How did you help scale Catalogue Cloud at Fynd?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "How did you help scale Catalogue Cloud at Fynd?"
+          <button onclick="askCopilot('How did you scale Mummy Ki Rasoi 16x?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "How did you scale Mummy Ki Rasoi 16x?"
           </button>
-          <button onclick="askCopilot('How did founding a cloud kitchen shape your product thinking?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "How did founding a cloud kitchen shape you?"
+          <button onclick="askCopilot('What did you build at Edgistify?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "What did you build at Edgistify?"
+          </button>
+          <button onclick="askCopilot('How did you help scale Catalogue Cloud at Fynd?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Catalogue Cloud at Fynd?"
           </button>
         </div>
 
@@ -1054,12 +1129,257 @@ POST /v2/ai/telemetry/query
     </div>
   </div>
 
+  <!-- MODAL 5: CultureX (Founder's Office & AI Copilot) -->
+  <div id="modal-exp-culturex" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-purple-600 uppercase">Case Study Breakdown • Founder's Office</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">CultureX: Agile Transformation & Strategizers.ai Copilot</h3>
+        </div>
+        <button onclick="closeModal('modal-exp-culturex')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Collaborated directly with executive leadership in the Founder's Office to unblock product velocity across distributed engineering squads and drive product discovery for Strategizers.ai—an AI copilot automating marketing intelligence and campaign strategy generation.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Role:</strong> Associate Product Manager</div>
+          <div><strong class="text-slate-900">Company:</strong> CultureX (Founder's Office)</div>
+          <div><strong class="text-slate-900">Duration:</strong> Mar 2025 – Aug 2025</div>
+          <div><strong class="text-slate-900">Impact:</strong> +25% sprint velocity, 60% faster campaign strategy drafts</div>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">01</span> Operational Friction & Signal Discovery
+          </h4>
+          <p class="text-slate-600">
+            Cross-squad engineering and marketing initiatives suffered from asynchronous bottlenecks: ad-hoc task assignments, lack of standardized sprint cadence, and undefined story acceptance criteria. Meanwhile, marketing strategists spent 10+ hours per client engagement manually compiling market teardowns and consumer sentiment reports.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">02</span> Agile Transformation & Sprint Governance
+          </h4>
+          <p class="text-slate-600">
+            Implemented a standardized 2-week Scrum sprint rhythm in Jira. Established strict Definition of Ready (DoR) and Definition of Done (DoD), ran daily standups, backlog grooming, and sprint retrospectives. Authored atomic user stories with testable Gherkin acceptance criteria (Given/When/Then), eliminating ambiguity between product goals and engineering deliverables.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">03</span> AI Copilot Scoping (Strategizers.ai)
+          </h4>
+          <p class="text-slate-600">
+            Partnered with engineering to scope and build the early prototype of Strategizers.ai utilizing the OpenAI API. Designed prompt templates, retrieval mechanisms, and guardrails to automate market analysis, competitor positioning matrices, and campaign ideation workflows for brand strategists.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">04</span> Usability Iteration & Feedback Loops
+          </h4>
+          <p class="text-slate-600">
+            Conducted iterative feedback sessions with internal brand strategists. Tuned prompt hyperparameters to avoid generic LLM fluff, structured output responses into digestible executive tables with actionable bullet points, and integrated direct citation links to reference articles.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> Measurable Business Outcomes
+          </h4>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>Increased engineering sprint velocity by <strong>25%</strong> within 3 cycles through reduced context-switching and clear user story acceptance criteria.</li>
+            <li>Accelerated marketing campaign brief turnaround by <strong>60%</strong> using the Strategizers.ai pipeline.</li>
+            <li>Embedded predictable agile delivery habits that scaled across the entire cross-functional team.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 6: Mummy Ki Rasoi (Cloud Kitchen 16x Scale) -->
+  <div id="modal-exp-mkr" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-amber-600 uppercase">Case Study Breakdown • 0-to-1 Entrepreneurship</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Mummy Ki Rasoi: 16x Cloud Kitchen Scaling & Operations</h3>
+        </div>
+        <button onclick="closeModal('modal-exp-mkr')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Co-founded an affordable homestyle cloud kitchen during the pandemic. Reverse-engineered food aggregator ranking algorithms, rationalized menu SKUs via shared base preparations, transitioned to digital wholesale procurement (BigBasket & Hyperpure), and scaled volume 16x while protecting positive unit contribution margins.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Role:</strong> Co-founder & Head of Operations</div>
+          <div><strong class="text-slate-900">Venture:</strong> Mummy Ki Rasoi</div>
+          <div><strong class="text-slate-900">Duration:</strong> Jan 2020 – Jan 2021</div>
+          <div><strong class="text-slate-900">Impact:</strong> 16x scale (5 → 80+ orders/day), 31% to 26% commission cut, profitable P&L</div>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">01</span> The 0-to-1 Baseline & Operational Bottlenecks
+          </h4>
+          <p class="text-slate-600">
+            Launched on Swiggy and Zomato during COVID-19 with an initial volume of just ~5 orders/day. The business faced three acute operational bottlenecks: high platform take-rates (31% commission), unpredictable offline grocery procurement costs with high manual effort, and slow meal prep times (>25 min) causing delivery rider delays and algorithmic demotion.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">02</span> Algorithmic Reverse-Engineering & Platform Discovery
+          </h4>
+          <p class="text-slate-600">
+            Deconstructed Swiggy and Zomato suggestion rankings to understand recommendation scoring. Mapped the primary algorithm scoring levers: (a) sub-8 minute kitchen preparation time, (b) on-time rider handover avoiding delivery delays, (c) 100% menu availability during peak meal slots (12–3 PM, 7–10 PM), and (d) high packaging and customer rating averages.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">03</span> Menu Engineering & SKU Rationalization
+          </h4>
+          <p class="text-slate-600">
+            Redesigned the entire menu from scratch around shared preparation bases. Engineered modular recipes where multiple homestyle gravies and thali components shared base preparations. This cut raw ingredient SKU count drastically, eliminated perishable kitchen waste, reduced inventory holding costs, and accelerated ticket preparation time down to under 8 minutes.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">04</span> Supply Chain Optimization & Customer Retention Flywheel
+          </h4>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li><strong>Digital Wholesale Procurement:</strong> Migrated from volatile offline local markets to digital wholesale procurement via BigBasket and Hyperpure, cutting input costs by 15-20% and saving 2+ daily operational hours.</li>
+            <li><strong>Commission Renegotiation:</strong> Leveraged projected order volume trajectories and operational SLA metrics to renegotiate aggregator commissions from 31% down to 26%.</li>
+            <li><strong>Customer Delight & Retention:</strong> Standardized portion sizes from real reviews; upgraded containers to leak-proof, microwave-safe packaging with zero unit-cost increase via direct distributor negotiations; and enclosed personalized handwritten customer notes in every order.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> Scale, Unit Economics & Business Learnings
+          </h4>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>Scaled daily order volume 16x from <strong>5 to 80+ orders/day</strong> in under 60 days.</li>
+            <li>Maintained consistent monthly profits documented in structured P&L balance sheets.</li>
+            <li>Built a 4.5+ star customer satisfaction rating with a high repeat-order cohort, validating how operational rigor and customer empathy drive unit economics.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 7: Edgistify (Logistics & DAQ Android App) -->
+  <div id="modal-exp-edgistify" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-emerald-600 uppercase">Case Study Breakdown • Logistics Tech</span>
+          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Edgistify: Offline-First DAQ App & Warehousing Tech</h3>
+        </div>
+        <button onclick="closeModal('modal-exp-edgistify')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
+        <div class="md:col-span-7 space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Edgistify connects enterprises with flexible warehousing infrastructure across India. Ground operations teams conducted on-site physical audits of remote industrial warehouses to catalog facilities. In dead cellular zones, field audits frequently crashed or suffered data loss. Partnered with the product team to scope an offline-first data acquisition architecture.
+          </p>
+        </div>
+        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
+          <div><strong class="text-slate-900">Role:</strong> Product & Tech Intern</div>
+          <div><strong class="text-slate-900">Company:</strong> Edgistify (IIT/NIT Alumni Startup)</div>
+          <div><strong class="text-slate-900">Duration:</strong> Jun 2019 – May 2020</div>
+          <div><strong class="text-slate-900">Impact:</strong> Offline-first DAQ app sync, Node.js web development, SEO keyword matrices</div>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-emerald-600 font-mono text-xs">01</span> Field Operational Friction & Data Loss
+          </h4>
+          <p class="text-slate-600">
+            Ground operations auditors visited remote industrial clusters and highway warehouses to record critical operational data—usable square footage, dock doors, ceiling heights, flooring specs, and multi-angle site photographs. Cellular reception in these remote industrial zones was frequently non-existent or erratic, causing form submission failures, image upload timeouts, and wasted field auditor trips.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-blue-600 font-mono text-xs">02</span> Ground UX Discovery & Workflow Mapping
+          </h4>
+          <p class="text-slate-600">
+            Shadowed ground audit teams to understand field constraints. Ground auditors were forced to swap between SIM cards, write audit notes on paper sheets, and manually re-enter data upon returning to hotel Wi-Fi. Recognized that the application must treat network unavailability as the default operational state rather than an exceptional error.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-purple-600 font-mono text-xs">03</span> Offline-First Architecture & Idempotent Sync
+          </h4>
+          <p class="text-slate-600">
+            Worked with the PM and Android developers on the DAQ (Data Acquisition) App:
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-slate-600 mt-2">
+            <li><strong>Local Encrypted SQLite / Storage Cache:</strong> Structured multi-step forms and high-res site photos were written immediately to local device storage under unique audit UUIDs.</li>
+            <li><strong>Network Broadcast Listener & Background Daemon:</strong> Designed an automatic background sync daemon. As soon as the device re-established any reliable network connection (cellular or Wi-Fi), the app securely queued, batch-compressed, and uploaded cached audits to the centralized database without requiring manual user intervention.</li>
+            <li><strong>Zero Data Loss:</strong> Completely eliminated duplicate submissions via idempotency keys and provided clear local UI status badges (Saved Locally vs. Synced to Cloud).</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-amber-600 font-mono text-xs">04</span> Full-Stack Development & Cross-Functional Growth
+          </h4>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li><strong>Full-Stack Web Development:</strong> Developed web components using Node.js for Edgistify's core web platform, actively participating in daily Scrum meetings and sprint reviews.</li>
+            <li><strong>Cross-Department Exposure:</strong> Explored Solutions Design, Operations, and Sales pipelines, collaborating directly with IIT/NIT alumni founders and understanding startup growth dynamics.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
+            <span class="text-rose-600 font-mono text-xs">05</span> SEO Keyword Analytics & Measurable Outcomes
+          </h4>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>Built comprehensive keyword analysis matrices evaluating Keyword Difficulty (KD), Commercial Profitability, Search Volume, and Trend Trajectory.</li>
+            <li>Orchestrated high-authority directory submissions across logistics hubs and warehousing portals with structured tracking sheets, driving qualified inbound B2B organic traffic.</li>
+            <li>PM Takeaway: Validated that addressing low-level technical and environmental edge cases (like network dropouts) is fundamental to delivering resilient operational software.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- JAVASCRIPT LOGIC -->
   <script>
     // Initialize Lucide Icons
     function initIcons() {
       if (window.lucide) {
-        lucide.createIcons();
+        window.lucide.createIcons();
       }
     }
     initIcons();
@@ -1084,7 +1404,7 @@ POST /v2/ai/telemetry/query
     }
 
     window.addEventListener('click', (e) => {
-      ['modal-case-1', 'modal-case-2', 'modal-case-3', 'modal-case-4'].forEach(id => {
+      ['modal-case-1', 'modal-case-2', 'modal-case-3', 'modal-case-4', 'modal-exp-culturex', 'modal-exp-mkr', 'modal-exp-edgistify'].forEach(id => {
         const modal = document.getElementById(id);
         if (e.target === modal) {
           closeModal(id);
@@ -1117,7 +1437,9 @@ POST /v2/ai/telemetry/query
       mcp: "At Roadcast, fleet operators waste valuable minutes switching between tabular views during critical vehicle alerts. I scoped an Agentic AI query assistant using Model Context Protocol (MCP) and Redis caching. The system parses natural operator questions, fetches live telemetry from Redis, and returns structured vehicle cards with embedded action controls like [Call Driver] or [View Route].",
       fynd: "At Fynd (Reliance Group), I worked on Catalogue Cloud during the enterprise onboarding of Netmeds and JioMart. I helped design hierarchical parent-child SKU variant mapping rules and validation schemas, which eliminated batch import crashes and reduced sync error rates by 30-40%.",
       unique: "What makes my approach unique is full-lifecycle ownership. I blend user research and wireframing with deep technical fluency, cross-squad Agile execution, and rigorous QA edge-case testing. Combined with my 0-to-1 entrepreneurial background running a cloud kitchen, I care relentlessly about shipping reliable software that moves business metrics.",
-      startup: "In 2020, I co-founded Mummy Ki Rasoi during the pandemic. We started with zero budget and scaled to 80+ orders/day in under 60 days on Swiggy and Zomato. I managed unit economics, kitchen operations, and delivery logistics, renegotiating aggregator commissions down from 31% to 26%. It gave me deep empathy for operational bottlenecks.",
+      startup: "In Jan 2020, I co-founded Mummy Ki Rasoi, an affordable homestyle cloud kitchen on Swiggy and Zomato. We scaled daily volume 16x from 5 to 80+ orders/day in under 60 days. To achieve this, I reverse-engineered platform recommendation algorithms (sub-8 min prep time, on-time rider handover), engineered modular recipes to rationalize raw ingredient SKUs, migrated procurement to BigBasket & Hyperpure, and renegotiated aggregator commissions down from 31% to 26% while maintaining a profitable monthly P&L.",
+      edgistify: "At Edgistify (a logistics tech startup founded by IIT/NIT alumni), I worked on the DAQ (Data Acquisition) Android App. When ground teams audited remote industrial warehouses across India, cellular connectivity was dead or erratic. We scoped an offline-first architecture using local encrypted storage and an automated background sync daemon that seamlessly uploaded audit data and warehouse photos once network connectivity was restored. I also built web features using Node.js and led SEO keyword analytics matrices.",
+      culturex: "At CultureX (Founder's Office), I drove cross-functional agile execution and product discovery. I transformed engineering workflows into standardized 2-week Jira sprints (+25% velocity gain) with testable Gherkin acceptance criteria, and scoped the Strategizers.ai prototype powered by the OpenAI API to automate competitor intelligence and creative strategy briefs for marketing squads.",
       agile: "At CultureX and Roadcast, I manage bi-weekly sprint planning, backlog grooming, and daily standups in Jira. I focus on writing atomic user stories with Gherkin acceptance criteria (Given/When/Then), unblocking developers proactively, and making pragmatic trade-off calls when constraints arise."
     };
 
@@ -1152,16 +1474,20 @@ POST /v2/ai/telemetry/query
       const q = query.toLowerCase();
       if (q.includes('lifecycle') || q.includes('thought process') || q.includes('how you build') || q.includes('approach')) {
         answer = copilotAnswers.lifecycle;
-      } else if (q.includes('computer science') || q.includes('degree') || q.includes('engineering') || q.includes('technical')) {
+      } else if (q.includes('computer science') || q.includes('degree') || q.includes('engineering') || q.includes('technical') || q.includes('cs degree')) {
         answer = copilotAnswers.cs;
-      } else if (q.includes('mcp') || q.includes('roadcast') || q.includes('telemetry') || q.includes('dashboard')) {
+      } else if (q.includes('edgistify') || q.includes('daq') || q.includes('warehouse') || q.includes('logistics') || q.includes('offline')) {
+        answer = copilotAnswers.edgistify;
+      } else if (q.includes('mkr') || q.includes('kitchen') || q.includes('mummy') || q.includes('startup') || q.includes('cloud kitchen') || q.includes('16x')) {
+        answer = copilotAnswers.startup;
+      } else if (q.includes('culturex') || q.includes('strategizers') || q.includes('founder')) {
+        answer = copilotAnswers.culturex;
+      } else if (q.includes('mcp') || q.includes('roadcast') || q.includes('telemetry') || q.includes('dashboard') || q.includes('driver')) {
         answer = copilotAnswers.mcp;
-      } else if (q.includes('fynd') || q.includes('netmeds') || q.includes('catalogue')) {
+      } else if (q.includes('fynd') || q.includes('netmeds') || q.includes('catalogue') || q.includes('jiomart')) {
         answer = copilotAnswers.fynd;
       } else if (q.includes('unique') || q.includes('why hire') || q.includes('stand out')) {
         answer = copilotAnswers.unique;
-      } else if (q.includes('startup') || q.includes('kitchen') || q.includes('mummy')) {
-        answer = copilotAnswers.startup;
       } else if (q.includes('agile') || q.includes('jira') || q.includes('sprint') || q.includes('qa')) {
         answer = copilotAnswers.agile;
       } else {
