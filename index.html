@@ -837,7 +837,7 @@ POST /v2/ai/telemetry/query
       <div class="border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-slate-50/70 space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white flex items-center justify-center flex-shrink-0">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <i data-lucide="bot" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </div>
             <div>
@@ -845,21 +845,27 @@ POST /v2/ai/telemetry/query
                 <span>Ask Shubham’s Career Copilot</span>
                 <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-blue-100 text-blue-700 font-bold">Interactive Demo</span>
               </h3>
-              <p class="text-[11px] sm:text-xs text-slate-500">Instant answers about Shubham's journey, product thinking, and technical skills</p>
+              <p class="text-[11px] sm:text-xs text-slate-500">Instant answers about Shubham's journey, product thinking, case studies, and technical skills</p>
             </div>
           </div>
-          <div class="flex items-center gap-2 text-[11px] font-mono text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200 w-fit">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span>Agent Online</span>
+          <div class="flex items-center gap-2">
+            <button onclick="resetCopilotChat()" title="Reset conversation" class="text-[11px] font-medium text-slate-500 hover:text-slate-900 bg-white hover:bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200 transition-colors flex items-center gap-1 shadow-2xs">
+              <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+              <span>Clear</span>
+            </button>
+            <div class="flex items-center gap-2 text-[11px] font-mono text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200 w-fit">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Agent Online</span>
+            </div>
           </div>
         </div>
 
         <!-- Chat Conversation Area -->
-        <div id="copilot-chat" class="space-y-3 max-h-80 overflow-y-auto pr-1 sm:pr-2">
+        <div id="copilot-chat" class="space-y-3 max-h-96 overflow-y-auto pr-1 sm:pr-2 scroll-smooth">
           <div class="flex gap-2.5 sm:gap-3 text-xs sm:text-sm">
             <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
             <div class="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed text-xs sm:text-sm">
-              Hey! I'm an interactive agent trained on Shubham's real work history, product documentation style, and career milestones. Ask me anything or try a prompt below!
+              Hey! I'm Shubham's Career Copilot, trained on his real product management work history, case studies, startup metrics, and technical architecture. Ask me anything or try a prompt below!
             </div>
           </div>
         </div>
@@ -869,27 +875,30 @@ POST /v2/ai/telemetry/query
           <button onclick="askCopilot('What did you build for SprintZero (AI Developer Onboarding)?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 transition-all font-medium text-left">
             "SprintZero AI Onboarding?"
           </button>
+          <button onclick="askCopilot('Tell me about the Fleet AI Query Assistant at Roadcast')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Fleet AI & MCP Query?"
+          </button>
+          <button onclick="askCopilot('What is the Autonomous Voice AI Safety Intercom?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Voice AI Safety Intercom?"
+          </button>
           <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
             "Why PM with a CS degree?"
           </button>
-          <button onclick="askCopilot('What did you actually build at Roadcast?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "What did you build at Roadcast?"
-          </button>
           <button onclick="askCopilot('How did you scale Mummy Ki Rasoi 16x?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "How did you scale Mummy Ki Rasoi 16x?"
-          </button>
-          <button onclick="askCopilot('What did you build at Edgistify?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "What did you build at Edgistify?"
+            "Mummy Ki Rasoi 16x scale?"
           </button>
           <button onclick="askCopilot('How did you help scale Catalogue Cloud at Fynd?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
             "Catalogue Cloud at Fynd?"
+          </button>
+          <button onclick="askCopilot('Can I download your resume?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white transition-all font-medium text-left">
+            "Download Resume PDF"
           </button>
         </div>
 
         <!-- Input Bar -->
         <form onsubmit="handleCopilotSubmit(event)" class="flex gap-2">
-          <input type="text" id="copilot-input" placeholder="Ask about MCP, Roadcast, Fynd, or sprint execution..." class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 transition-colors shadow-sm">
-          <button type="submit" class="flex-shrink-0 px-4 sm:px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm transition-all">
+          <input type="text" id="copilot-input" placeholder="Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers..." class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 transition-colors shadow-sm">
+          <button type="submit" id="copilot-submit-btn" class="flex-shrink-0 px-4 sm:px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm transition-all">
             <span>Send</span>
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
           </button>
@@ -1215,87 +1224,450 @@ POST /v2/ai/telemetry/query
       }
     }
 
-    // Copilot Simulation (Comprehensive PM Thought Process)
-    const copilotAnswers = {
-      lifecycle: "My product thought process spans five interconnected phases: (1) Problem Discovery & Root-Cause Signal, (2) UX Discovery & Workflow Mapping, (3) Technical Scoping & Architecture Sync, (4) Sprint Delivery & Team Cadence, and (5) QA Sanity & Edge-Case Guardrails. I never treat a PRD as a passive document—I stay actively involved from discovery through staging validation and post-launch telemetry.",
-      cs: "For me, technical skills exist entirely in service of product management. With a Computer Science degree (8.81 CGPA), I can assess feasibility during early customer discovery, write crystal-clear user stories with edge cases already addressed, and partner with engineers without translation loss. It ensures the frictionless experience we design for users actually gets built and shipped reliably.",
-      sprintzero: "At Roadcast, I architected SprintZero (Roadcast Academy, formerly Bolt-Onboard)—an automated 2-week developer induction platform. It collapsed engineer ramp-up from 6–8 weeks to 10 working days, cutting senior engineering mentoring tax by 85% (30–40h down to <4h per hire). Sourced from live GitBook specifications via RAG, evaluated with an automated LLM Judge (judge.py) across 10-day spiral checkpoints, and paired with a 24/7 in-browser AI Mentor. You can explore the full breakdown and mock screens in the dedicated case study!",
-      mcp: "At Roadcast, fleet operators waste valuable minutes switching between tabular views during critical vehicle alerts. I scoped an Agentic AI query assistant using Model Context Protocol (MCP) and Redis caching. The system parses natural operator questions, fetches live telemetry from Redis, and returns structured vehicle cards with embedded action controls like [Call Driver] or [View Route]. You can view the full case study on the new dedicated page!",
-      voice: "I scoped the Autonomous Voice AI Driver Safety Intercom POC at Roadcast. Mapped in-cabin truck noise contexts, vernacular Hindi speech journeys, and deterministic WebRTC state machines using LiveKit and Sarvam AI to deliver sub-1.2s automated verbal drowsiness interventions with a 100% fail-safe escalation to the 24/7 operations desk.",
-      fynd: "At Fynd (Reliance Group), I worked on Catalogue Cloud during the enterprise onboarding of Netmeds and JioMart. I helped design hierarchical parent-child SKU variant mapping rules and validation schemas, which eliminated batch import crashes and reduced sync error rates by 30-40%.",
-      unique: "What makes my approach unique is full-lifecycle ownership. I blend user research and wireframing with deep technical fluency, cross-squad Agile execution, and rigorous QA edge-case testing. Combined with my 0-to-1 entrepreneurial background running a cloud kitchen, I care relentlessly about shipping reliable software that moves business metrics.",
-      startup: "In Jan 2020, I co-founded Mummy Ki Rasoi, an affordable homestyle cloud kitchen on Swiggy and Zomato. We scaled daily volume 16x from 5 to 80+ orders/day in under 60 days. To achieve this, I reverse-engineered platform recommendation algorithms (sub-8 min prep time, on-time rider handover), engineered modular recipes to rationalize raw ingredient SKUs, migrated procurement to BigBasket & Hyperpure, and renegotiated aggregator commissions down from 31% to 26% while maintaining a profitable monthly P&L.",
-      edgistify: "At Edgistify (a logistics tech startup founded by IIT/NIT alumni), I worked on the DAQ (Data Acquisition) Android App. When ground teams audited remote industrial warehouses across India, cellular connectivity was dead or erratic. We scoped an offline-first architecture using local encrypted storage and an automated background sync daemon that seamlessly uploaded audit data and warehouse photos once network connectivity was restored. I also built web features using Node.js and led SEO keyword analytics matrices.",
-      culturex: "At CultureX (Founder's Office), I drove cross-functional agile execution and product discovery. I transformed engineering workflows into standardized 2-week Jira sprints (+25% velocity gain) with testable Gherkin acceptance criteria, and scoped the Strategizers.ai prototype powered by the OpenAI API to automate competitor intelligence and creative strategy briefs for marketing squads.",
-      agile: "At CultureX and Roadcast, I manage bi-weekly sprint planning, backlog grooming, and daily standups in Jira. I focus on writing atomic user stories with Gherkin acceptance criteria (Given/When/Then), unblocking developers proactively, and making pragmatic trade-off calls when constraints arise.",
-      cases: "I have 5 in-depth case studies with realistic mock screens: (1) Fleet AI Query Assistant, (2) SprintZero AI Developer Academy, (3) Autonomous Voice AI Driver Safety Intercom, (4) Catalogue Cloud & SKU Variant Engine at Fynd/Reliance, and (5) LinkedIn Mentorship Network UX Teardown. Click on any card in the Featured Case Studies section to read the full deep dive!"
+    // ==========================================
+    // CAREER COPILOT: ENHANCED INTERACTIVE ENGINE
+    // ==========================================
+    const copilotKnowledge = {
+      sprintzero: {
+        keywords: ['sprintzero', 'bolt-onboard', 'onboard', 'academy', 'induction', 'curriculum', 'mentor tax', 'judge.py', 'stepper'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">At <strong>Roadcast</strong>, I designed and built <strong>SprintZero</strong> (formerly Bolt-Onboard / Roadcast Academy)—an automated 2-week developer induction platform for new engineering hires.</p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div><span class="text-slate-400 block text-[9px] uppercase">Ramp-Up Time</span><strong class="text-blue-700 text-xs">10 Days</strong> (vs 6–8 wks)</div>
+              <div><span class="text-slate-400 block text-[9px] uppercase">Senior Tax Cut</span><strong class="text-emerald-700 text-xs">-85%</strong> (&lt;4h vs 40h)</div>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Live GitBook RAG:</strong> Automated doc ingestion via RediSearch so devs query up-to-date specs.</li>
+              <li><strong>LLM Judge (<code class="bg-slate-100 text-blue-600 px-1 py-0.5 rounded font-mono text-[10px]">judge.py</code>):</strong> Evaluates architectural failure modes & business invariant tests before unlocking Week 2.</li>
+              <li><strong>24/7 Bolt Mentor:</strong> In-browser contextual AI sidecar unblocking devs zero-wait.</li>
+            </ul>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="case-studies/sprintzero-ai-onboard.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-heading font-bold text-xs border border-blue-200 transition-colors">
+                <span>View Full SprintZero Case Study & UI Mockups</span> &rarr;
+              </a>
+            </div>
+          </div>
+        `
+      },
+      fleet_mcp: {
+        keywords: ['mcp', 'fleet', 'telematics', 'query', 'redis', 'timescale', 'starvation', 'triage', 'command hub'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">At <strong>Roadcast</strong>, fleet dispatchers were suffering from multi-tab triage fatigue (averaging 4.2 minutes per alert). I architected an <strong>MCP-based Natural Language Telematics Query Console</strong>.</p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div><span class="text-slate-400 block text-[9px] uppercase">Triage Speed</span><strong class="text-blue-700 text-xs">75% Faster</strong> (~65s vs 4.2m)</div>
+              <div><span class="text-slate-400 block text-[9px] uppercase">DB Shielding</span><strong class="text-emerald-700 text-xs">0 DB Queries</strong> (100% Redis)</div>
+            </div>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Standardized tool schemas via Model Context Protocol (MCP) to parse operator natural queries and retrieve live GPS, fuel, and diagnostic packets directly from in-memory Redis telemetry, returning structured UI action cards (<code class="bg-slate-100 px-1 rounded">[Call Driver]</code>, <code class="bg-slate-100 px-1 rounded">[Ping GPS]</code>).
+            </p>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="case-studies/fleet-ai-telematics.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-heading font-bold text-xs border border-blue-200 transition-colors">
+                <span>View Fleet AI Case Study</span> &rarr;
+              </a>
+            </div>
+          </div>
+        `
+      },
+      voice_safety: {
+        keywords: ['voice', 'intercom', 'safety', 'drowsiness', 'adas', 'dms', 'livekit', 'sarvam', 'hindi', 'cabin', 'webrtc'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">I led the PRD & technical scoping for the <strong>Autonomous Voice AI Driver Safety Intercom POC</strong> at <strong>Roadcast</strong> to tackle drowsy driving accidents in long-haul commercial transport.</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Sub-1.2s Verbal Intervention:</strong> Replaced the 90-second manual dispatcher dial-out cycle with automated instant voice intervention.</li>
+              <li><strong>LiveKit WebRTC + Sarvam AI:</strong> Ultra-low latency bidirectional audio streaming with colloquial Hindi speech recognition tuned for heavy cabin acoustic noise (75–85 dB).</li>
+              <li><strong>Deterministic State Machine:</strong> Guarded safety-critical workflows against LLM hallucinations with a deterministic 4-stage FSM that escalates to human ops desks on ring timeout.</li>
+            </ul>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="case-studies/driver-safety-intercom.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-heading font-bold text-xs border border-emerald-200 transition-colors">
+                <span>View Voice AI Safety Case Study</span> &rarr;
+              </a>
+            </div>
+          </div>
+        `
+      },
+      fynd_catalogue: {
+        keywords: ['fynd', 'reliance', 'catalogue', 'sku', 'netmeds', 'jiomart', 'variant', 'schema'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">At <strong>Fynd (Reliance Group)</strong>, I worked on the <strong>Catalogue Cloud</strong> platform during enterprise onboarding for <strong>Netmeds and JioMart</strong>.</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>SKU Variant Relationship Engine:</strong> Resolved complex parent-child product relationships (size variants, multi-packs) that were causing ingestion pipeline failures.</li>
+              <li><strong>-40% Data Error Reduction:</strong> Designed automated schema validation rules preventing corrupt or incomplete merchant data from reaching live storefronts.</li>
+              <li><strong>Millions of SKUs:</strong> Validated enterprise catalog batches across multiple retail merchant feeds.</li>
+            </ul>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="case-studies/catalogue-cloud-fynd.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-heading font-bold text-xs border border-blue-200 transition-colors">
+                <span>View Catalogue Cloud Case Study</span> &rarr;
+              </a>
+            </div>
+          </div>
+        `
+      },
+      mentorship_ux: {
+        keywords: ['mentorship', 'linkedin', 'ux teardown', 'prototype', 'wireframe', 'agenda', 'micro-mentorship', 'user research'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">A strategic product teardown transforming low-conversion LinkedIn cold outreach into <strong>15-Minute Micro-Mentorship Sprints</strong>.</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>25+ User Interviews:</strong> Discovered why senior leaders ignore 85% of cold requests (cognitive burden, lack of agenda, scheduling friction).</li>
+              <li><strong>Mandatory 3-Point Agenda:</strong> Enforced contextual prep chips before booking to ensure frictionless, respectful calls.</li>
+              <li><strong>Figma Interactive Prototype:</strong> Designed and user-tested mobile Figma workflows, achieving an 80% usability completion rate.</li>
+            </ul>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="case-studies/mentorship-network-ux.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 font-heading font-bold text-xs border border-amber-200 transition-colors">
+                <span>View Mentorship UX Teardown</span> &rarr;
+              </a>
+            </div>
+          </div>
+        `
+      },
+      startup_mkr: {
+        keywords: ['mkr', 'mummy', 'rasoi', 'kitchen', 'cloud kitchen', 'startup', 'founder', '16x', 'orders', 'swiggy', 'zomato', 'hyperpure'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">In Jan 2020 during COVID-19, I co-founded <strong>Mummy Ki Rasoi</strong>, an affordable homestyle cloud kitchen operating on Swiggy and Zomato.</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>16x Scale in &lt;60 Days:</strong> Grew daily volume from 5 to <strong>80+ orders/day</strong> with positive monthly P&L balance sheets.</li>
+              <li><strong>Algorithm Reverse-Engineering:</strong> Deconstructed aggregator ranking signals by maintaining sub-8 min meal prep time and 100% menu availability during peak meal slots.</li>
+              <li><strong>Procurement & Unit Economics:</strong> Migrated from offline buying to digital wholesale via BigBasket & Hyperpure (15–20% cost cut) and successfully renegotiated platform commissions from <strong>31% down to 26%</strong>.</li>
+            </ul>
+          </div>
+        `
+      },
+      edgistify: {
+        keywords: ['edgistify', 'daq', 'warehouse', 'offline', 'sqlite', 'logistics', 'audit', 'sync daemon'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">At <strong>Edgistify</strong> (a tech logistics startup founded by IIT/NIT alumni), I solved severe data loss for field warehouse auditors.</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Offline-First Architecture:</strong> When ground auditors visited remote industrial warehouses with zero cellular connectivity, app submissions were crashing. We architected local encrypted SQLite storage with unique audit UUIDs.</li>
+              <li><strong>Idempotent Background Sync:</strong> Built an automated background daemon that compressed and uploaded audits upon network reconnection with zero duplicates.</li>
+              <li><strong>Full-Stack & SEO:</strong> Built Node.js web features in daily Scrum ceremonies and spearheaded SEO keyword analytics driving organic B2B leads.</li>
+            </ul>
+          </div>
+        `
+      },
+      culturex: {
+        keywords: ['culturex', 'founder', 'founder\'s office', 'agile', 'velocity', 'strategizers', '25%'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">At <strong>CultureX</strong>, I worked directly in the <strong>Founder's Office</strong> bridging strategic initiatives and engineering execution.</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>+25% Sprint Delivery Velocity:</strong> Overhauled ad-hoc feature tracking into disciplined 2-week Jira sprints with testable Gherkin acceptance criteria (Given/When/Then).</li>
+              <li><strong>Strategizers.ai Prototype:</strong> Scoped an AI marketing intelligence copilot using the OpenAI API to automate competitor research and creative campaign strategy briefs.</li>
+            </ul>
+          </div>
+        `
+      },
+      cs_degree: {
+        keywords: ['computer science', 'cs degree', 'degree', 'education', 'college', 'mulund', 'cgpa', 'academic', '8.81'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Shubham holds a <strong>Bachelor of Science in Computer Science (B.Sc. CS)</strong> from Mulund College of Commerce, University of Mumbai, graduating with an <strong>8.81 / 10 CGPA</strong>.</p>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              His CS foundation provides a major superpower as a PM: he evaluates architectural trade-offs during early customer discovery, writes precise API contracts, and communicates with backend engineers with zero translation loss.
+            </p>
+          </div>
+        `
+      },
+      why_pm: {
+        keywords: ['why pm', 'why product', 'transition', 'engineer to pm', 'cs to pm', 'product manager instead'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed"><em>"For me, technical skills exist entirely in service of user value and business outcomes."</em></p>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              While Shubham loves software architecture, his passion is solving the <strong>root problem</strong>: discovering what users actually need, eliminating friction through intuitive workflows, and aligning cross-functional teams to ship software people rely on daily. His Computer Science background enables him to partner with engineers as trusted technical peers rather than just a requirements funnel.
+            </p>
+          </div>
+        `
+      },
+      pdlc_lifecycle: {
+        keywords: ['lifecycle', 'thought process', 'how you build', 'pdlc', 'methodology', 'framework', 'approach'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Shubham's product management methodology spans 5 interconnected phases:</p>
+            <ol class="list-decimal list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Problem Discovery & Signal:</strong> Shadowing operators, identifying root causes, and defining explicit non-goals to avoid scope creep.</li>
+              <li><strong>UX Workflow Mapping:</strong> Eliminating multi-tab cognitive friction by mapping intuitive mental models.</li>
+              <li><strong>Technical Feasibility:</strong> Evaluating data structures, API contracts, and caching trade-offs with tech leads before code is written.</li>
+              <li><strong>Sprint Execution:</strong> Writing atomic Jira user stories with testable Gherkin acceptance criteria (Given/When/Then).</li>
+              <li><strong>QA Sanity & Telemetry Gates:</strong> Stress-testing offline states, concurrency race conditions, and setting strict latency gates prior to GA.</li>
+            </ol>
+          </div>
+        `
+      },
+      agile_jira: {
+        keywords: ['agile', 'jira', 'sprint', 'scrum', 'gherkin', 'standup', 'backlog', 'grooming', 'velocity'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Shubham manages bi-weekly sprint planning, backlog grooming, and standups in Jira:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Gherkin Criteria:</strong> Specifying Given/When/Then conditions so QA and developers share identical definitions of "Done".</li>
+              <li><strong>Proactive Dev Unblocking:</strong> Eliminating ambiguity before sprint kickoff through continuous backlog grooming.</li>
+              <li><strong>Velocity & Quality:</strong> Boosted sprint velocity by +25% at CultureX and maintains zero-regression delivery at Roadcast.</li>
+            </ul>
+          </div>
+        `
+      },
+      skills_tools: {
+        keywords: ['skills', 'tools', 'tech stack', 'technologies', 'figma', 'postman', 'sql', 'python', 'git', 'redis'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Shubham balances product craft with technical literacy:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>AI & Agentic Systems:</strong> Model Context Protocol (MCP), LiveKit WebRTC, Sarvam AI Indic Models, RAG, RediSearch, LLM Judge Rubrics.</li>
+              <li><strong>Product & Design:</strong> PRD/BRD authoring, Figma, Jira, Miro, Notion, User Journey Mapping, A/B Testing, Mixpanel.</li>
+              <li><strong>Technical & Data:</strong> REST/GraphQL APIs, Webhooks, Redis, Postman, SQL, Git, Docker fundamentals.</li>
+            </ul>
+          </div>
+        `
+      },
+      conflict_dev: {
+        keywords: ['conflict', 'disagreement', 'pushback', 'handle engineers', 'developers push back', 'engineering delay', 'trade-off'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">When engineers raise constraints on timelines or architecture, Shubham relies on <strong>transparency, shared data, and modular de-scoping</strong>:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Never mandate without context:</strong> Always share the customer pain and business impact so the team solves the challenge collaboratively.</li>
+              <li><strong>Negotiate scope, never quality:</strong> Split monolithic epics into phased releases (MVP core vs Phase 2 enhancements) rather than compromising on automated tests or QA sanity.</li>
+              <li><strong>Speak their language:</strong> Use CS fluency to evaluate technical trade-offs (e.g., caching vs relational queries) alongside tech leads to find pragmatic win-wins.</li>
+            </ul>
+          </div>
+        `
+      },
+      prds_specs: {
+        keywords: ['prd', 'brd', 'spec', 'documentation', 'how do you write', 'user stories'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Shubham treats PRDs as living blueprints, not passive paperwork. His PRDs always include:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Explicit Non-Goals:</strong> Preventing scope creep before a single line of code is written.</li>
+              <li><strong>Atomic User Stories:</strong> Written in Gherkin syntax (Given/When/Then) with visual wireframe embeds.</li>
+              <li><strong>Edge-Case & Chaos Matrix:</strong> Explicit handling for offline states, network dropouts, and race conditions.</li>
+              <li><strong>Rollout & Telemetry Gates:</strong> Measurable P95 latency and adoption thresholds required for GA release.</li>
+            </ul>
+            <p class="text-xs text-slate-500 pt-1">You can explore real PRD excerpts in the <strong>Technical PRD Vault</strong> section of this portfolio!</p>
+          </div>
+        `
+      },
+      resume: {
+        keywords: ['resume', 'cv', 'download', 'pdf', 'profile document'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">You can download Shubham's tailored <strong>2-page Product Manager Resume (PDF)</strong> below, featuring his full work history, verified metrics, clickable LinkedIn, and portfolio links:</p>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-heading font-bold text-xs transition-colors shadow-sm">
+                <span>Download Resume (2-Page PDF)</span> &nearr;
+              </a>
+            </div>
+          </div>
+        `
+      },
+      contact_hire: {
+        keywords: ['contact', 'email', 'phone', 'hire', 'interview', 'reach', 'call', 'talk', 'linkedin'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">Shubham is based in <strong>New Delhi, India</strong> (open to hybrid, in-office, or remote roles) and is actively exploring Product Management and Founder's Office opportunities.</p>
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-2">
+              <a href="mailto:svdudhal777@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-heading font-bold text-xs transition-colors shadow-sm">
+                <span>Email svdudhal777@gmail.com</span>
+              </a>
+              <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-heading font-bold text-xs border border-slate-200 transition-colors">
+                <span>LinkedIn Profile</span> &nearr;
+              </a>
+              <a href="tel:+919850156959" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-heading font-bold text-xs border border-slate-200 transition-colors">
+                <span>Call +91-9850156959</span>
+              </a>
+            </div>
+          </div>
+        `
+      },
+      location_avail: {
+        keywords: ['location', 'relocate', 'where', 'based', 'city', 'notice', 'immediate', 'availability', 'joining'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Shubham is currently based in <strong>New Delhi, India</strong>. He is open to in-office, hybrid, or remote positions, and open to relocation for compelling product roles.</p>
+            <p class="text-slate-600 text-xs">For specific notice period and joining date discussions, please reach out directly at <a href="mailto:svdudhal777@gmail.com" class="text-blue-600 underline">svdudhal777@gmail.com</a>.</p>
+          </div>
+        `
+      },
+      unique_why_hire: {
+        keywords: ['unique', 'why hire', 'stand out', 'superpower', 'strengths', 'value prop'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">What makes Shubham stand out among Product Managers:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><strong>Technical Empathy:</strong> Computer Science degree (8.81 CGPA) means zero translation loss with engineers and rapid feasibility assessments.</li>
+              <li><strong>0-to-1 Founder Grit:</strong> Scaled a cloud kitchen 16x from scratch—he understands unit economics, CAC, and operational speed.</li>
+              <li><strong>Production AI Delivery:</strong> Not just writing prompts, but architecting production telemetry MCP tools, low-latency LiveKit voice pipelines, and LLM rubric judges.</li>
+            </ul>
+          </div>
+        `
+      },
+      case_studies: {
+        keywords: ['case study', 'case studies', 'all projects', 'portfolio', 'what have you built'],
+        response: `
+          <div class="space-y-2.5">
+            <p class="leading-relaxed">Shubham's portfolio includes <strong>5 dedicated PM case studies with realistic UI mockups</strong>:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
+              <li><a href="case-studies/fleet-ai-telematics.html" class="text-blue-600 hover:underline font-semibold">Fleet AI Query Assistant:</a> MCP + Redis telemetry query console.</li>
+              <li><a href="case-studies/sprintzero-ai-onboard.html" class="text-blue-600 hover:underline font-semibold">SprintZero:</a> 10-day AI developer onboarding & LLM judge platform.</li>
+              <li><a href="case-studies/driver-safety-intercom.html" class="text-blue-600 hover:underline font-semibold">Voice AI Driver Safety Intercom:</a> Sub-1.2s LiveKit + Sarvam verbal intervention.</li>
+              <li><a href="case-studies/catalogue-cloud-fynd.html" class="text-blue-600 hover:underline font-semibold">Catalogue Cloud at Fynd:</a> Enterprise SKU variant engine for Netmeds & JioMart.</li>
+              <li><a href="case-studies/mentorship-network-ux.html" class="text-blue-600 hover:underline font-semibold">LinkedIn Mentorship Network:</a> 15-minute micro-mentorship product teardown.</li>
+            </ul>
+          </div>
+        `
+      },
+      greetings: {
+        keywords: ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good evening', 'who are you'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">Hello! 👋 I'm Shubham's Career Copilot. I'm ready to answer any questions about his product leadership, AI agent workflows, startup scale at Mummy Ki Rasoi, or technical architecture. Feel free to click any suggestion chip or type your own question!</p>
+          </div>
+        `
+      },
+      thanks: {
+        keywords: ['thanks', 'thank you', 'awesome', 'great', 'cool', 'perfect', 'helpful'],
+        response: `
+          <div class="space-y-2">
+            <p class="leading-relaxed">You're very welcome! Feel free to explore more questions or connect directly with Shubham at <a href="mailto:svdudhal777@gmail.com" class="text-blue-600 font-medium underline">svdudhal777@gmail.com</a>.</p>
+          </div>
+        `
+      }
     };
 
-    function appendCopilotMessage(sender, text) {
+    // Fallback response with interactive prompt chips
+    const copilotFallback = `
+      <div class="space-y-2.5">
+        <p class="leading-relaxed">I'm specifically calibrated to answer questions about Shubham's product management journey, engineering architecture, and startup milestones. Here are a few great topics you can explore:</p>
+        <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+          <button onclick="askCopilot('What did you build for SprintZero (AI Developer Onboarding)?')" class="text-xs px-2.5 py-1 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium transition border border-blue-200 text-left">
+            "SprintZero AI Onboarding?"
+          </button>
+          <button onclick="askCopilot('Tell me about the Fleet AI Query Assistant at Roadcast')" class="text-xs px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition border border-slate-200 text-left">
+            "Fleet AI & MCP Query?"
+          </button>
+          <button onclick="askCopilot('How did you scale Mummy Ki Rasoi 16x?')" class="text-xs px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition border border-slate-200 text-left">
+            "Mummy Ki Rasoi 16x scale?"
+          </button>
+          <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-xs px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition border border-slate-200 text-left">
+            "Why PM with a CS degree?"
+          </button>
+          <button onclick="askCopilot('Can I download your resume?')" class="text-xs px-2.5 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium transition text-left">
+            "Download Resume PDF"
+          </button>
+        </div>
+      </div>
+    `;
+
+    function appendCopilotMessage(sender, htmlContent) {
       const chat = document.getElementById('copilot-chat');
       const msgDiv = document.createElement('div');
-      msgDiv.className = 'flex gap-3 text-xs sm:text-sm';
+      msgDiv.className = 'flex gap-2.5 sm:gap-3 text-xs sm:text-sm animate-fade-in';
       
       if (sender === 'user') {
         msgDiv.innerHTML = `
           <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-800 flex-shrink-0 flex items-center justify-center font-bold text-xs">You</div>
-          <div class="p-3.5 rounded-2xl rounded-tr-none bg-slate-900 text-white max-w-xl ml-auto leading-relaxed">
-            ${text}
+          <div class="p-3 sm:p-3.5 rounded-2xl rounded-tr-none bg-slate-900 text-white max-w-xl ml-auto leading-relaxed shadow-xs">
+            ${htmlContent}
           </div>
         `;
       } else {
         msgDiv.innerHTML = `
-          <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
-          <div class="p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed">
-            ${text}
+          <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-xs">AI</div>
+          <div class="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed text-xs sm:text-sm">
+            ${htmlContent}
           </div>
         `;
       }
       chat.appendChild(msgDiv);
       chat.scrollTop = chat.scrollHeight;
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function showCopilotTyping() {
+      const chat = document.getElementById('copilot-chat');
+      const typingDiv = document.createElement('div');
+      typingDiv.id = 'copilot-typing-indicator';
+      typingDiv.className = 'flex gap-2.5 sm:gap-3 text-xs sm:text-sm items-center';
+      typingDiv.innerHTML = `
+        <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
+        <div class="p-2.5 sm:p-3 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-500 shadow-xs flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]"></span>
+          <span class="text-[11px] font-mono text-slate-400 ml-1">Thinking...</span>
+        </div>
+      `;
+      chat.appendChild(typingDiv);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function hideCopilotTyping() {
+      const typingDiv = document.getElementById('copilot-typing-indicator');
+      if (typingDiv) {
+        typingDiv.remove();
+      }
+    }
+
+    function matchCopilotIntent(query) {
+      const q = query.toLowerCase();
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const [key, data] of Object.entries(copilotKnowledge)) {
+        let score = 0;
+        for (const kw of data.keywords) {
+          if (q.includes(kw)) {
+            // longer matches give higher confidence
+            score += kw.length > 5 ? 3 : 2;
+          }
+        }
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = data.response;
+        }
+      }
+
+      return highestScore >= 2 ? bestMatch : copilotFallback;
     }
 
     function askCopilot(query) {
+      const input = document.getElementById('copilot-input');
+      const submitBtn = document.getElementById('copilot-submit-btn');
+
+      // Append user message
       appendCopilotMessage('user', query);
-      
-      let answer = "";
-      const q = query.toLowerCase();
-      if (q.includes('sprintzero') || q.includes('onboard') || q.includes('academy') || q.includes('curriculum') || q.includes('induction')) {
-        answer = copilotAnswers.sprintzero;
-      } else if (q.includes('lifecycle') || q.includes('thought process') || q.includes('how you build') || q.includes('approach')) {
-        answer = copilotAnswers.lifecycle;
-      } else if (q.includes('computer science') || q.includes('degree') || q.includes('engineering') || q.includes('technical') || q.includes('cs degree')) {
-        answer = copilotAnswers.cs;
-      } else if (q.includes('voice') || q.includes('intercom') || q.includes('drowsiness') || q.includes('sarvam') || q.includes('adas')) {
-        answer = copilotAnswers.voice;
-      } else if (q.includes('case') || q.includes('studies') || q.includes('mock') || q.includes('screens')) {
-        answer = copilotAnswers.cases;
-      } else if (q.includes('edgistify') || q.includes('daq') || q.includes('warehouse') || q.includes('logistics') || q.includes('offline')) {
-        answer = copilotAnswers.edgistify;
-      } else if (q.includes('mkr') || q.includes('kitchen') || q.includes('mummy') || q.includes('startup') || q.includes('cloud kitchen') || q.includes('16x')) {
-        answer = copilotAnswers.startup;
-      } else if (q.includes('culturex') || q.includes('strategizers') || q.includes('founder')) {
-        answer = copilotAnswers.culturex;
-      } else if (q.includes('mcp') || q.includes('roadcast') || q.includes('telemetry') || q.includes('dashboard') || q.includes('driver')) {
-        answer = copilotAnswers.mcp;
-      } else if (q.includes('fynd') || q.includes('netmeds') || q.includes('catalogue') || q.includes('jiomart')) {
-        answer = copilotAnswers.fynd;
-      } else if (q.includes('unique') || q.includes('why hire') || q.includes('stand out')) {
-        answer = copilotAnswers.unique;
-      } else if (q.includes('agile') || q.includes('jira') || q.includes('sprint') || q.includes('qa')) {
-        answer = copilotAnswers.agile;
-      } else {
-        answer = "Shubham is a Product Manager with a Computer Science degree (8.81 CGPA) specializing in IoT telematics, AI workflows, and enterprise platforms. He leads products end-to-end across problem discovery, UX journey design, technical architecture, and QA release gates. Feel free to contact him directly at svdudhal777@gmail.com!";
-      }
 
-      setTimeout(() => {
-        appendCopilotMessage('ai', answer);
-      }, 300);
-    }
+      // Disable input while processing
+      if (submitBtn) submitBtn.disabled = true;
+      if (input) input.disabled = true;
 
+      // Show typing indicator
+      showCopilotTyping();
+
+      // Find answer
+      const answer = matchCopilotIntent(query);
+
+      // Natural delay (450ms) to feel responsive yet real
       setTimeout(() => {
+        hideCopilotTyping();
         appendCopilotMessage('ai', answer);
-      }, 300);
+
+        // Re-enable input
+        if (submitBtn) submitBtn.disabled = false;
+        if (input) {
+          input.disabled = false;
+          input.focus();
+        }
+      }, 450);
     }
 
     function handleCopilotSubmit(e) {
@@ -1305,6 +1677,26 @@ POST /v2/ai/telemetry/query
       if (!val) return;
       input.value = '';
       askCopilot(val);
+    }
+
+    function resetCopilotChat() {
+      const chat = document.getElementById('copilot-chat');
+      chat.innerHTML = `
+        <div class="flex gap-2.5 sm:gap-3 text-xs sm:text-sm">
+          <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-xs">AI</div>
+          <div class="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed text-xs sm:text-sm">
+            Hey! I'm Shubham's Career Copilot, trained on his real product management work history, case studies, startup metrics, and technical architecture. Ask me anything or try a prompt below!
+          </div>
+        </div>
+      `;
+      const input = document.getElementById('copilot-input');
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
   </script>
 </body>
