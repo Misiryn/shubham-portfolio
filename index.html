@@ -104,13 +104,13 @@
       <!-- Nav Links -->
       <nav class="hidden md:flex items-center gap-7 text-[13px] font-heading font-semibold text-slate-600">
         <a href="#home" class="hover:text-slate-900 transition-colors">Home</a>
+        <a href="#copilot" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-blue-600 font-bold">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-600"></i> Career Copilot
+        </a>
         <a href="#lifecycle" class="hover:text-slate-900 transition-colors">How I Build</a>
         <a href="#products" class="hover:text-slate-900 transition-colors">Case Studies</a>
         <a href="#experience" class="hover:text-slate-900 transition-colors">Experience</a>
         <a href="#framework" class="hover:text-slate-900 transition-colors">Execution Vault</a>
-        <a href="#copilot" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-blue-600">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Career Copilot
-        </a>
       </nav>
 
       <!-- Action Buttons -->
@@ -184,6 +184,91 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE HERO: "ASK SHUBHAM'S CAREER COPILOT" -->
+    <section id="copilot" class="scroll-mt-24">
+      <div class="border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 bg-gradient-to-b from-slate-50/90 via-white to-slate-50/40 shadow-xs space-y-4 sm:space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-1 border-b border-slate-200/80">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-slate-900 text-white flex items-center justify-center flex-shrink-0 shadow-xs relative">
+              <i data-lucide="bot" class="w-5 h-5"></i>
+              <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white"></span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base sm:text-lg font-heading font-bold text-slate-900">
+                  Ask Shubham’s Career Copilot
+                </h3>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-blue-50 text-blue-700 font-bold border border-blue-200 flex items-center gap-1">
+                  <i data-lucide="sparkles" class="w-2.5 h-2.5 text-blue-600"></i> Gemini 3.8 Flash
+                </span>
+                <span id="copilot-counter-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-blue-100 text-blue-800 font-bold border border-blue-200 transition-all">
+                  2 Free Questions Left
+                </span>
+              </div>
+              <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+                Live AI avatar trained on Shubham's real PRDs, system architecture, startup milestones, and product metrics.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <button onclick="resetCopilotChat()" title="Reset conversation" class="text-[11px] font-medium text-slate-500 hover:text-slate-900 bg-white hover:bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 transition-colors flex items-center gap-1.5 shadow-2xs">
+              <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+              <span>Clear</span>
+            </button>
+            <div class="flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Online</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Area -->
+        <div id="copilot-chat" class="space-y-3 max-h-[380px] overflow-y-auto pr-1 sm:pr-2 scroll-smooth">
+          <div class="flex gap-2.5 sm:gap-3 text-xs sm:text-sm">
+            <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-xs">AI</div>
+            <div class="p-3.5 sm:p-4 rounded-2xl rounded-tl-none bg-white border border-slate-200/90 text-slate-700 max-w-xl shadow-xs leading-relaxed text-xs sm:text-sm space-y-1.5">
+              <p>Hey! I'm Shubham's Career Copilot, powered by Google Gemini. I have complete context on Shubham's product leadership at Roadcast, 0-to-1 startup scale at Mummy Ki Rasoi (16x orders), catalogue engines at Fynd, and his technical Computer Science foundation.</p>
+              <p class="text-[11px] text-slate-500 font-mono">You have <strong class="text-slate-800">2 free preview questions</strong> to test my depth. Ask me anything or click a suggestion below!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Suggestions -->
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-slate-200/80">
+          <button onclick="askCopilot('What did you build for SprintZero (AI Developer Onboarding)?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 transition-all font-medium text-left">
+            "SprintZero AI Onboarding?"
+          </button>
+          <button onclick="askCopilot('Tell me about the Fleet AI Query Assistant at Roadcast')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Fleet AI & MCP Query?"
+          </button>
+          <button onclick="askCopilot('What is the Autonomous Voice AI Safety Intercom?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Voice AI Safety Intercom?"
+          </button>
+          <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Why PM with a CS degree?"
+          </button>
+          <button onclick="askCopilot('How did you scale Mummy Ki Rasoi 16x?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Mummy Ki Rasoi 16x scale?"
+          </button>
+          <button onclick="askCopilot('How did you help scale Catalogue Cloud at Fynd?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
+            "Catalogue Cloud at Fynd?"
+          </button>
+          <button onclick="askCopilot('Can I download your resume?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white transition-all font-medium text-left">
+            "Download Resume PDF"
+          </button>
+        </div>
+
+        <!-- Input Bar -->
+        <form onsubmit="handleCopilotSubmit(event)" class="flex gap-2">
+          <input type="text" id="copilot-input" placeholder="Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers..." class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl px-3.5 sm:px-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 transition-colors shadow-2xs">
+          <button type="submit" id="copilot-submit-btn" class="flex-shrink-0 px-4 sm:px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-xs transition-all cursor-pointer">
+            <span>Send</span>
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          </button>
+        </form>
       </div>
     </section>
 
@@ -829,80 +914,6 @@ POST /v2/ai/telemetry/query
           </div>
 
         </div>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE "ASK SHUBHAM'S CAREER COPILOT" -->
-    <section id="copilot" class="scroll-mt-24">
-      <div class="border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-slate-50/70 space-y-4 sm:space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-              <i data-lucide="bot" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-            </div>
-            <div>
-              <h3 class="text-base sm:text-lg font-heading font-bold text-slate-900 flex items-center gap-2 flex-wrap">
-                <span>Ask Shubham’s Career Copilot</span>
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-blue-100 text-blue-700 font-bold">Interactive Demo</span>
-              </h3>
-              <p class="text-[11px] sm:text-xs text-slate-500">Instant answers about Shubham's journey, product thinking, case studies, and technical skills</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="resetCopilotChat()" title="Reset conversation" class="text-[11px] font-medium text-slate-500 hover:text-slate-900 bg-white hover:bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200 transition-colors flex items-center gap-1 shadow-2xs">
-              <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
-              <span>Clear</span>
-            </button>
-            <div class="flex items-center gap-2 text-[11px] font-mono text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200 w-fit">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Agent Online</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chat Conversation Area -->
-        <div id="copilot-chat" class="space-y-3 max-h-96 overflow-y-auto pr-1 sm:pr-2 scroll-smooth">
-          <div class="flex gap-2.5 sm:gap-3 text-xs sm:text-sm">
-            <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
-            <div class="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed text-xs sm:text-sm">
-              Hey! I'm Shubham's Career Copilot, trained on his real product management work history, case studies, startup metrics, and technical architecture. Ask me anything or try a prompt below!
-            </div>
-          </div>
-        </div>
-
-        <!-- Prompt Suggestions -->
-        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-slate-200">
-          <button onclick="askCopilot('What did you build for SprintZero (AI Developer Onboarding)?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 transition-all font-medium text-left">
-            "SprintZero AI Onboarding?"
-          </button>
-          <button onclick="askCopilot('Tell me about the Fleet AI Query Assistant at Roadcast')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "Fleet AI & MCP Query?"
-          </button>
-          <button onclick="askCopilot('What is the Autonomous Voice AI Safety Intercom?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "Voice AI Safety Intercom?"
-          </button>
-          <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "Why PM with a CS degree?"
-          </button>
-          <button onclick="askCopilot('How did you scale Mummy Ki Rasoi 16x?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "Mummy Ki Rasoi 16x scale?"
-          </button>
-          <button onclick="askCopilot('How did you help scale Catalogue Cloud at Fynd?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
-            "Catalogue Cloud at Fynd?"
-          </button>
-          <button onclick="askCopilot('Can I download your resume?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white transition-all font-medium text-left">
-            "Download Resume PDF"
-          </button>
-        </div>
-
-        <!-- Input Bar -->
-        <form onsubmit="handleCopilotSubmit(event)" class="flex gap-2">
-          <input type="text" id="copilot-input" placeholder="Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers..." class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 transition-colors shadow-sm">
-          <button type="submit" id="copilot-submit-btn" class="flex-shrink-0 px-4 sm:px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm transition-all">
-            <span>Send</span>
-            <i data-lucide="send" class="w-3.5 h-3.5"></i>
-          </button>
-        </form>
       </div>
     </section>
 
@@ -1564,8 +1575,98 @@ POST /v2/ai/telemetry/query
       </div>
     `;
 
+    // ==========================================
+    // CAREER COPILOT: GEMINI AI + 2-TURN RECRUITER GATE + RESEND
+    // ==========================================
+    let copilotTurnCount = 0;
+    let isCopilotGated = false;
+    let leadUnlocked = false;
+    try {
+      leadUnlocked = localStorage.getItem('copilot_lead_unlocked') === 'true';
+    } catch (_) {}
+    const copilotHistory = [];
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function stripHtml(html) {
+      if (!html) return '';
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function formatAiResponse(text) {
+      if (!text) return '';
+      
+      // Markdown links: [label](url)
+      let formatted = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">$1</a>');
+      
+      // Bold **text**
+      formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-slate-900">$1</strong>');
+      
+      // Inline code `code`
+      formatted = formatted.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-800 font-mono text-[11px] border border-slate-200">$1</code>');
+      
+      // Split into lines to format lists cleanly
+      const lines = formatted.split('\n');
+      let inList = false;
+      let result = [];
+      
+      for (let line of lines) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+          if (!inList) {
+            inList = true;
+            result.push('<ul class="list-disc list-inside space-y-1 text-slate-700 my-1 pl-1">');
+          }
+          result.push(`<li>${trimmed.substring(2)}</li>`);
+        } else {
+          if (inList) {
+            inList = false;
+            result.push('</ul>');
+          }
+          if (trimmed.length > 0) {
+            result.push(`<p class="leading-relaxed mb-1.5 last:mb-0">${trimmed}</p>`);
+          }
+        }
+      }
+      if (inList) {
+        result.push('</ul>');
+      }
+      
+      return result.join('');
+    }
+
+    function updateCopilotCounter() {
+      const badge = document.getElementById('copilot-counter-badge');
+      if (!badge) return;
+      if (leadUnlocked) {
+        badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-100 text-emerald-800 font-bold border border-emerald-300 flex items-center gap-1';
+        badge.innerHTML = '<i data-lucide="check" class="w-3 h-3 text-emerald-600"></i> Unlimited Access';
+      } else if (copilotTurnCount === 0) {
+        badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-blue-100 text-blue-800 font-bold border border-blue-200';
+        badge.textContent = '2 Free Questions Left';
+      } else if (copilotTurnCount === 1) {
+        badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-amber-100 text-amber-800 font-bold border border-amber-300';
+        badge.textContent = '1 Free Question Left';
+      } else {
+        badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-rose-100 text-rose-700 font-bold border border-rose-300 flex items-center gap-1';
+        badge.innerHTML = '<i data-lucide="lock" class="w-3 h-3 text-rose-600"></i> Limit Reached';
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
     function appendCopilotMessage(sender, htmlContent) {
       const chat = document.getElementById('copilot-chat');
+      if (!chat) return;
       const msgDiv = document.createElement('div');
       msgDiv.className = 'flex gap-2.5 sm:gap-3 text-xs sm:text-sm animate-fade-in';
       
@@ -1579,7 +1680,7 @@ POST /v2/ai/telemetry/query
       } else {
         msgDiv.innerHTML = `
           <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-xs">AI</div>
-          <div class="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed text-xs sm:text-sm">
+          <div class="p-3.5 sm:p-4 rounded-2xl rounded-tl-none bg-white border border-slate-200/90 text-slate-700 max-w-xl shadow-xs leading-relaxed text-xs sm:text-sm space-y-1">
             ${htmlContent}
           </div>
         `;
@@ -1594,16 +1695,17 @@ POST /v2/ai/telemetry/query
 
     function showCopilotTyping() {
       const chat = document.getElementById('copilot-chat');
+      if (!chat) return;
       const typingDiv = document.createElement('div');
       typingDiv.id = 'copilot-typing-indicator';
       typingDiv.className = 'flex gap-2.5 sm:gap-3 text-xs sm:text-sm items-center';
       typingDiv.innerHTML = `
         <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">AI</div>
-        <div class="p-2.5 sm:p-3 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-500 shadow-xs flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]"></span>
-          <span class="text-[11px] font-mono text-slate-400 ml-1">Thinking...</span>
+        <div class="p-2.5 sm:p-3 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-500 shadow-2xs flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce [animation-delay:0.2s]"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]"></span>
+          <span class="text-[11px] font-mono text-slate-500 ml-1">Thinking...</span>
         </div>
       `;
       chat.appendChild(typingDiv);
@@ -1614,6 +1716,172 @@ POST /v2/ai/telemetry/query
       const typingDiv = document.getElementById('copilot-typing-indicator');
       if (typingDiv) {
         typingDiv.remove();
+      }
+    }
+
+    function showRecruiterGateCard() {
+      if (document.getElementById('copilot-gate-card')) return;
+      const chat = document.getElementById('copilot-chat');
+      if (!chat) return;
+      const gateDiv = document.createElement('div');
+      gateDiv.id = 'copilot-gate-card';
+      gateDiv.className = 'p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white border border-slate-700/80 shadow-xl space-y-4 my-3 animate-fade-in transition-all';
+      gateDiv.innerHTML = `
+        <div class="flex items-start justify-between gap-3">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-400 text-slate-950 uppercase tracking-wider">Free Preview Limit (2/2)</span>
+              <span class="text-xs text-slate-300 font-medium hidden sm:inline">Enjoying the discussion?</span>
+            </div>
+            <h4 class="text-sm sm:text-base font-heading font-bold text-white">Unlock Unlimited Copilot & Connect with Shubham</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Share your details below to unlock unlimited questions. Shubham will instantly receive your full conversation transcript and reach out directly!
+            </p>
+          </div>
+          <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-amber-300">
+            <i data-lucide="lock-keyhole" class="w-4 h-4"></i>
+          </div>
+        </div>
+        
+        <form onsubmit="handleLeadSubmit(event)" class="space-y-3 pt-1">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[11px] font-mono text-slate-300 mb-1">Your Name <span class="text-amber-400">*</span></label>
+              <input type="text" id="lead-name" required placeholder="e.g. Sarah Jenkins" class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition">
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono text-slate-300 mb-1">Work Email <span class="text-amber-400">*</span></label>
+              <input type="email" id="lead-email" required placeholder="s.jenkins@company.com" class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[11px] font-mono text-slate-300 mb-1">Company / Organization <span class="text-amber-400">*</span></label>
+              <input type="text" id="lead-company" required placeholder="e.g. Zepto, Stripe, Swiggy" class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition">
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono text-slate-300 mb-1">Your Role / Opportunity</label>
+              <input type="text" id="lead-role" placeholder="e.g. VP Product, Lead Tech Recruiter" class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition">
+            </div>
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono text-slate-300 mb-1">Quick Note or Question for Shubham (Optional)</label>
+            <input type="text" id="lead-notes" placeholder="e.g. Hiring for Senior PM - Fleet AI platform, let's talk!" class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 transition">
+          </div>
+          
+          <div id="lead-error-msg" class="text-rose-300 text-xs hidden"></div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-1 gap-3">
+            <span class="text-[11px] text-slate-400 flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Instant alert delivered to svdudhal777@gmail.com
+            </span>
+            <button type="submit" id="lead-submit-btn" class="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs flex items-center justify-center gap-2 shadow transition-all cursor-pointer">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Unlock Unlimited Chat</span>
+            </button>
+          </div>
+        </form>
+      `;
+      chat.appendChild(gateDiv);
+      chat.scrollTop = chat.scrollHeight;
+      if (window.lucide) lucide.createIcons();
+    }
+
+    async function handleLeadSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('lead-name')?.value.trim();
+      const email = document.getElementById('lead-email')?.value.trim();
+      const company = document.getElementById('lead-company')?.value.trim();
+      const role = document.getElementById('lead-role')?.value.trim() || '';
+      const notes = document.getElementById('lead-notes')?.value.trim() || '';
+      const submitBtn = document.getElementById('lead-submit-btn');
+      const errorMsg = document.getElementById('lead-error-msg');
+
+      if (!name || !email || !company) {
+        if (errorMsg) {
+          errorMsg.textContent = 'Please fill out your Name, Email, and Company.';
+          errorMsg.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span class="w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+          <span>Sending Transcript to Shubham...</span>
+        `;
+      }
+
+      try {
+        const res = await fetch('/api/copilot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'lead',
+            lead: {
+              name,
+              email,
+              company,
+              role,
+              notes,
+              transcript: copilotHistory
+            }
+          })
+        });
+
+        // Mark as unlocked regardless to ensure great recruiter UX
+        leadUnlocked = true;
+        isCopilotGated = false;
+        try { localStorage.setItem('copilot_lead_unlocked', 'true'); } catch (_) {}
+        updateCopilotCounter();
+
+        // Replace the gate card with an unlocked success card
+        const gateCard = document.getElementById('copilot-gate-card');
+        if (gateCard) {
+          gateCard.className = 'p-4 sm:p-5 rounded-2xl bg-emerald-950/85 border border-emerald-500/40 text-emerald-100 shadow-md space-y-2 my-2 animate-fade-in';
+          gateCard.innerHTML = `
+            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              <span>VIP Recruiter Access Granted!</span>
+            </div>
+            <p class="text-xs text-emerald-200/90 leading-relaxed">
+              Thanks <strong>${escapeHtml(name)}</strong>! Shubham has received your conversation transcript and details directly at <strong>svdudhal777@gmail.com</strong>. Chat is now fully unlocked without turn limits.
+            </p>
+          `;
+        }
+
+        // Re-enable chat input
+        const input = document.getElementById('copilot-input');
+        const chatSubmitBtn = document.getElementById('copilot-submit-btn');
+        if (input) {
+          input.disabled = false;
+          input.placeholder = "Ask Shubham anything (unlimited mode)...";
+          input.focus();
+        }
+        if (chatSubmitBtn) chatSubmitBtn.disabled = false;
+
+        // AI welcome acknowledgment
+        const aiWelcome = `Great to connect, **${escapeHtml(name)}** from **${escapeHtml(company)}**! I've dispatched our conversation transcript directly to Shubham's personal email. What else can I share about his product leadership, telemetry architecture, or execution approach?`;
+        copilotHistory.push({ sender: 'model', text: aiWelcome });
+        appendCopilotMessage('ai', formatAiResponse(aiWelcome));
+
+        if (window.lucide) lucide.createIcons();
+
+      } catch (err) {
+        console.error('Failed to submit lead via API:', err);
+        // Fallback unlock so user isn't trapped
+        leadUnlocked = true;
+        isCopilotGated = false;
+        try { localStorage.setItem('copilot_lead_unlocked', 'true'); } catch (_) {}
+        updateCopilotCounter();
+        const input = document.getElementById('copilot-input');
+        const chatSubmitBtn = document.getElementById('copilot-submit-btn');
+        if (input) {
+          input.disabled = false;
+          input.placeholder = "Ask Shubham anything (unlimited mode)...";
+        }
+        if (chatSubmitBtn) chatSubmitBtn.disabled = false;
       }
     }
 
@@ -1639,12 +1907,29 @@ POST /v2/ai/telemetry/query
       return highestScore >= 2 ? bestMatch : copilotFallback;
     }
 
-    function askCopilot(query) {
+    async function askCopilot(query) {
+      if (isCopilotGated) {
+        const gateCard = document.getElementById('copilot-gate-card');
+        if (gateCard) {
+          gateCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          gateCard.classList.add('ring-2', 'ring-amber-400');
+          setTimeout(() => gateCard.classList.remove('ring-2', 'ring-amber-400'), 1500);
+        }
+        return;
+      }
+
       const input = document.getElementById('copilot-input');
       const submitBtn = document.getElementById('copilot-submit-btn');
 
       // Append user message
-      appendCopilotMessage('user', query);
+      appendCopilotMessage('user', escapeHtml(query));
+      copilotHistory.push({ sender: 'user', text: query });
+
+      // Increment counter & update badge
+      if (!leadUnlocked) {
+        copilotTurnCount++;
+        updateCopilotCounter();
+      }
 
       // Disable input while processing
       if (submitBtn) submitBtn.disabled = true;
@@ -1653,21 +1938,54 @@ POST /v2/ai/telemetry/query
       // Show typing indicator
       showCopilotTyping();
 
-      // Find answer
-      const answer = matchCopilotIntent(query);
+      try {
+        const res = await fetch('/api/copilot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'chat',
+            prompt: query,
+            history: copilotHistory.slice(0, -1)
+          })
+        });
 
-      // Natural delay (450ms) to feel responsive yet real
-      setTimeout(() => {
         hideCopilotTyping();
-        appendCopilotMessage('ai', answer);
 
-        // Re-enable input
+        if (res.ok) {
+          const data = await res.json();
+          const reply = data.reply || "I'm having trouble retrieving a response right now.";
+          copilotHistory.push({ sender: 'model', text: reply });
+          appendCopilotMessage('ai', formatAiResponse(reply));
+        } else {
+          console.warn('API returned non-200, falling back to local intent matcher');
+          const fallbackReply = matchCopilotIntent(query);
+          copilotHistory.push({ sender: 'model', text: stripHtml(fallbackReply) });
+          appendCopilotMessage('ai', fallbackReply);
+        }
+      } catch (err) {
+        console.warn('Fetch failed, falling back to local intent matcher', err);
+        hideCopilotTyping();
+        const fallbackReply = matchCopilotIntent(query);
+        copilotHistory.push({ sender: 'model', text: stripHtml(fallbackReply) });
+        appendCopilotMessage('ai', fallbackReply);
+      }
+
+      // Check 2-message gating condition
+      if (copilotTurnCount >= 2 && !leadUnlocked) {
+        isCopilotGated = true;
+        showRecruiterGateCard();
+        if (input) {
+          input.disabled = true;
+          input.placeholder = "Please unlock unlimited access above to continue...";
+        }
+        if (submitBtn) submitBtn.disabled = true;
+      } else {
         if (submitBtn) submitBtn.disabled = false;
         if (input) {
           input.disabled = false;
           input.focus();
         }
-      }, 450);
+      }
     }
 
     function handleCopilotSubmit(e) {
@@ -1684,19 +2002,39 @@ POST /v2/ai/telemetry/query
       chat.innerHTML = `
         <div class="flex gap-2.5 sm:gap-3 text-xs sm:text-sm">
           <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-xs">AI</div>
-          <div class="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 max-w-xl shadow-sm leading-relaxed text-xs sm:text-sm">
-            Hey! I'm Shubham's Career Copilot, trained on his real product management work history, case studies, startup metrics, and technical architecture. Ask me anything or try a prompt below!
+          <div class="p-3.5 sm:p-4 rounded-2xl rounded-tl-none bg-white border border-slate-200/90 text-slate-700 max-w-xl shadow-xs leading-relaxed text-xs sm:text-sm space-y-1.5">
+            <p>Hey! I'm Shubham's Career Copilot, powered by Google Gemini. I have complete context on Shubham's product leadership at Roadcast, 0-to-1 startup scale at Mummy Ki Rasoi (16x orders), catalogue engines at Fynd, and his technical Computer Science foundation.</p>
+            <p class="text-[11px] text-slate-500 font-mono">You have <strong class="text-slate-800">${leadUnlocked ? 'unlimited' : '2 free'}</strong> questions. Ask me anything or click a suggestion below!</p>
           </div>
         </div>
       `;
       const input = document.getElementById('copilot-input');
+      const submitBtn = document.getElementById('copilot-submit-btn');
+      
+      if (!leadUnlocked) {
+        copilotTurnCount = 0;
+        isCopilotGated = false;
+      }
+      copilotHistory.length = 0;
+      updateCopilotCounter();
+
       if (input) {
         input.value = '';
+        input.disabled = false;
+        input.placeholder = leadUnlocked ? "Ask Shubham anything (unlimited mode)..." : "Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers...";
         input.focus();
       }
+      if (submitBtn) submitBtn.disabled = false;
       if (window.lucide) {
         lucide.createIcons();
       }
+    }
+
+    // Initialize counter on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateCopilotCounter);
+    } else {
+      updateCopilotCounter();
     }
   </script>
 </body>
