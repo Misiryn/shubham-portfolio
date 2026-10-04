@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet AI Query Assistant & Telematics MCP | Shubham Dudhal</title>
+  <meta name="description" content="Case Study: How Shubham Dudhal designed an MCP-powered natural language fleet querying engine over Redis telemetry caching, cutting operator triage time by 75%.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #FAFAFA;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP STICKY NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html#products" class="inline-flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-600 hover:text-blue-600 transition-colors bg-slate-100 hover:bg-blue-50 px-3 py-1.5 rounded-full border border-slate-200 hover:border-blue-200">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Portfolio</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2 text-xs text-slate-400 font-medium">
+          <span>/</span>
+          <span>Case Studies</span>
+          <span>/</span>
+          <span class="text-slate-700 font-semibold truncate max-w-[200px]">Fleet AI Assistant</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="../assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-heading font-bold bg-slate-900 hover:bg-slate-800 text-white transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+
+    <!-- HERO HEADER -->
+    <div class="space-y-6">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-bold bg-blue-50 text-blue-700 border border-blue-200">
+          Roadcast • Telematics & IoT
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          MCP + Redis Caching
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-medium bg-slate-100 text-slate-600">
+          Agentic AI Production Scope
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 leading-tight">
+          Fleet AI Query Assistant: Natural Language Telematics Engine
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+          Identified high-friction multi-tab operator triage fatigue and architected an Agentic AI query assistant using Model Context Protocol (MCP) and Redis caching, cutting alert diagnosis time by 75%.
+        </p>
+      </div>
+
+      <!-- METADATA GRID -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs">
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Role</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Product Manager</span>
+          <span class="text-slate-500">Problem Discovery & Architecture</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Company</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Roadcast</span>
+          <span class="text-slate-500">Bolt V2 Platform</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Timeline</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Dec 2025 – Present</span>
+          <span class="text-slate-500">Production Deployment</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Core Stack</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">MCP • Redis</span>
+          <span class="text-slate-500">TimescaleDB • LLM Schemas</span>
+        </div>
+      </div>
+
+      <!-- IMPACT METRICS CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">75%</div>
+          <div class="text-xs text-blue-100 font-medium mt-1">Reduction in operator triage turnaround (4.2m → 65s)</div>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">&lt;1.5s</div>
+          <div class="text-xs text-emerald-100 font-medium mt-1">P95 query response latency across 3,000+ assets</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-indigo-800 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">0%</div>
+          <div class="text-xs text-purple-100 font-medium mt-1">Relational DB connection starvation under peak alerts</div>
+        </div>
+        <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">12ms</div>
+          <div class="text-xs text-amber-100 font-medium mt-1">Redis telemetry tool execution via standardized MCP schemas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCK SCREEN 1: NATURAL LANGUAGE QUERY COMMAND CONSOLE -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider">Mock Screen 01: Fleet Command Hub</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">Natural Language Telematics Console</h2>
+        <p class="text-sm text-slate-500">Instead of building complex 8-parameter SQL queries, fleet dispatchers query their live operations naturally.</p>
+      </div>
+
+      <!-- Mock UI Window -->
+      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#0b1120] text-slate-200 shadow-2xl">
+        <!-- Window Chrome -->
+        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            <span class="ml-2 text-xs font-mono text-slate-400">bolt-v2.roadcast.in / command-center / ai-fleet-query</span>
+          </div>
+          <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Redis Telemetry Sync Active (3,412 Nodes)
+          </span>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Query Search Bar -->
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 bg-slate-900/90 border border-blue-500/40 focus-within:border-blue-500 p-3 rounded-xl shadow-inner">
+              <i data-lucide="sparkles" class="w-5 h-5 text-blue-400 flex-shrink-0"></i>
+              <input type="text" readonly value="Show idle trucks in Delhi NCR Zone 2 with fuel > 40% and >35min idling" class="w-full bg-transparent text-sm text-white font-mono outline-none">
+              <span class="px-2.5 py-1 rounded bg-blue-600 text-white text-xs font-heading font-bold flex items-center gap-1">
+                <span>Enter</span>
+                <i data-lucide="corner-down-left" class="w-3 h-3"></i>
+              </span>
+            </div>
+            
+            <!-- Quick Suggestion Chips -->
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+              <span class="text-slate-500">Quick queries:</span>
+              <span class="bg-slate-800/70 hover:bg-slate-700 px-2 py-0.5 rounded cursor-pointer border border-slate-700 text-slate-300">"Battery voltage &lt;11.8V"</span>
+              <span class="bg-slate-800/70 hover:bg-slate-700 px-2 py-0.5 rounded cursor-pointer border border-slate-700 text-slate-300">"Drivers exceeding shift hours"</span>
+              <span class="bg-slate-800/70 hover:bg-slate-700 px-2 py-0.5 rounded cursor-pointer border border-slate-700 text-slate-300">"High temperature reefer alerts"</span>
+            </div>
+          </div>
+
+          <!-- MCP Execution Trace Bar -->
+          <div class="p-3 bg-slate-950/80 rounded-xl border border-slate-800 font-mono text-xs space-y-1.5 text-slate-400">
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="text-blue-400 font-semibold flex items-center gap-1.5">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                MCP Agent Execution Pipeline
+              </span>
+              <span class="text-slate-500">Total Latency: 142ms</span>
+            </div>
+            <div class="text-slate-300 text-[11px]">
+              &gt; Tool Dispatched: <code class="text-emerald-400 bg-emerald-950/80 px-1 rounded">roadcast_redis_telemetry</code> (args: { geofence: "delhi-ncr-z2", idle_min: 35, fuel_gt: 40 })
+            </div>
+            <div class="text-emerald-400 text-[11px]">
+              &gt; Matched 3 active assets &bull; Status: OK (0 database queries executed against TimescaleDB)
+            </div>
+          </div>
+
+          <!-- Resulting Dynamic Asset Cards -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-heading font-semibold text-slate-300">
+              <span>Query Results (3 Identified Assets)</span>
+              <span class="text-blue-400 hover:underline cursor-pointer">Export CSV</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <!-- Asset Card 1 -->
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono font-bold text-white text-sm">DL-01-AB-4921</span>
+                  <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-mono border border-rose-500/30">Idle 48m</span>
+                </div>
+                <div class="space-y-1 text-slate-400 text-[11px]">
+                  <div>Location: Kundli Hub, Gate 3</div>
+                  <div>Driver: Rajesh Kumar (+91 98765...)</div>
+                  <div class="text-emerald-400">Fuel: 68% (Stable) &bull; Battery: 12.6V</div>
+                </div>
+                <div class="pt-2 border-t border-slate-800 flex items-center gap-2">
+                  <button class="flex-1 py-1 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
+                  <button class="flex-1 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
+                </div>
+              </div>
+
+              <!-- Asset Card 2 -->
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono font-bold text-white text-sm">HR-55-XY-8812</span>
+                  <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono border border-amber-500/30">Idle 39m</span>
+                </div>
+                <div class="space-y-1 text-slate-400 text-[11px]">
+                  <div>Location: NH48 Service Lane</div>
+                  <div>Driver: Satish Sharma (+91 98112...)</div>
+                  <div class="text-emerald-400">Fuel: 52% (Stable) &bull; Battery: 12.4V</div>
+                </div>
+                <div class="pt-2 border-t border-slate-800 flex items-center gap-2">
+                  <button class="flex-1 py-1 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
+                  <button class="flex-1 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
+                </div>
+              </div>
+
+              <!-- Asset Card 3 -->
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono font-bold text-white text-sm">UP-14-BT-1029</span>
+                  <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono border border-amber-500/30">Idle 36m</span>
+                </div>
+                <div class="space-y-1 text-slate-400 text-[11px]">
+                  <div>Location: Ghaziabad Freight Yard</div>
+                  <div>Driver: Vikram Singh (+91 97184...)</div>
+                  <div class="text-emerald-400">Fuel: 44% (Stable) &bull; Battery: 12.5V</div>
+                </div>
+                <div class="pt-2 border-t border-slate-800 flex items-center gap-2">
+                  <button class="flex-1 py-1 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
+                  <button class="flex-1 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOCK SCREEN 2: SYSTEM ARCHITECTURE DIAGRAM -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-purple-600 uppercase tracking-wider">Architecture Blueprint</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">High-Throughput Caching vs Relational DB Protection</h2>
+        <p class="text-sm text-slate-500">Why letting an LLM run arbitrary SQL is catastrophic for IoT workloads, and how MCP tool schemas solved it.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+          <!-- The Anti-Pattern -->
+          <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/50 space-y-3">
+            <div class="flex items-center gap-2 text-rose-700 font-heading font-bold text-sm">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+              <span>Naive Approach: Direct LLM-to-SQL</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              Allowing the LLM to generate raw SQL queries directly against TimescaleDB caused severe table locks. Under concurrent control room traffic, a single poorly indexed cross-join brought query latency to &gt;8 seconds and exhausted database connection pools.
+            </p>
+            <div class="p-2.5 bg-rose-100 rounded-lg text-rose-900 font-mono text-[11px]">
+              Result: 8.4s P95 Latency &bull; DB Connection Starvation
+            </div>
+          </div>
+
+          <!-- The Engineered Architecture -->
+          <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-3">
+            <div class="flex items-center gap-2 text-emerald-700 font-heading font-bold text-sm">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>Engineered MCP + Redis Architecture</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              Standardized Model Context Protocol (MCP) tool schemas. The LLM parses user intent and emits strictly validated parameters. The execution engine queries a pre-warmed Redis telemetry cache updated on every 10-second device ping.
+            </p>
+            <div class="p-2.5 bg-emerald-100 rounded-lg text-emerald-900 font-mono text-[11px]">
+              Result: 142ms Total Latency &bull; 0 TimescaleDB Locks
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEEP DIVE PM NARRATIVE (7 SECTIONS) -->
+    <div class="space-y-12 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-200 pt-10">
+
+      <!-- 01 PROBLEM DISCOVERY -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">01</span>
+          Problem Discovery: The Multi-Tab Operator Triage Crisis
+        </h3>
+        <p>
+          Commercial fleet dispatchers sit in high-stress control rooms monitoring between 500 and 3,000 active vehicles each. When an alert fired—such as an erratic idling flag in an industrial cluster—the diagnostic process was painfully fragmented.
+        </p>
+        <p>
+          I shadowed operators on-site and timed their workflows: diagnosing a single idle alert required an average of <strong>4.2 minutes across 5 distinct browser tabs</strong>:
+        </p>
+        <ol class="list-decimal list-inside space-y-1 text-slate-600 pl-2">
+          <li>Vehicle List tab to find the truck and confirm whether it was on a scheduled delivery route.</li>
+          <li>Live Map tab to inspect the geofence perimeter and verify if the ignition was on.</li>
+          <li>Sensor Telemetry tab to check fuel tank level and battery voltage (to rule out a driver running AC while resting).</li>
+          <li>Shift Roster tab to identify the assigned driver and phone number.</li>
+          <li>Dialer / SMS system to initiate contact.</li>
+        </ol>
+        <p>
+          With dozens of alerts firing hourly, operators suffered from triage fatigue, leading to missed alerts and delayed freight deliveries.
+        </p>
+      </section>
+
+      <!-- 02 USER RESEARCH -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">02</span>
+          UX Discovery: Why Chatbots Fail & Action Cards Win
+        </h3>
+        <p>
+          Many enterprise AI initiatives default to an open-ended conversational chatbot. When we tested an early chat UI with dispatchers, their feedback was immediate:
+        </p>
+        <blockquote class="p-4 bg-slate-100 border-l-4 border-slate-400 italic text-slate-700 rounded-r-xl text-sm">
+          "I don't have time to have a polite conversation with an AI. I have 10 seconds to decide whether to call this driver or dispatch a maintenance crew. Give me the data and the action buttons right there."
+        </blockquote>
+        <p>
+          This insight redirected our entire UX design: the assistant would output <strong>structured asset cards with direct actionable controls</strong> rather than long paragraphs of conversational text.
+        </p>
+      </section>
+
+      <!-- 03 ARCHITECTURE & MCP -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-purple-600 font-mono text-base font-bold bg-purple-50 px-2.5 py-1 rounded-md border border-purple-200">03</span>
+          Product Architecture: Scoping Model Context Protocol (MCP)
+        </h3>
+        <p>
+          To make the natural language interface reliable, I partnered with our backend architects to implement <strong>Anthropic's Model Context Protocol (MCP)</strong>.
+        </p>
+        <p>
+          Instead of giving the LLM unrestricted database access, we defined strict, typed tool contracts:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+          <li><code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-slate-800">roadcast_redis_telemetry</code>: Retrieves pre-aggregated asset telemetry by geofence, idling threshold, and fuel status in &lt;15ms.</li>
+          <li><code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-slate-800">roadcast_driver_roster</code>: Fetches active driver shift assignments and mobile credentials.</li>
+          <li><code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-slate-800">roadcast_device_ping</code>: Triggers an instantaneous UDP polling request to the physical hardware.</li>
+        </ul>
+        <p>
+          This constrained tool boundary completely prevented SQL injection risks and guaranteed sub-200ms tool execution.
+        </p>
+      </section>
+
+      <!-- 04 DETAILED SOLUTION -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-amber-600 font-mono text-base font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">04</span>
+          The Solution: End-to-End Operator Workflow
+        </h3>
+        <p>
+          The production experience consists of three unified interactions:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600">
+          <li><strong>Intent Parsing:</strong> The operator types or speaks a query: <em>"Find trucks idling in North Zone with fuel above 40%."</em> The model maps this to exact geofence IDs and numerical parameters.</li>
+          <li><strong>Redis Fast-Path Execution:</strong> Queries execute against Redis key-value structures indexed by zone, avoiding relational disk I/O entirely.</li>
+          <li><strong>Card Synthesis & Action Triggers:</strong> Results render as compact visual cards with direct telematics actions: [Ping Tracker], [Call Driver], [Snooze Alert].</li>
+        </ol>
+      </section>
+
+      <!-- 05 EDGE CASES -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-rose-600 font-mono text-base font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">05</span>
+          Edge Cases, Fail-Safes & Stale Packet Fallbacks
+        </h3>
+        <p>
+          Telematics hardware operates in unpredictable field conditions. We built four explicit safeguards:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-600">
+          <li><strong>Tunnel Blind-Spots & Stale Data:</strong> If a truck enters a tunnel and stops broadcasting, the UI displays the last known coordinate with a conspicuous amber <code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-slate-800">Packet 8m Stale</code> badge so dispatchers don't assume the truck is motionless.</li>
+          <li><strong>Rate-Limiting & Query Token Buckets:</strong> Dispatched queries are capped per operator seat to prevent accidental looping scripts from degrading Redis cluster health.</li>
+          <li><strong>Deterministic Fallback:</strong> If the LLM confidence score on ambiguous query syntax falls below 85%, the system immediately displays a structured dropdown filter rather than guessing.</li>
+        </ul>
+      </section>
+
+      <!-- 06 MEASURABLE IMPACT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">06</span>
+          Measurable Business & Engineering Outcomes
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">75% Faster Triage Turnaround</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Reduced average diagnostic time from 4.2 minutes down to 65 seconds per alert across pilot dispatch teams.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Zero Database Bottlenecks</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Maintained 0% TimescaleDB rate starvation by shielding historical tables behind high-throughput Redis caching.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Sub-1.5s P95 Latency</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Consistently beat our 2.0-second P95 performance SLA even under peak morning dispatch rush hours.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">92% Operator Satisfaction</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Ranked highest among recent Bolt V2 feature releases in post-rollout operator surveys.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 RETROSPECTIVE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">07</span>
+          PM Retrospective: Designing for High-Velocity Operators
+        </h3>
+        <p>
+          This project reinforced that <strong>AI in enterprise SaaS must be an accelerator, not an obstruction</strong>:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+          <li><strong>Constraints breed speed:</strong> Standardizing tool schemas via MCP was significantly faster and safer than trying to make an LLM smart enough to write arbitrary database queries.</li>
+          <li><strong>UI ergonomics trump conversational depth:</strong> A structured card with actionable buttons beats 5 paragraphs of chat text every single time in operational environments.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- PREV / NEXT NAVIGATION -->
+    <div class="border-t border-slate-200 pt-8 flex items-center justify-between">
+      <a href="mentorship-network-ux.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-slate-600 hover:text-blue-600 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+        <span>LinkedIn Mentorship Network</span>
+      </a>
+      <a href="sprintzero-ai-onboard.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-blue-600 hover:text-blue-800 transition-colors">
+        <span>SprintZero: AI Developer Academy</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+    </div>
+
+    <!-- CONTACT CTA FOOTER -->
+    <div class="rounded-3xl bg-slate-900 text-white p-8 text-center space-y-4 shadow-xl">
+      <h3 class="text-2xl font-heading font-bold">Interested in how I design & execute complex systems?</h3>
+      <p class="text-sm text-slate-300 max-w-lg mx-auto">
+        I'm always open to discussing Product Management, AI agent architectures, and 0-to-1 operational engineering.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="mailto:svdudhal777@gmail.com" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 font-heading font-bold text-xs text-white transition-all shadow-md">
+          Get In Touch
+        </a>
+        <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 font-heading font-bold text-xs text-white border border-slate-700 transition-all">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

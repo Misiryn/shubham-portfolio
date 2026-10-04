@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SprintZero: AI-Guided Developer Induction & Codebase Mastery | Shubham Dudhal</title>
+  <meta name="description" content="Case Study: How Shubham Dudhal designed and built SprintZero (Roadcast Academy)—an automated 2-week AI developer onboarding system cutting senior mentoring tax by 85%.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #FAFAFA;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .code-preview {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP STICKY NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html#products" class="inline-flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-600 hover:text-blue-600 transition-colors bg-slate-100 hover:bg-blue-50 px-3 py-1.5 rounded-full border border-slate-200 hover:border-blue-200">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Portfolio</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2 text-xs text-slate-400 font-medium">
+          <span>/</span>
+          <span>Case Studies</span>
+          <span>/</span>
+          <span class="text-slate-700 font-semibold truncate max-w-[200px]">SprintZero</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="../assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-heading font-bold bg-slate-900 hover:bg-slate-800 text-white transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+
+    <!-- HERO HEADER -->
+    <div class="space-y-6">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-bold bg-blue-50 text-blue-700 border border-blue-200">
+          Roadcast • Engineering Academy
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          RAG + RediSearch + LLM Judge
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-medium bg-slate-100 text-slate-600">
+          Formerly Bolt-Onboard
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 leading-tight">
+          SprintZero: AI-Guided Developer Induction & Codebase Mastery Platform
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+          Designed an automated 2-week developer onboarding system that collapsed engineering ramp-up from 6–8 weeks to 10 working days, cutting senior engineering mentoring tax by 85% with automated LLM gatekeeping.
+        </p>
+      </div>
+
+      <!-- METADATA GRID -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs">
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Role</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Product Lead</span>
+          <span class="text-slate-500">Systems Architecture & PRD</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Company</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Roadcast</span>
+          <span class="text-slate-500">Internal AI Platform</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Target Audience</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Engineering Hires</span>
+          <span class="text-slate-500">Full-Stack & Backend Devs</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Core Stack</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">bolt-ai • Redis</span>
+          <span class="text-slate-500">Docker Sandbox • Go</span>
+        </div>
+      </div>
+
+      <!-- IMPACT METRICS CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">10 Days</div>
+          <div class="text-xs text-blue-100 font-medium mt-1">From Day 1 to First Production PR (down from 6-8 weeks)</div>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">-85%</div>
+          <div class="text-xs text-emerald-100 font-medium mt-1">Drop in senior tech lead mentoring tax (30-40h → &lt;4h)</div>
+        </div>
+        <div class="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">100%</div>
+          <div class="text-xs text-indigo-100 font-medium mt-1">Gated test verification on business rules (Semi-Used licensing)</div>
+        </div>
+        <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">24/7</div>
+          <div class="text-xs text-amber-100 font-medium mt-1">Bolt Mentor AI sidecar unblocking devs zero-interruption</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCK SCREENS SHOWCASE (HERO VISUAL) -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider">UI Architecture & System Walkthrough</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">The SprintZero Learning Console</h2>
+        <p class="text-sm text-slate-500">Live operational interface combining syllabus tracking, telemetry architecture visualizer, scenario quiz checkpoints, and the Bolt Mentor AI sidecar.</p>
+      </div>
+
+      <!-- High-Res Mock Screen Frame -->
+      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#080d1a] shadow-2xl">
+        <!-- Window Chrome -->
+        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            <span class="ml-2 text-xs font-mono text-slate-400">sprintzero.roadcast.internal / academy / day-3-telemetry</span>
+          </div>
+          <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded">Live Prototype Verified</span>
+        </div>
+
+        <!-- Embedded High-Res Image -->
+        <div class="relative group">
+          <img src="../assets/sprintzero-ui.jpg" alt="SprintZero Academy Interface" class="w-full object-cover">
+          <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-300">
+            Clickable 5-Stage Web Application
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Callout Cards for Screen 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1.5">
+          <div class="font-heading font-bold text-slate-900 flex items-center gap-1.5">
+            <i data-lucide="compass" class="w-4 h-4 text-blue-600"></i>
+            <span>10-Day Spiral Curriculum</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">
+            Moves from high-level company purpose on Day 1 to business logic (Day 4) and live Go monorepo refactoring labs (Day 9) with automated unlock gates.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1.5">
+          <div class="font-heading font-bold text-slate-900 flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+            <span>AI Checkpoint Judge</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">
+            Evaluates scenario quizzes and code bug fixes using <code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-slate-800">judge.py</code> against strict rubrics before allowing progression.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1.5">
+          <div class="font-heading font-bold text-slate-900 flex items-center gap-1.5">
+            <i data-lucide="bot" class="w-4 h-4 text-purple-600"></i>
+            <span>Bolt Mentor 24/7 Sidecar</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">
+            In-browser conversational assistant grounded in GitBook specs and code ADRs, resolving developer doubts without interrupting senior leads.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MOCK SCREEN 2: 10-DAY CURRICULUM STEPPER -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">Pedagogical Design</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">Interactive 10-Day Progression Map</h2>
+        <p class="text-sm text-slate-500">The spiral learning path designed to eliminate the "blank screen shock" of a 15-microservice monorepo.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
+        <!-- Week 1 & 2 Tabs -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex gap-2">
+            <span class="px-3 py-1 rounded-lg text-xs font-heading font-bold bg-blue-600 text-white shadow-sm">Week 1: Product & Domain Logic</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-heading font-bold bg-slate-100 text-slate-600">Week 2: Codebase & PR Labs</span>
+          </div>
+          <span class="text-xs font-mono font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+            Gateway 1 Pass Required to Unlock Week 2
+          </span>
+        </div>
+
+        <!-- 5-Day Interactive Pipeline -->
+        <div class="space-y-3 font-mono text-xs">
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-[11px]">✓</span>
+              <div>
+                <span class="font-bold text-slate-900 font-sans text-sm">Day 1: Company Induction & Founders' Story</span>
+                <span class="text-slate-500 block text-[11px]">Why Roadcast was founded, logistics market dynamics, ULIP integration, enterprise customer personas.</span>
+              </div>
+            </div>
+            <span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold text-[10px]">COMPLETE</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-[11px]">✓</span>
+              <div>
+                <span class="font-bold text-slate-900 font-sans text-sm">Day 2: Bolt V2 Core Domains</span>
+                <span class="text-slate-500 block text-[11px]">Fleet tracking, video telematics (DMS/ADAS), fuel theft sensor heuristics, BMS battery curves.</span>
+              </div>
+            </div>
+            <span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold text-[10px]">COMPLETE</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-blue-200 bg-blue-50/50 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[11px]">3</span>
+              <div>
+                <span class="font-bold text-blue-950 font-sans text-sm">Day 3: Telemetry Architecture Deep Dive</span>
+                <span class="text-blue-800/80 block text-[11px]">IoT Devices → Traccar Edge Gateways → Kafka/Redis Stream Processing → Go Microservices.</span>
+              </div>
+            </div>
+            <span class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-bold text-[10px]">IN PROGRESS</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-white flex items-center justify-between opacity-80">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-[11px]">4</span>
+              <div>
+                <span class="font-bold text-slate-800 font-sans text-sm">Day 4: Core Business Rule Invariants</span>
+                <span class="text-slate-500 block text-[11px]">Semi-Used licensing lifecycle, multi-tenant org hierarchy scoping, RBAC permission inheritance.</span>
+              </div>
+            </div>
+            <span class="text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-bold text-[10px]">LOCKED</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-amber-200 bg-amber-50/40 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-[11px]">5</span>
+              <div>
+                <span class="font-bold text-amber-950 font-sans text-sm">Day 5: Gateway 1 Certification Exam</span>
+                <span class="text-amber-800/80 block text-[11px]">Automated AI Judge evaluation on architectural failure modes, anti-patterns, and domain logic.</span>
+              </div>
+            </div>
+            <span class="text-amber-800 bg-amber-100 px-2 py-0.5 rounded font-bold text-[10px]">EXAM GATE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEEP-DIVE CASE STUDY NARRATIVE (7 SECTIONS) -->
+    <div class="space-y-12 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-200 pt-10">
+
+      <!-- 01 PROBLEM STATEMENT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">01</span>
+          Problem Discovery & The Senior Bandwidth Bottleneck
+        </h3>
+        <p>
+          At Roadcast, engineering velocity was experiencing severe friction during rapid team expansion. Every newly hired developer faced a steep, unguided learning curve across our IoT telematics monorepo (15+ Go microservices, GraphQL codegen, and an Angular 17 frontend).
+        </p>
+        <div class="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-xl space-y-1 text-sm text-rose-900">
+          <div class="font-heading font-bold">The Three Systemic Costs of Manual Onboarding:</div>
+          <ul class="list-disc list-inside space-y-1 text-rose-800">
+            <li><strong>The 6–8 Week Ramp-Up:</strong> Developers spent nearly two months reading scattered wikis and hesitating to commit production code.</li>
+            <li><strong>The Senior Engineering Tax:</strong> Senior Leads lost <strong>30 to 40 hours per new hire</strong> answering repetitive questions and explaining basic domain rules.</li>
+            <li><strong>Production Invariant Breaches:</strong> Without gated verification, new hires repeatedly introduced subtle defects in critical business rules—such as corrupting the multi-state licensing engine (Semi-Used license lifecycles) or violating tenant isolation.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 02 USER RESEARCH & STAKEHOLDER INTERVIEWS -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">02</span>
+          Stakeholder Discovery: Interviewing New Hires & Tech Leads
+        </h3>
+        <p>
+          To understand where the friction lived, I audited recent developer onramp experiences. A specific case study involved Sanjana Yadav, a talented full-stack engineer who joined Roadcast:
+        </p>
+        <blockquote class="p-4 bg-slate-100 border-l-4 border-slate-400 italic text-slate-700 rounded-r-xl text-sm">
+          "On Day 1, I wasn't clear on why Roadcast was built the way it was, how our hardware connects to the servers, or what happens when an enterprise client assigns a vehicle license. I had to hunt through 4 different GitBook pages and wait for senior devs to have free time to unblock me."
+        </blockquote>
+        <p>
+          Concurrently, senior leads reported context-switching fatigue: they were spending 25% of their working week giving the same verbal walk-throughs of Traccar protocols and Docker compose configurations.
+        </p>
+      </section>
+
+      <!-- 03 PRODUCT ARCHITECTURE & ZERO-REINVENTION LEVERAGE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-purple-600 font-mono text-base font-bold bg-purple-50 px-2.5 py-1 rounded-md border border-purple-200">03</span>
+          Product Architecture: The Zero-Reinvention Approach
+        </h3>
+        <p>
+          Rather than embarking on a 6-month greenfield AI platform build, I formulated a <strong>zero-reinvention architecture</strong> leveraging existing internal Roadcast infrastructure:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-1">
+            <span class="font-bold text-blue-600 font-sans text-sm block">1. Knowledge Feeding Engine</span>
+            <p class="text-slate-600 font-sans">
+              Ingested our live GitBook specifications via <code class="font-mono bg-slate-100 px-1 py-0.5 rounded">llms.txt</code> into a RediSearch Vector Store with Docling chunking.
+            </p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-1">
+            <span class="font-bold text-emerald-600 font-sans text-sm block">2. Automated LLM Judge</span>
+            <p class="text-slate-600 font-sans">
+              Engineered <code class="font-mono bg-slate-100 px-1 py-0.5 rounded">judge.py</code> utilizing strict semantic rubrics to grade open-ended scenario exams and bug hunts objectively.
+            </p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-1">
+            <span class="font-bold text-purple-600 font-sans text-sm block">3. Docker Sandbox Runner</span>
+            <p class="text-slate-600 font-sans">
+              Ephemeral isolated containers executing unit tests for new hires' refactoring exercises without touching staging environments.
+            </p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-1">
+            <span class="font-bold text-amber-600 font-sans text-sm block">4. Bolt Mentor Sidecar</span>
+            <p class="text-slate-600 font-sans">
+              24/7 conversational assistant grounded strictly in verified ADRs, preventing hallucinations and unblocking developers at midnight.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 THE 2-WEEK SPIRAL CURRICULUM -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-amber-600 font-mono text-base font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">04</span>
+          The Pedagogical Framework: 10 Days from Day 1 to Production
+        </h3>
+        <p>
+          I structured the curriculum using a <strong>Spiral Pedagogical Model</strong>:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-600">
+          <li><strong>Days 1–2 (Company Purpose & Core Domains):</strong> Why Roadcast exists, founders' vision, fleet telematics, fuel sensor math, battery management system (BMS) curves.</li>
+          <li><strong>Days 3–4 (System Architecture & Business Rules):</strong> Traccar IoT data flow, Redis pipeline, and critical licensing invariants (Active vs Semi-Used vs Available).</li>
+          <li><strong>Day 5 (Gateway 1 Assessment):</strong> Automated 10-question architectural failure scenario exam. A score of &ge;80% is mandatory to unlock Week 2.</li>
+          <li><strong>Days 6–8 (Monorepo Deep Dive):</strong> Go services, GraphQL mutations, ent ORM migrations, and Angular 17 signal components.</li>
+          <li><strong>Days 9–10 (Bug Hunt Lab & Capstone PR):</strong> Fixing an intentionally planted bug in an isolated sandbox, undergoing AI code review, and shipping their first real PR to development!</li>
+        </ul>
+      </section>
+
+      <!-- 05 HARDENING & FAIL-SAFES -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-rose-600 font-mono text-base font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">05</span>
+          Edge Cases, Anti-Cheating & AI Judge Calibration
+        </h3>
+        <p>
+          Automating evaluation with LLMs carries risks of sycophancy or hallucinated passes. I established rigorous system guardrails:
+        </p>
+        <div class="space-y-2">
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <span class="font-heading font-bold text-slate-900 text-sm">Deterministic Rubric Scoring:</span>
+            <p class="text-slate-600 text-xs mt-1">The LLM Judge does not grade on vague "good effort" impressions. It executes against a mandatory checklist (e.g. "Did candidate identify that Semi-Used licenses preserve vehicle history while releasing the IMEI slot?").</p>
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <span class="font-heading font-bold text-slate-900 text-sm">Automated Test Execution Sandbox:</span>
+            <p class="text-slate-600 text-xs mt-1">Code submissions are validated by running real unit tests in Docker. The AI inspects the test run output, compilation logs, and git diff before rendering a verdict.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 MEASURABLE IMPACT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">06</span>
+          Measurable Business & Engineering Outcomes
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Ramp-Up Compressed by 75%</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Collapsed new hire time-to-first-PR from 3–4 weeks down to exactly Day 10, with full autonomous development achieved in 2 weeks instead of 6–8 weeks.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Senior Engineering Bandwidth Recovered</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Cut senior lead onboarding overhead from 30–40 hours per hire down to &lt;4 hours (only final PR sign-off and culture lunch).
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Zero Business Invariant Regressions</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              100% of tested developers passed explicit verification on multi-tenancy and licensing lifecycles before receiving push permissions.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Executive & Board Praise</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Presented to CEO Rahul Mehra and CTO as a premier operational efficiency case study for scaling Roadcast's tech team nationwide.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 RETROSPECTIVE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">07</span>
+          PM Retrospective & Lessons in Internal Tooling
+        </h3>
+        <p>
+          Building for your own engineering peers requires an exceptional standard of rigor. Three fundamental principles guided this product's success:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600">
+          <li><strong>Internal Tools Deserve 0-to-1 Product Craft:</strong> Just because your users are internal colleagues doesn't mean you can skimp on UX, aesthetics, or onboarding friction. High craft creates high engagement.</li>
+          <li><strong>Leverage Existing Infrastructure Over Reinvention:</strong> Repurposing our live GitBook feeds and bolt-ai RAG pipelines saved months of unnecessary backend development.</li>
+          <li><strong>Objective Gatekeeping Builds Psychological Safety:</strong> New hires loved the system because it gave them undeniable proof that they were ready to ship to production without fear of breaking things.</li>
+        </ol>
+      </section>
+
+    </div>
+
+    <!-- PREV / NEXT NAVIGATION -->
+    <div class="border-t border-slate-200 pt-8 flex items-center justify-between">
+      <a href="fleet-ai-telematics.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-slate-600 hover:text-blue-600 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+        <span>Fleet AI Query Assistant</span>
+      </a>
+      <a href="driver-safety-intercom.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-blue-600 hover:text-blue-800 transition-colors">
+        <span>Voice AI Driver Safety Intercom</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+    </div>
+
+    <!-- CONTACT CTA FOOTER -->
+    <div class="rounded-3xl bg-slate-900 text-white p-8 text-center space-y-4 shadow-xl">
+      <h3 class="text-2xl font-heading font-bold">Interested in how I design & execute complex systems?</h3>
+      <p class="text-sm text-slate-300 max-w-lg mx-auto">
+        I'm always open to discussing Product Management, AI agent architectures, and 0-to-1 operational engineering.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="mailto:svdudhal777@gmail.com" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 font-heading font-bold text-xs text-white transition-all shadow-md">
+          Get In Touch
+        </a>
+        <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 font-heading font-bold text-xs text-white border border-slate-700 transition-all">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

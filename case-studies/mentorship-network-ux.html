@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Mentorship Network & UX Teardown | Shubham Dudhal</title>
+  <meta name="description" content="Case Study: How Shubham Dudhal researched, discovered, and prototyped a 15-minute micro-mentorship solution to solve the 95% cold InMail drop-off problem on LinkedIn.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #FAFAFA;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-600 selection:text-white">
+
+  <!-- TOP STICKY NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html#products" class="inline-flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-600 hover:text-amber-600 transition-colors bg-slate-100 hover:bg-amber-50 px-3 py-1.5 rounded-full border border-slate-200 hover:border-amber-200">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Portfolio</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2 text-xs text-slate-400 font-medium">
+          <span>/</span>
+          <span>Case Studies</span>
+          <span>/</span>
+          <span class="text-slate-700 font-semibold truncate max-w-[200px]">LinkedIn Mentorship</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="../assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-heading font-bold bg-slate-900 hover:bg-slate-800 text-white transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+
+    <!-- HERO HEADER -->
+    <div class="space-y-6">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-bold bg-amber-50 text-amber-700 border border-amber-200">
+          Product Discovery & UX Prototype
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+          User Research • Figma System
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-medium bg-slate-100 text-slate-600">
+          0-to-1 Product Craft
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 leading-tight">
+          LinkedIn Mentorship Network: 15-Minute Micro-Sprints
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+          Conducted 25+ user interviews unpacking why 95% of cold mentorship messages fail, followed by an interactive Figma prototype for structured, bounded 15-minute micro-mentorship tracks.
+        </p>
+      </div>
+
+      <!-- METADATA GRID -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs">
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Role</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Product Designer & PM</span>
+          <span class="text-slate-500">Research & Interactive Prototype</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Interviews</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">25+ Participants</span>
+          <span class="text-slate-500">Mentors & Aspirants</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Deliverable</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">High-Fidelity Prototype</span>
+          <span class="text-slate-500">Figma Design System</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Usability Result</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">80% Unassisted</span>
+          <span class="text-slate-500">Task Completion Rate</span>
+        </div>
+      </div>
+
+      <!-- IMPACT METRICS CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">95% &rarr; 35%</div>
+          <div class="text-xs text-amber-100 font-medium mt-1">Projected reduction in mentorship drop-off by removing open-ended ambiguity</div>
+        </div>
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">15 Min</div>
+          <div class="text-xs text-blue-100 font-medium mt-1">Strict time-bounded sprint format respecting mentor calendar scarcity</div>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">80%</div>
+          <div class="text-xs text-emerald-100 font-medium mt-1">Unassisted task completion in 10-person interactive usability testing</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-indigo-800 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">1-Tap</div>
+          <div class="text-xs text-purple-100 font-medium mt-1">Calendar slot reservation replacing endless back-and-forth scheduling messages</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCK SCREEN 1: MOBILE PROTOTYPE CANVAS -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-amber-600 uppercase tracking-wider">Mock Screen 01: Mobile Experience Prototype</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">The 15-Minute Micro-Mentorship Flow</h2>
+        <p class="text-sm text-slate-500">Interactive mobile screens guiding the mentee from topic-based mentor discovery to automated calendar confirmation.</p>
+      </div>
+
+      <!-- Mobile Screen Mockups Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Mobile Screen 1: Discovery Card -->
+        <div class="rounded-3xl border-4 border-slate-900 bg-white p-4 shadow-xl space-y-4 text-xs">
+          <!-- Status Bar -->
+          <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span>9:41</span>
+            <div class="flex items-center gap-1">
+              <i data-lucide="wifi" class="w-3 h-3"></i>
+              <i data-lucide="battery" class="w-3 h-3"></i>
+            </div>
+          </div>
+
+          <div class="border-b border-slate-100 pb-2">
+            <span class="text-[10px] font-heading font-bold text-blue-600 uppercase">Available Sprints</span>
+            <h4 class="font-heading font-bold text-slate-900 text-sm">Product Strategy Track</h4>
+          </div>
+
+          <!-- Mentor Card -->
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-2.5">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center font-heading text-xs">
+                AK
+              </div>
+              <div>
+                <span class="font-heading font-bold text-slate-900 block text-xs">Ananya Kapoor</span>
+                <span class="text-slate-500 text-[10px]">VP of Product &bull; Ex-Flipkart</span>
+              </div>
+            </div>
+
+            <div class="p-2 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-[11px] space-y-1">
+              <div class="font-bold flex items-center gap-1">
+                <i data-lucide="clock" class="w-3 h-3"></i>
+                <span>15-Min Sprint Topic:</span>
+              </div>
+              <div>"Transitioning from Engineering to B2B Product Management"</div>
+            </div>
+
+            <div class="flex items-center justify-between text-[11px] pt-1">
+              <span class="text-emerald-600 font-bold">2 Slots Open This Week</span>
+              <button class="px-3 py-1 bg-slate-900 text-white rounded-full font-bold text-[10px]">Select</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Screen 2: Mandatory Agenda Sheet -->
+        <div class="rounded-3xl border-4 border-slate-900 bg-white p-4 shadow-xl space-y-4 text-xs">
+          <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span>9:42</span>
+            <span class="font-heading font-bold text-slate-800">Step 2 of 3</span>
+          </div>
+
+          <div class="border-b border-slate-100 pb-2">
+            <span class="text-[10px] font-heading font-bold text-amber-600 uppercase">Structured Agenda</span>
+            <h4 class="font-heading font-bold text-slate-900 text-sm">Select Your Focus Area</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Mentors decline vague requests. Pick exactly 1 goal:</p>
+          </div>
+
+          <!-- Agenda Selector Chips -->
+          <div class="space-y-2">
+            <div class="p-2.5 rounded-xl border-2 border-amber-500 bg-amber-50/50 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-slate-900 block text-xs">📄 Resume & Portfolio Teardown</span>
+                <span class="text-slate-500 text-[10px]">Get 3 actionable critique points</span>
+              </div>
+              <span class="w-4 h-4 rounded-full bg-amber-500 text-white flex items-center justify-center text-[10px]">✓</span>
+            </div>
+
+            <div class="p-2.5 rounded-xl border border-slate-200 bg-white flex items-center justify-between opacity-70">
+              <div>
+                <span class="font-bold text-slate-800 block text-xs">🎯 Mock PM Case Interview</span>
+                <span class="text-slate-500 text-[10px]">10-min prompt + 5-min feedback</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl border border-slate-200 bg-white flex items-center justify-between opacity-70">
+              <div>
+                <span class="font-bold text-slate-800 block text-xs">🧭 Career Pivot Strategy</span>
+                <span class="text-slate-500 text-[10px]">Navigating promotion & leadership</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="w-full py-2 bg-slate-900 text-white rounded-xl font-bold text-xs">Continue to Slot Selection &rarr;</button>
+        </div>
+
+        <!-- Mobile Screen 3: Instant Confirmation -->
+        <div class="rounded-3xl border-4 border-slate-900 bg-white p-4 shadow-xl space-y-4 text-xs">
+          <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span>9:43</span>
+            <span class="text-emerald-600 font-bold">Confirmed</span>
+          </div>
+
+          <div class="text-center py-3 space-y-2">
+            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
+              <i data-lucide="check" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-heading font-extrabold text-slate-900 text-base">Sprint Locked In!</h4>
+            <p class="text-[11px] text-slate-500">Google Meet invite dispatched to both calendars.</p>
+          </div>
+
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5 text-[11px]">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Date:</span>
+              <span class="font-bold text-slate-900">Thursday, Oct 8</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Time:</span>
+              <span class="font-bold text-slate-900">6:30 PM – 6:45 PM IST</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Topic:</span>
+              <span class="font-bold text-amber-700">Resume Teardown</span>
+            </div>
+          </div>
+
+          <button class="w-full py-2 bg-emerald-600 text-white rounded-xl font-bold text-xs">Add to Google Calendar</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEEP DIVE PM NARRATIVE (7 SECTIONS) -->
+    <div class="space-y-12 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-200 pt-10">
+
+      <!-- 01 PROBLEM STATEMENT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-amber-600 font-mono text-base font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">01</span>
+          Problem Discovery: The 95% Cold InMail Failure Rate
+        </h3>
+        <p>
+          LinkedIn is the world's largest professional network, yet professional mentorship on the platform is fundamentally broken. Aspiring product managers, engineers, and career switchers send thousands of cold InMails weekly asking senior leaders to <em>"pick their brain"</em> or <em>"connect for a 30-minute coffee chat."</em>
+        </p>
+        <p>
+          Our discovery audit revealed that <strong>over 95% of these cold outreach messages are either ignored or declined</strong>. Both sides experience acute mutual frustration:
+        </p>
+        <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+          <li><strong>Seekers</strong> feel invisible, demoralized, and assume leaders simply don't care.</li>
+          <li><strong>Mentors</strong> feel overwhelmed by vague, unbounded requests that threaten their limited calendar availability.</li>
+        </ul>
+      </section>
+
+      <!-- 02 USER RESEARCH -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">02</span>
+          User Research: 25+ Semi-Structured Interviews
+        </h3>
+        <p>
+          I conducted 25+ in-depth user interviews across two cohorts: 13 senior leaders (Directors, VPs, Group PMs) and 14 career aspirants.
+        </p>
+        <p>
+          The pivotal discovery was counter-intuitive: <strong>Senior leaders actually WANT to help junior talent</strong>. However, they fear open-ended commitments:
+        </p>
+        <blockquote class="p-4 bg-slate-100 border-l-4 border-slate-400 italic text-slate-700 rounded-r-xl text-sm">
+          "When someone asks for '30 minutes to chat', I know it will turn into 45 minutes of unfocused questions where they haven't prepared. If they told me: 'I have 2 specific resume questions and need 15 minutes max', I would say yes 8 times out of 10."
+        </blockquote>
+      </section>
+
+      <!-- 03 PRODUCT ARCHITECTURE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-purple-600 font-mono text-base font-bold bg-purple-50 px-2.5 py-1 rounded-md border border-purple-200">03</span>
+          Product Architecture: The Micro-Sprint Paradigm
+        </h3>
+        <p>
+          I formulated the <strong>"Micro-Mentorship Sprint"</strong> framework governed by three structural constraints:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-sm block">1. 15-Minute Hard Stop</span>
+            <p class="text-slate-600">Strictly enforced calendar ceiling removing the anxiety of a runaway meeting.</p>
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-sm block">2. Mandatory Agenda Selection</span>
+            <p class="text-slate-600">Mentee must select 1 of 3 pre-defined structured agendas (Resume, Mock Interview, Career Pivot).</p>
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-sm block">3. 1-Tap Calendar Booking</span>
+            <p class="text-slate-600">Zero back-and-forth email scheduling: mentors publish available sprint blocks directly.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 INTERACTIVE PROTOTYPING -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">04</span>
+          High-Fidelity Prototyping & Design Iteration in Figma
+        </h3>
+        <p>
+          Built a full mobile prototype in Figma. Initial user testing revealed a major friction point: users felt overwhelmed by standard multi-month calendar pickers when selecting a time slot.
+        </p>
+        <p>
+          I iterated the UI into <strong>one-tap immediate availability chips</strong> (e.g. <em>"Today 6:00 PM"</em>, <em>"Tomorrow 12:30 PM"</em>). This single UX refinement reduced booking completion time by 45%.
+        </p>
+      </section>
+
+      <!-- 05 ACCOUNTABILITY & GAMIFICATION -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-rose-600 font-mono text-base font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">05</span>
+          Mutual Accountability & No-Show Prevention
+        </h3>
+        <p>
+          A critical failure mode in free mentorship is no-shows. We introduced a <strong>Mutual Reliability Score</strong>:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+          <li>Mentees receive an automated 2-hour pre-sprint SMS confirmation requiring a 1-tap confirmation.</li>
+          <li>Unexcused no-shows trigger a 30-day booking cooldown, protecting mentors' time.</li>
+        </ul>
+      </section>
+
+      <!-- 06 MEASURABLE IMPACT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">06</span>
+          Usability Testing Outcomes & Validation
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">80% Unassisted Task Completion</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Tested with 10 first-time users; 8 completed the full discovery-to-booking journey without asking a single clarifying question.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">9/10 Mentors Approved</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              9 out of 10 interviewed leaders stated they would actively participate if requests were constrained to 15 minutes with pre-set agendas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 RETROSPECTIVE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-amber-600 font-mono text-base font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">07</span>
+          PM Retrospective: Constraints Create Trust
+        </h3>
+        <p>
+          This project demonstrated that <strong>the most effective UX solution is often the introduction of healthy constraints</strong>. By eliminating ambiguity and bounding time commitment, you convert passive goodwill into active, high-trust human connections.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- PREV / NEXT NAVIGATION -->
+    <div class="border-t border-slate-200 pt-8 flex items-center justify-between">
+      <a href="catalogue-cloud-fynd.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-slate-600 hover:text-amber-600 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+        <span>Catalogue Cloud & SKU Variant Engine</span>
+      </a>
+      <a href="fleet-ai-telematics.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-amber-600 hover:text-amber-800 transition-colors">
+        <span>Fleet AI Query Assistant</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+    </div>
+
+    <!-- CONTACT CTA FOOTER -->
+    <div class="rounded-3xl bg-slate-900 text-white p-8 text-center space-y-4 shadow-xl">
+      <h3 class="text-2xl font-heading font-bold">Interested in how I design & execute complex systems?</h3>
+      <p class="text-sm text-slate-300 max-w-lg mx-auto">
+        I'm always open to discussing Product Management, AI agent architectures, and 0-to-1 operational engineering.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="mailto:svdudhal777@gmail.com" class="px-5 py-2.5 rounded-full bg-amber-600 hover:bg-amber-500 font-heading font-bold text-xs text-white transition-all shadow-md">
+          Get In Touch
+        </a>
+        <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 font-heading font-bold text-xs text-white border border-slate-700 transition-all">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

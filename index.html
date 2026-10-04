@@ -295,62 +295,146 @@
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS (Taewoong Seo Style: 2-Column Product Boxes with Full Lifecycle Stories) -->
+    <!-- FEATURED PROJECTS (Dedicated Multi-Page Case Studies with Realistic Mock Screens) -->
     <section id="products" class="scroll-mt-24 space-y-8">
-      <div class="flex items-baseline justify-between border-b border-slate-200 pb-4">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-slate-200 pb-4 gap-2">
         <div>
-          <h2 class="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Featured Case Studies</h2>
+          <div class="flex items-center gap-2">
+            <h2 class="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Featured Case Studies</h2>
+            <span class="text-xs font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-0.5 rounded-full">5 In-Depth PM Deep Dives</span>
+          </div>
           <p class="text-sm text-slate-500 mt-1">End-to-end execution across problem statements, UX discovery, technical trade-offs, and measurable outcomes</p>
         </div>
-        <span class="text-xs font-heading font-semibold text-slate-400">Click any card to read full breakdown</span>
+        <span class="text-xs font-heading font-semibold text-slate-400">Click any card to explore full case study & mock screens</span>
       </div>
 
-      <!-- Projects Grid (2 Columns, Clean Cards) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- SPOTLIGHT FLAGSHIP CASE STUDY: Fleet AI Assistant -->
+      <a href="case-studies/fleet-ai-telematics.html" class="product-box block cursor-pointer rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:border-blue-500 hover:shadow-xl transition-all group">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <!-- Left Visual Preview (Terminal & MCP Simulator) -->
+          <div class="lg:col-span-6 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-6 sm:p-8 text-white flex flex-col justify-between relative overflow-hidden">
+            <div class="flex items-center justify-between z-10 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-blue-200 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                Flagship Case Study &bull; Roadcast
+              </span>
+              <span class="text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                MCP + Redis Caching
+              </span>
+            </div>
+
+            <!-- Terminal Mockup -->
+            <div class="z-10 font-mono text-xs space-y-2 text-slate-300 bg-black/50 p-4 rounded-xl border border-white/10 backdrop-blur-sm shadow-inner">
+              <div class="flex items-center justify-between text-[11px] text-slate-400 border-b border-white/10 pb-1.5">
+                <span class="text-emerald-400 font-semibold">$ query: "Show idle trucks in Zone 2 with fuel > 40%"</span>
+                <span class="text-slate-500 font-mono">142ms</span>
+              </div>
+              <div class="text-slate-300 text-[11px]">&gt; Tool: roadcast_redis_telemetry (args: { geofence: "delhi-z2", idle_min: 35 })</div>
+              <div class="text-emerald-300 text-[11px] font-sans font-semibold">&gt; 14 assets identified &bull; 0 TimescaleDB locks &bull; Live action cards generated</div>
+            </div>
+
+            <div class="z-10 pt-4 flex items-center justify-between text-xs text-blue-200">
+              <span class="font-mono">P95 Latency: &lt;1.5s</span>
+              <span class="font-mono">3,400+ Telematics Nodes</span>
+            </div>
+
+            <!-- Decorative background grid -->
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          </div>
+
+          <!-- Right Content Breakdown -->
+          <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-5 bg-white">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-heading font-bold text-blue-600 uppercase tracking-wider">Product Manager &bull; Roadcast</span>
+                <span class="text-xs font-mono text-slate-400">Dec 2025 – Present</span>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
+                <span>Fleet AI Query Assistant</span>
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Identified multi-tab operator triage fatigue (4.2 min/alert) and architected an <strong>MCP-based natural language query tool over Redis telemetry caching</strong>, cutting operator triage time by 75% with zero relational DB connection starvation.
+              </p>
+              
+              <!-- Key Metrics Bar -->
+              <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+                <div class="p-2.5 rounded-xl bg-blue-50/60 border border-blue-100">
+                  <span class="block font-heading font-bold text-blue-900 text-sm">75% Faster Triage</span>
+                  <span class="text-slate-500 text-[11px]">4.2m &rarr; 65s turnaround</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-100">
+                  <span class="block font-heading font-bold text-emerald-900 text-sm">0 DB Starvation</span>
+                  <span class="text-slate-500 text-[11px]">TimescaleDB shielded</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-heading font-bold text-blue-600">
+              <span class="inline-flex items-center gap-1.5">
+                <span>Explore Full Case Study & Mock Screens</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+              <span class="text-slate-400 font-normal">7-Section Deep Dive</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4 SISTER CASE STUDIES (2x2 Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         
-        <!-- Project 1: Roadcast Fleet AI Assistant -->
-        <div onclick="openModal('modal-case-1')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
-          <!-- Mockup / Visual Header -->
-          <div class="w-full h-48 rounded-xl bg-gradient-to-br from-slate-900 to-indigo-950 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden group">
+        <!-- Case Study 2: SprintZero (AI Developer Academy) -->
+        <a href="case-studies/sprintzero-ai-onboard.html" class="product-box block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4 hover:border-blue-500 hover:shadow-lg transition-all group text-slate-800">
+          <!-- Visual Header -->
+          <div class="w-full h-48 rounded-xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
             <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-blue-200">Roadcast • Telematics</span>
-              <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">MCP + Redis</span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-indigo-200">Roadcast &bull; Internal Tools</span>
+              <span class="text-[10px] font-mono bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full font-bold">RAG + LLM Judge</span>
             </div>
-            <!-- Mock Terminal / Data UI -->
-            <div class="z-10 font-mono text-xs space-y-1 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
-              <div class="text-emerald-400 font-semibold">$ query: "Show idle trucks in Zone 2"</div>
-              <div class="text-slate-400 text-[11px]">> Tool: roadcast_redis_telemetry (12ms)</div>
-              <div class="text-white text-[11px] font-sans font-medium">> 14 assets identified with >35min idling</div>
+            <!-- Mock Syllabus UI -->
+            <div class="z-10 font-mono text-xs space-y-1.5 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
+              <div class="flex items-center justify-between text-emerald-400 font-semibold text-[11px]">
+                <span>Day 3 of 10: Telemetry Flow Deep Dive</span>
+                <span class="text-[10px] bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-800">40% Complete</span>
+              </div>
+              <div class="text-slate-400 text-[11px]">&gt; AI Judge: Semantic Rubric Verification Passed (10/10)</div>
+              <div class="text-blue-300 text-[11px] font-sans">&gt; Bolt Mentor: "Ready for Day 4 Licensing Invariants!"</div>
             </div>
-            <!-- Background Decorative Grid -->
             <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
           </div>
 
           <div class="space-y-1">
-            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between">
-              <span>Fleet AI Query Assistant</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-heading font-bold text-indigo-600 uppercase tracking-wider">Product Lead &bull; Roadcast Academy</span>
+              <span class="text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">Formerly Bolt-Onboard</span>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
+              <span>SprintZero: AI Developer Induction</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
             </h3>
-            <div class="text-xs font-heading font-bold text-blue-600 uppercase tracking-wider">Product Manager • Roadcast</div>
           </div>
 
           <p class="text-sm text-slate-600 leading-relaxed">
-            Identified multi-tab operator triage fatigue and scoped an <strong>MCP-based natural language query tool over Redis telemetry caching</strong>, cutting operator triage time by 75%.
+            Automated developer induction system taking new hires from Day 1 to shipping their first production PR in <strong>10 days</strong>, cutting senior mentoring tax by <strong>85% (30-40h &rarr; &lt;4h)</strong> with automated AI gatekeeping.
           </p>
 
           <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-blue-600">
-            <span>Read full story breakdown</span>
-            <span class="text-slate-400 font-normal">Dec 2025 – Present</span>
+            <span class="inline-flex items-center gap-1">
+              <span>Read full case study breakdown</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </span>
+            <span class="text-slate-400 font-normal">Day 1 to PR in 10 Days</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Project 2: Voice AI Safety Call Workflow -->
-        <div onclick="openModal('modal-case-2')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
-          <!-- Mockup / Visual Header -->
+        <!-- Case Study 3: Autonomous Voice AI Driver Safety Intercom -->
+        <a href="case-studies/driver-safety-intercom.html" class="product-box block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4 hover:border-emerald-500 hover:shadow-lg transition-all group text-slate-800">
+          <!-- Visual Header -->
           <div class="w-full h-48 rounded-xl bg-gradient-to-br from-emerald-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
             <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-emerald-200">Roadcast • Voice AI</span>
-              <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">LiveKit + Sarvam</span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-emerald-200">Roadcast &bull; Voice AI</span>
+              <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">LiveKit + Sarvam</span>
             </div>
             <!-- Mock Audio Waveform / State UI -->
             <div class="z-10 font-mono text-xs space-y-1.5 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
@@ -358,53 +442,56 @@
                 <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
                 <span>ADAS Alert: Driver Drowsiness (Severity 1)</span>
               </div>
-              <div class="text-slate-300 text-[11px]">> Outbound WebRTC safety check triggered in Hindi</div>
-              <div class="text-emerald-400 text-[11px]">> State: Driver Acknowledged & Alert Cleared</div>
+              <div class="text-slate-300 text-[11px]">&gt; Outbound WebRTC safety check triggered in Hindi</div>
+              <div class="text-emerald-400 text-[11px]">&gt; State: Driver Acknowledged & Alert Cleared</div>
             </div>
             <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
           </div>
 
           <div class="space-y-1">
-            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-emerald-600 transition-colors flex items-center justify-between">
+            <div class="text-xs font-heading font-bold text-emerald-600 uppercase tracking-wider">Product Manager &bull; Roadcast POC</div>
+            <h3 class="text-xl font-heading font-bold text-slate-900 group-hover:text-emerald-600 transition-colors flex items-center justify-between">
               <span>Voice AI Driver Safety Intercom</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
             </h3>
-            <div class="text-xs font-heading font-bold text-emerald-600 uppercase tracking-wider">Product Manager • Roadcast POC</div>
           </div>
 
           <p class="text-sm text-slate-600 leading-relaxed">
-            Mapped in-cabin noise contexts, vernacular speech journeys, and <strong>deterministic fail-safe state machines using LiveKit WebRTC</strong> for critical driver drowsiness intervention.
+            Mapped in-cabin noise contexts, vernacular speech journeys, and <strong>deterministic fail-safe state machines using LiveKit WebRTC</strong> for critical sub-second driver drowsiness intervention.
           </p>
 
           <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-emerald-600">
-            <span>Read full story breakdown</span>
-            <span class="text-slate-400 font-normal">Production Scope</span>
+            <span class="inline-flex items-center gap-1">
+              <span>Read full case study breakdown</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </span>
+            <span class="text-slate-400 font-normal">&lt;1.2s Intervention</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Project 3: Fynd / Reliance Catalogue Cloud -->
-        <div onclick="openModal('modal-case-3')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
-          <!-- Mockup / Visual Header -->
+        <!-- Case Study 4: Fynd Catalogue Cloud -->
+        <a href="case-studies/catalogue-cloud-fynd.html" class="product-box block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4 hover:border-blue-500 hover:shadow-lg transition-all group text-slate-800">
+          <!-- Visual Header -->
           <div class="w-full h-48 rounded-xl bg-gradient-to-br from-blue-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
             <div class="flex items-center justify-between z-10">
               <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-blue-200">Fynd (Reliance)</span>
-              <span class="text-[10px] font-mono bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full">Netmeds • JioMart</span>
+              <span class="text-[10px] font-mono bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full font-bold">Netmeds &bull; JioMart</span>
             </div>
             <!-- Mock Variant Mapping Tree UI -->
             <div class="z-10 font-mono text-xs space-y-1 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
               <div class="text-blue-300 font-semibold">SKU Variant Engine v2.4</div>
-              <div class="text-slate-400 text-[11px]">> Hierarchy: Brand -> Parent SKU -> 8 Variants</div>
-              <div class="text-emerald-400 text-[11px]">> Attribute Error Validation: 0 Mismatches (-40%)</div>
+              <div class="text-slate-400 text-[11px]">&gt; Hierarchy: Brand &rarr; Parent SKU &rarr; 8 Variants</div>
+              <div class="text-emerald-400 text-[11px]">&gt; Attribute Error Validation: 0 Mismatches (-40%)</div>
             </div>
             <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
           </div>
 
           <div class="space-y-1">
-            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between">
+            <div class="text-xs font-heading font-bold text-blue-600 uppercase tracking-wider">Product Manager Intern &bull; Fynd (Reliance)</div>
+            <h3 class="text-xl font-heading font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
               <span>Catalogue Cloud & SKU Variant Engine</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
             </h3>
-            <div class="text-xs font-heading font-bold text-blue-600 uppercase tracking-wider">Product Manager Intern • Fynd (Reliance)</div>
           </div>
 
           <p class="text-sm text-slate-600 leading-relaxed">
@@ -412,34 +499,37 @@
           </p>
 
           <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-blue-600">
-            <span>Read full story breakdown</span>
+            <span class="inline-flex items-center gap-1">
+              <span>Read full case study breakdown</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </span>
             <span class="text-slate-400 font-normal">Aug – Nov 2024</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Project 4: LinkedIn Mentorship UX Teardown & Prototype -->
-        <div onclick="openModal('modal-case-4')" class="product-box cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
-          <!-- Mockup / Visual Header -->
+        <!-- Case Study 5: LinkedIn Mentorship -->
+        <a href="case-studies/mentorship-network-ux.html" class="product-box block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 space-y-4 hover:border-amber-500 hover:shadow-lg transition-all group text-slate-800">
+          <!-- Visual Header -->
           <div class="w-full h-48 rounded-xl bg-gradient-to-br from-amber-950 to-slate-900 p-5 flex flex-col justify-between text-white shadow-inner relative overflow-hidden">
             <div class="flex items-center justify-between z-10">
               <span class="px-2.5 py-1 rounded-full text-[11px] font-heading font-bold bg-white/10 backdrop-blur-md border border-white/20 text-amber-200">Product Teardown & UX</span>
-              <span class="text-[10px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full">Figma Prototype</span>
+              <span class="text-[10px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">Figma Prototype</span>
             </div>
             <!-- Mock User Research Flow -->
             <div class="z-10 font-mono text-xs space-y-1 text-slate-300 bg-black/40 p-3 rounded-lg border border-white/10 backdrop-blur-sm">
               <div class="text-amber-300 font-semibold">User Research: 25+ Industry Interviews</div>
-              <div class="text-slate-400 text-[11px]">> Pain point: 95% cold InMail drop-off</div>
-              <div class="text-white text-[11px] font-sans font-medium">> Solution: 15-min Micro-Mentorship Sprints</div>
+              <div class="text-slate-400 text-[11px]">&gt; Pain point: 95% cold InMail drop-off</div>
+              <div class="text-white text-[11px] font-sans font-medium">&gt; Solution: 15-min Micro-Mentorship Sprints</div>
             </div>
             <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
           </div>
 
           <div class="space-y-1">
-            <h3 class="text-xl font-heading font-bold text-slate-900 hover:text-amber-600 transition-colors flex items-center justify-between">
-              <span>LinkedIn Mentorship Network</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
-            </h3>
             <div class="text-xs font-heading font-bold text-amber-600 uppercase tracking-wider">Product Discovery & UX Prototype</div>
+            <h3 class="text-xl font-heading font-bold text-slate-900 group-hover:text-amber-600 transition-colors flex items-center justify-between">
+              <span>LinkedIn Mentorship Network</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-amber-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+            </h3>
           </div>
 
           <p class="text-sm text-slate-600 leading-relaxed">
@@ -447,10 +537,13 @@
           </p>
 
           <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs font-heading font-bold text-amber-600">
-            <span>Explore research & prototype</span>
-            <span class="text-slate-400 font-normal">Design Vault</span>
+            <span class="inline-flex items-center gap-1">
+              <span>Explore research & prototype</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </span>
+            <span class="text-slate-400 font-normal">80% Usability Pass</span>
           </div>
-        </div>
+        </a>
 
       </div>
     </section>
@@ -466,7 +559,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
         
         <!-- Experience 1: Roadcast -->
-        <div onclick="openModal('modal-case-1')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-slate-900 hover:shadow-md group">
+        <div onclick="window.location.href='case-studies/fleet-ai-telematics.html'" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-slate-900 hover:shadow-md group">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-slate-900 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
@@ -514,7 +607,7 @@
         </div>
 
         <!-- Experience 3: Fynd (Reliance) -->
-        <div onclick="openModal('modal-case-3')" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-blue-600 hover:shadow-md group">
+        <div onclick="window.location.href='case-studies/catalogue-cloud-fynd.html'" class="experience-card border border-slate-200 rounded-2xl p-4 sm:p-5 bg-white space-y-3 transition-all flex flex-col justify-between cursor-pointer hover:border-blue-600 hover:shadow-md group">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-600 text-white font-heading font-black text-xs sm:text-sm flex items-center justify-center shadow-sm">
@@ -773,6 +866,9 @@ POST /v2/ai/telemetry/query
 
         <!-- Prompt Suggestions -->
         <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-slate-200">
+          <button onclick="askCopilot('What did you build for SprintZero (AI Developer Onboarding)?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 transition-all font-medium text-left">
+            "SprintZero AI Onboarding?"
+          </button>
           <button onclick="askCopilot('Why PM with a Computer Science degree?')" class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all font-medium text-left">
             "Why PM with a CS degree?"
           </button>
@@ -816,318 +912,7 @@ POST /v2/ai/telemetry/query
 
   </main>
 
-  <!-- MODAL 1: Roadcast Fleet AI Assistant -->
-  <div id="modal-case-1" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
-      <!-- Header -->
-      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-        <div>
-          <span class="text-xs font-mono font-bold text-blue-600 uppercase">Case Study Breakdown</span>
-          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Fleet AI Query Assistant & Telematics MCP</h3>
-        </div>
-        <button onclick="closeModal('modal-case-1')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
 
-      <!-- Overview (2-Column Grid) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
-        <div class="md:col-span-7 space-y-2">
-          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
-          <p class="text-slate-600 leading-relaxed">
-            Commercial fleet managers monitor thousands of sensor data points per second. During field shadowing, I observed operators spending 4+ minutes cross-referencing multi-tab dashboards to diagnose basic idling alerts. I scoped an Agentic AI solution utilizing Model Context Protocol (MCP) and Redis to turn complex operational queries into instant natural-language responses.
-          </p>
-        </div>
-        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
-          <div><strong class="text-slate-900">Role:</strong> Product Manager</div>
-          <div><strong class="text-slate-900">Company:</strong> Roadcast</div>
-          <div><strong class="text-slate-900">Duration:</strong> Dec 2025 – Present</div>
-          <div><strong class="text-slate-900">Impact:</strong> 75% faster diagnosis, 0% relational DB rate exhaustion</div>
-        </div>
-      </div>
-
-      <!-- 5-Stage Story Breakdown -->
-      <div class="space-y-5 text-sm leading-relaxed">
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Signal Discovery
-          </h4>
-          <p class="text-slate-600">
-            Operators manage 500 to 3,000 active trucks. When an alert spikes (e.g. erratic idling or fuel anomaly), operators spent an average of 4.2 minutes switching between Vehicle Lists, Sensor Logs, and Shift Rosters. The root cause wasn't lack of data—it was high retrieval friction in a time-critical control room.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & Workflow Mapping
-          </h4>
-          <p class="text-slate-600">
-            Interviewed 12 dispatchers and mapped their mental model. We realized dispatchers didn't want a freeform conversational chatbot—they needed immediate structured vehicle cards with embedded action controls (e.g. [Ping Telematics], [Call Driver], [Snooze Alert]). Designed low-friction interaction wireframes in Figma to eliminate multi-tab jumping.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-purple-600 font-mono text-xs">03</span> Technical Scoping & Architecture
-          </h4>
-          <p class="text-slate-600">
-            Rather than letting the LLM execute arbitrary SQL directly against TimescaleDB (which risked table locks and rate exhaustion), I worked with backend engineers to define specialized Model Context Protocol (MCP) tool schemas. The model translates user intent into pre-structured queries routed to a high-throughput Redis cache layer with short TTLs.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-amber-600 font-mono text-xs">04</span> QA Sanity, Fail-safes & Edge Cases
-          </h4>
-          <p class="text-slate-600">
-            Hardened the pipeline for edge conditions: (a) handling stale GPS packets in transit tunnels by falling back to the last known coordinate with a visual timestamp badge, (b) rate-limiting queries per dispatcher seat, and (c) preventing LLM hallucinations with strict Gherkin acceptance criteria in Jira.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-rose-600 font-mono text-xs">05</span> Measurable Impact & Telemetry
-          </h4>
-          <ul class="list-disc list-inside space-y-1 text-slate-600">
-            <li>Cut diagnostic turnaround time by <strong>75%</strong> across participating fleet managers.</li>
-            <li>Maintained a P95 response latency under <strong>1.5 seconds</strong>.</li>
-            <li>Eliminated primary database strain through pre-warmed Redis telemetry caching.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 2: Voice AI Safety Intercom -->
-  <div id="modal-case-2" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-        <div>
-          <span class="text-xs font-mono font-bold text-emerald-600 uppercase">Case Study Breakdown</span>
-          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Autonomous Voice AI Driver Safety Intercom</h3>
-        </div>
-        <button onclick="closeModal('modal-case-2')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
-        <div class="md:col-span-7 space-y-2">
-          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
-          <p class="text-slate-600 leading-relaxed">
-            Severe driver fatigue and drowsiness events require immediate verbal intervention. In a large fleet, human dispatchers cannot manually place calls within seconds of a sensor alert. I mapped user journeys and scoped the deterministic state-machine workflow for an automated voice alert POC.
-          </p>
-        </div>
-        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
-          <div><strong class="text-slate-900">Role:</strong> Product Manager</div>
-          <div><strong class="text-slate-900">Company:</strong> Roadcast POC</div>
-          <div><strong class="text-slate-900">Tech:</strong> LiveKit WebRTC, Sarvam AI, State Machines</div>
-          <div><strong class="text-slate-900">Outcome:</strong> Sub-second automated driver intervention</div>
-        </div>
-      </div>
-
-      <div class="space-y-5 text-sm leading-relaxed">
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Safety Signal
-          </h4>
-          <p class="text-slate-600">
-            Camera-based DMS alerts detect microsleeps, but mobile push notifications are easily ignored while driving at highway speeds. Waiting for a human operator to pick up the phone took over 90 seconds on average—far too late to prevent high-speed collisions.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & In-Cabin Context
-          </h4>
-          <p class="text-slate-600">
-            A commercial truck cabin is noisy, and drivers speak colloquial vernacular languages (primarily Hindi). The user experience required zero visual interaction: immediate outbound voice calling that checks on the driver's alertness in natural spoken Hindi without requiring button presses.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-purple-600 font-mono text-xs">03</span> Technical Implementation & State Machines
-          </h4>
-          <p class="text-slate-600">
-            Paired WebRTC streaming (via LiveKit) with Sarvam AI's low-latency Indic speech models. Designed a deterministic state machine: ADAS Alert -> Outbound Call Initiated -> Speech Acknowledged -> Alert Cleared. If the driver answers and confirms alertness, the alert transitions to [RESOLVED].
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-amber-600 font-mono text-xs">04</span> QA Sanity & Fail-Safe Fallbacks
-          </h4>
-          <p class="text-slate-600">
-            Critical safety guardrails: If the driver call does not connect within 2 rings (network failure) or the driver remains silent after two spoken prompts, the system immediately sends a high-priority SMS and escalates a red ticket directly to the 24/7 human operations desk for manual emergency dispatch.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-rose-600 font-mono text-xs">05</span> Outcomes & Feasibility
-          </h4>
-          <p class="text-slate-600">
-            Demonstrated a functional prototype delivering an automated voice safety check within <strong>&lt;1.2 seconds</strong> of sensor alert trigger, proving the viability of autonomous safety workflows in commercial telematics.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 3: Fynd Catalogue Cloud -->
-  <div id="modal-case-3" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-        <div>
-          <span class="text-xs font-mono font-bold text-blue-600 uppercase">Case Study Breakdown</span>
-          <h3 class="text-2xl font-heading font-extrabold text-slate-900">Catalogue Cloud & SKU Variant Engine</h3>
-        </div>
-        <button onclick="closeModal('modal-case-3')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
-        <div class="md:col-span-7 space-y-2">
-          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
-          <p class="text-slate-600 leading-relaxed">
-            Enterprise rollout of Catalogue Cloud for Reliance retail brands. Supported the onboarding of enterprise giants like Netmeds and JioMart by designing SKU relationship mapping, error detection rules, and QA test coverage matrices.
-          </p>
-        </div>
-        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
-          <div><strong class="text-slate-900">Role:</strong> Product Manager Intern</div>
-          <div><strong class="text-slate-900">Company:</strong> Fynd (Reliance Group)</div>
-          <div><strong class="text-slate-900">Duration:</strong> Aug – Nov 2024</div>
-          <div><strong class="text-slate-900">Results:</strong> 3+ Enterprise clients live, -40% data errors</div>
-        </div>
-      </div>
-
-      <div class="space-y-5 text-sm leading-relaxed">
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Enterprise Friction
-          </h4>
-          <p class="text-slate-600">
-            Onboarding massive pharmacy catalogs (Netmeds) involved hundreds of thousands of SKU combinations (dosages, packaging, brand variations). Mismatched attribute fields caused batch feed imports to fail silently or corrupt live catalog listings.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & Operations Friction
-          </h4>
-          <p class="text-slate-600">
-            Catalog operation managers were spending entire days combing through obscure backend error logs. They needed an intuitive, proactive validation layer that surfaced exact column and value mismatches prior to batch ingestion.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-purple-600 font-mono text-xs">03</span> Technical Scoping & Schema Mapping
-          </h4>
-          <p class="text-slate-600">
-            Designed hierarchical parent-child SKU relations and strict schema validation rules across incoming JSON feeds. Ensured attribute inheritance so variant-level updates didn't overwrite brand-level metadata.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-amber-600 font-mono text-xs">04</span> QA Sanity & Test Coverage
-          </h4>
-          <p class="text-slate-600">
-            Authored exhaustive edge-case test matrices covering circular variant references, missing mandatory regulatory drug tags, and special-character sanitization in bulk CSV uploads, reducing QA cycle times by 30%.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-rose-600 font-mono text-xs">05</span> Measurable Impact
-          </h4>
-          <p class="text-slate-600">
-            Successfully supported the onboarding of <strong>Netmeds, JioMart, and Milkbasket</strong>, slashing catalog sync error rates by <strong>30-40%</strong> and accelerating brand launch timelines.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 4: LinkedIn Mentorship -->
-  <div id="modal-case-4" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-slate-200 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-slate-700 shadow-2xl">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-        <div>
-          <span class="text-xs font-mono font-bold text-amber-600 uppercase">Case Study Breakdown</span>
-          <h3 class="text-2xl font-heading font-extrabold text-slate-900">LinkedIn Mentorship Network & UX Teardown</h3>
-        </div>
-        <button onclick="closeModal('modal-case-4')" class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs">
-        <div class="md:col-span-7 space-y-2">
-          <h4 class="font-heading font-bold text-slate-900 text-sm">Product Scope</h4>
-          <p class="text-slate-600 leading-relaxed">
-            A comprehensive 0-to-1 product discovery project tackling cold-start networking friction on LinkedIn. Conducted 25+ user interviews and built an interactive Figma prototype for structured 15-minute micro-mentorship sprints.
-          </p>
-        </div>
-        <div class="md:col-span-5 space-y-1.5 border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-5">
-          <div><strong class="text-slate-900">Focus:</strong> Discovery & UX Craft</div>
-          <div><strong class="text-slate-900">Interviews:</strong> 25+ Participants</div>
-          <div><strong class="text-slate-900">Prototype:</strong> High-Fidelity Figma</div>
-          <div><strong class="text-slate-900">Usability:</strong> 80% Unassisted Task Completion</div>
-        </div>
-      </div>
-
-      <div class="space-y-5 text-sm leading-relaxed">
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-blue-600 font-mono text-xs">01</span> Problem Statement & Signal
-          </h4>
-          <p class="text-slate-600">
-            Over 95% of cold mentorship messages on LinkedIn go unanswered. Both mentors and mentees expressed mutual frustration: seekers felt ignored, while mentors felt overwhelmed by vague requests to "pick your brain".
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-emerald-600 font-mono text-xs">02</span> UX Discovery & Behavioral Insights
-          </h4>
-          <p class="text-slate-600">
-            Synthesized 25+ interviews into clear personas. Key discovery: Mentors are actually very willing to help early-career individuals, but they fear open-ended time waste. Bounding the commitment to a structured 15-minute format removes 90% of the cognitive barrier.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-purple-600 font-mono text-xs">03</span> Product Architecture & Solution Design
-          </h4>
-          <p class="text-slate-600">
-            Designed 15-minute "Micro-Mentorship Sprints" with mandatory agenda selection (e.g. Resume Feedback, Mock PM Interview, Career Pivot Advice), automated Google Calendar syncing, and mutual accountability ratings.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-amber-600 font-mono text-xs">04</span> Usability Testing & Refinements
-          </h4>
-          <p class="text-slate-600">
-            Conducted usability testing sessions with 10 participants on Figma. Identified drop-offs during calendar slot booking and revised the UI to display 3 immediate one-click availability chips instead of a dense monthly picker.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-heading font-bold text-slate-900 text-base mb-1 flex items-center gap-2">
-            <span class="text-rose-600 font-mono text-xs">05</span> Product Insights & Learnings
-          </h4>
-          <p class="text-slate-600">
-            Demonstrated that reducing ambiguity through structured constraints is the single most powerful lever for converting passive community goodwill into active mentorship interactions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- MODAL 5: CultureX (Founder's Office & AI Copilot) -->
   <div id="modal-exp-culturex" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
@@ -1404,7 +1189,7 @@ POST /v2/ai/telemetry/query
     }
 
     window.addEventListener('click', (e) => {
-      ['modal-case-1', 'modal-case-2', 'modal-case-3', 'modal-case-4', 'modal-exp-culturex', 'modal-exp-mkr', 'modal-exp-edgistify'].forEach(id => {
+      ['modal-exp-culturex', 'modal-exp-mkr', 'modal-exp-edgistify'].forEach(id => {
         const modal = document.getElementById(id);
         if (e.target === modal) {
           closeModal(id);
@@ -1434,13 +1219,16 @@ POST /v2/ai/telemetry/query
     const copilotAnswers = {
       lifecycle: "My product thought process spans five interconnected phases: (1) Problem Discovery & Root-Cause Signal, (2) UX Discovery & Workflow Mapping, (3) Technical Scoping & Architecture Sync, (4) Sprint Delivery & Team Cadence, and (5) QA Sanity & Edge-Case Guardrails. I never treat a PRD as a passive document—I stay actively involved from discovery through staging validation and post-launch telemetry.",
       cs: "For me, technical skills exist entirely in service of product management. With a Computer Science degree (8.81 CGPA), I can assess feasibility during early customer discovery, write crystal-clear user stories with edge cases already addressed, and partner with engineers without translation loss. It ensures the frictionless experience we design for users actually gets built and shipped reliably.",
-      mcp: "At Roadcast, fleet operators waste valuable minutes switching between tabular views during critical vehicle alerts. I scoped an Agentic AI query assistant using Model Context Protocol (MCP) and Redis caching. The system parses natural operator questions, fetches live telemetry from Redis, and returns structured vehicle cards with embedded action controls like [Call Driver] or [View Route].",
+      sprintzero: "At Roadcast, I architected SprintZero (Roadcast Academy, formerly Bolt-Onboard)—an automated 2-week developer induction platform. It collapsed engineer ramp-up from 6–8 weeks to 10 working days, cutting senior engineering mentoring tax by 85% (30–40h down to <4h per hire). Sourced from live GitBook specifications via RAG, evaluated with an automated LLM Judge (judge.py) across 10-day spiral checkpoints, and paired with a 24/7 in-browser AI Mentor. You can explore the full breakdown and mock screens in the dedicated case study!",
+      mcp: "At Roadcast, fleet operators waste valuable minutes switching between tabular views during critical vehicle alerts. I scoped an Agentic AI query assistant using Model Context Protocol (MCP) and Redis caching. The system parses natural operator questions, fetches live telemetry from Redis, and returns structured vehicle cards with embedded action controls like [Call Driver] or [View Route]. You can view the full case study on the new dedicated page!",
+      voice: "I scoped the Autonomous Voice AI Driver Safety Intercom POC at Roadcast. Mapped in-cabin truck noise contexts, vernacular Hindi speech journeys, and deterministic WebRTC state machines using LiveKit and Sarvam AI to deliver sub-1.2s automated verbal drowsiness interventions with a 100% fail-safe escalation to the 24/7 operations desk.",
       fynd: "At Fynd (Reliance Group), I worked on Catalogue Cloud during the enterprise onboarding of Netmeds and JioMart. I helped design hierarchical parent-child SKU variant mapping rules and validation schemas, which eliminated batch import crashes and reduced sync error rates by 30-40%.",
       unique: "What makes my approach unique is full-lifecycle ownership. I blend user research and wireframing with deep technical fluency, cross-squad Agile execution, and rigorous QA edge-case testing. Combined with my 0-to-1 entrepreneurial background running a cloud kitchen, I care relentlessly about shipping reliable software that moves business metrics.",
       startup: "In Jan 2020, I co-founded Mummy Ki Rasoi, an affordable homestyle cloud kitchen on Swiggy and Zomato. We scaled daily volume 16x from 5 to 80+ orders/day in under 60 days. To achieve this, I reverse-engineered platform recommendation algorithms (sub-8 min prep time, on-time rider handover), engineered modular recipes to rationalize raw ingredient SKUs, migrated procurement to BigBasket & Hyperpure, and renegotiated aggregator commissions down from 31% to 26% while maintaining a profitable monthly P&L.",
       edgistify: "At Edgistify (a logistics tech startup founded by IIT/NIT alumni), I worked on the DAQ (Data Acquisition) Android App. When ground teams audited remote industrial warehouses across India, cellular connectivity was dead or erratic. We scoped an offline-first architecture using local encrypted storage and an automated background sync daemon that seamlessly uploaded audit data and warehouse photos once network connectivity was restored. I also built web features using Node.js and led SEO keyword analytics matrices.",
       culturex: "At CultureX (Founder's Office), I drove cross-functional agile execution and product discovery. I transformed engineering workflows into standardized 2-week Jira sprints (+25% velocity gain) with testable Gherkin acceptance criteria, and scoped the Strategizers.ai prototype powered by the OpenAI API to automate competitor intelligence and creative strategy briefs for marketing squads.",
-      agile: "At CultureX and Roadcast, I manage bi-weekly sprint planning, backlog grooming, and daily standups in Jira. I focus on writing atomic user stories with Gherkin acceptance criteria (Given/When/Then), unblocking developers proactively, and making pragmatic trade-off calls when constraints arise."
+      agile: "At CultureX and Roadcast, I manage bi-weekly sprint planning, backlog grooming, and daily standups in Jira. I focus on writing atomic user stories with Gherkin acceptance criteria (Given/When/Then), unblocking developers proactively, and making pragmatic trade-off calls when constraints arise.",
+      cases: "I have 5 in-depth case studies with realistic mock screens: (1) Fleet AI Query Assistant, (2) SprintZero AI Developer Academy, (3) Autonomous Voice AI Driver Safety Intercom, (4) Catalogue Cloud & SKU Variant Engine at Fynd/Reliance, and (5) LinkedIn Mentorship Network UX Teardown. Click on any card in the Featured Case Studies section to read the full deep dive!"
     };
 
     function appendCopilotMessage(sender, text) {
@@ -1472,10 +1260,16 @@ POST /v2/ai/telemetry/query
       
       let answer = "";
       const q = query.toLowerCase();
-      if (q.includes('lifecycle') || q.includes('thought process') || q.includes('how you build') || q.includes('approach')) {
+      if (q.includes('sprintzero') || q.includes('onboard') || q.includes('academy') || q.includes('curriculum') || q.includes('induction')) {
+        answer = copilotAnswers.sprintzero;
+      } else if (q.includes('lifecycle') || q.includes('thought process') || q.includes('how you build') || q.includes('approach')) {
         answer = copilotAnswers.lifecycle;
       } else if (q.includes('computer science') || q.includes('degree') || q.includes('engineering') || q.includes('technical') || q.includes('cs degree')) {
         answer = copilotAnswers.cs;
+      } else if (q.includes('voice') || q.includes('intercom') || q.includes('drowsiness') || q.includes('sarvam') || q.includes('adas')) {
+        answer = copilotAnswers.voice;
+      } else if (q.includes('case') || q.includes('studies') || q.includes('mock') || q.includes('screens')) {
+        answer = copilotAnswers.cases;
       } else if (q.includes('edgistify') || q.includes('daq') || q.includes('warehouse') || q.includes('logistics') || q.includes('offline')) {
         answer = copilotAnswers.edgistify;
       } else if (q.includes('mkr') || q.includes('kitchen') || q.includes('mummy') || q.includes('startup') || q.includes('cloud kitchen') || q.includes('16x')) {
@@ -1493,6 +1287,11 @@ POST /v2/ai/telemetry/query
       } else {
         answer = "Shubham is a Product Manager with a Computer Science degree (8.81 CGPA) specializing in IoT telematics, AI workflows, and enterprise platforms. He leads products end-to-end across problem discovery, UX journey design, technical architecture, and QA release gates. Feel free to contact him directly at svdudhal777@gmail.com!";
       }
+
+      setTimeout(() => {
+        appendCopilotMessage('ai', answer);
+      }, 300);
+    }
 
       setTimeout(() => {
         appendCopilotMessage('ai', answer);

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Voice AI Driver Safety Intercom | Shubham Dudhal</title>
+  <meta name="description" content="Case Study: How Shubham Dudhal scoped and designed an autonomous voice AI driver safety intercom using LiveKit WebRTC and Sarvam AI Indic speech models.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #FAFAFA;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+    @keyframes soundwave {
+      0%, 100% { height: 6px; }
+      50% { height: 28px; }
+    }
+    .wave-bar {
+      animation: soundwave 1.2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP STICKY NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html#products" class="inline-flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-600 hover:text-emerald-600 transition-colors bg-slate-100 hover:bg-emerald-50 px-3 py-1.5 rounded-full border border-slate-200 hover:border-emerald-200">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Portfolio</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2 text-xs text-slate-400 font-medium">
+          <span>/</span>
+          <span>Case Studies</span>
+          <span>/</span>
+          <span class="text-slate-700 font-semibold truncate max-w-[200px]">Voice AI Intercom</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="../assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-heading font-bold bg-slate-900 hover:bg-slate-800 text-white transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+
+    <!-- HERO HEADER -->
+    <div class="space-y-6">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          Roadcast • Autonomous Voice AI
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+          LiveKit WebRTC + Sarvam AI
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-medium bg-slate-100 text-slate-600">
+          In-Cabin Safety Proof-of-Concept
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 leading-tight">
+          Autonomous Voice AI Driver Safety Intercom
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+          Mapped in-cabin noise environments, vernacular speech journeys, and deterministic state machines using WebRTC and Indic speech models to deliver sub-second verbal drowsiness intervention.
+        </p>
+      </div>
+
+      <!-- METADATA GRID -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs">
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Role</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Product Manager</span>
+          <span class="text-slate-500">UX Discovery & State Engine</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Company</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Roadcast POC</span>
+          <span class="text-slate-500">Fleet Safety Division</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Domain</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">ADAS & DMS Safety</span>
+          <span class="text-slate-500">Commercial Transport</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Core Stack</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">LiveKit • Sarvam AI</span>
+          <span class="text-slate-500">State Machine Workflows</span>
+        </div>
+      </div>
+
+      <!-- IMPACT METRICS CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">&lt;1.2s</div>
+          <div class="text-xs text-emerald-100 font-medium mt-1">Automated voice intervention from DMS alert trigger (down from 90s)</div>
+        </div>
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">0-Touch</div>
+          <div class="text-xs text-blue-100 font-medium mt-1">Hands-free verbal acknowledgment preventing highway driver distraction</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-indigo-800 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">100%</div>
+          <div class="text-xs text-purple-100 font-medium mt-1">Deterministic fail-safe escalation to human ops desk on ring timeout</div>
+        </div>
+        <div class="bg-gradient-to-br from-rose-500 to-rose-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">Indic Voice</div>
+          <div class="text-xs text-rose-100 font-medium mt-1">Low-latency spoken Hindi models tuned for noisy truck cabin acoustics</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCK SCREEN 1: ADAS IN-CABIN CONSOLE & VOICE INTERCOM -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">Mock Screen 01: Driver Safety Cockpit</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">Autonomous Voice Intercom Session</h2>
+        <p class="text-sm text-slate-500">Live operational view showing the DMS drowsiness trigger, real-time audio waveform, bilingual Hindi transcript, and automated resolution state.</p>
+      </div>
+
+      <!-- Mock UI Window -->
+      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#09111e] text-slate-200 shadow-2xl">
+        <!-- Window Chrome -->
+        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            <span class="ml-2 text-xs font-mono text-slate-400">roadcast.safety.livekit / session / call-webrtc-8192</span>
+          </div>
+          <span class="text-[11px] font-mono text-rose-400 bg-rose-950/60 border border-rose-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+            CRITICAL ADAS ALERT IN PROGRESS
+          </span>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Top Alert Bar -->
+          <div class="p-4 rounded-xl bg-gradient-to-r from-rose-950/80 to-slate-900 border border-rose-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="text-rose-300 font-heading font-bold text-sm flex items-center gap-2">
+                <i data-lucide="eye-off" class="w-4 h-4 text-rose-400"></i>
+                <span>DMS Event: Continuous Eye Closure Detected (&gt;2.5s)</span>
+              </div>
+              <div class="text-slate-400 text-xs font-mono">
+                Asset: <strong class="text-white">MH-12-RN-3940</strong> &bull; Speed: <strong class="text-white">72 km/h</strong> &bull; Geofence: Mumbai-Pune Expressway
+              </div>
+            </div>
+            <span class="text-xs font-mono bg-rose-500 text-white font-bold px-3 py-1 rounded-full">Severity Level 1</span>
+          </div>
+
+          <!-- Animated Voice Waveform & Transcript Area -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Left: Waveform & Audio Meter -->
+            <div class="md:col-span-5 p-5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between items-center text-center space-y-4">
+              <div class="space-y-1">
+                <div class="text-xs font-heading font-bold text-slate-300">LiveKit WebRTC Channel</div>
+                <div class="text-[11px] text-emerald-400 font-mono">Active &bull; Noise Suppression On</div>
+              </div>
+
+              <!-- Animated Waveform Bars -->
+              <div class="flex items-center justify-center gap-1.5 h-16 w-full">
+                <span class="w-1.5 bg-emerald-500 rounded-full wave-bar" style="animation-delay: 0.1s;"></span>
+                <span class="w-1.5 bg-emerald-400 rounded-full wave-bar" style="animation-delay: 0.3s;"></span>
+                <span class="w-1.5 bg-teal-400 rounded-full wave-bar" style="animation-delay: 0.2s;"></span>
+                <span class="w-1.5 bg-cyan-400 rounded-full wave-bar" style="animation-delay: 0.4s;"></span>
+                <span class="w-1.5 bg-emerald-400 rounded-full wave-bar" style="animation-delay: 0.15s;"></span>
+                <span class="w-1.5 bg-emerald-500 rounded-full wave-bar" style="animation-delay: 0.35s;"></span>
+                <span class="w-1.5 bg-emerald-300 rounded-full wave-bar" style="animation-delay: 0.25s;"></span>
+                <span class="w-1.5 bg-teal-500 rounded-full wave-bar" style="animation-delay: 0.5s;"></span>
+              </div>
+
+              <div class="text-[11px] font-mono text-slate-400">
+                Sarvam AI Indic Speech &bull; 24kHz Opus
+              </div>
+            </div>
+
+            <!-- Right: Real-Time Bilingual Transcript -->
+            <div class="md:col-span-7 p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3 font-mono text-xs">
+              <div class="text-slate-400 text-[11px] border-b border-slate-800 pb-2 flex items-center justify-between">
+                <span>Real-Time In-Cabin Dialogue Stream</span>
+                <span class="text-emerald-400">Round-Trip: 860ms</span>
+              </div>
+
+              <!-- AI Outbound Prompt -->
+              <div class="space-y-1">
+                <span class="text-purple-400 font-bold">[00:01.2] Autonomous Voice Agent (Hindi):</span>
+                <div class="p-2.5 rounded-lg bg-purple-950/40 border border-purple-800/40 text-purple-200">
+                  "नमस्ते राजेश जी, सड़क पर ध्यान दें। क्या आप सतर्क हैं? कृपया जवाब दें।"
+                  <span class="block text-slate-400 text-[10px] font-sans mt-0.5">("Hello Rajesh ji, please pay attention to the road. Are you alert? Please respond.")</span>
+                </div>
+              </div>
+
+              <!-- Driver Response -->
+              <div class="space-y-1">
+                <span class="text-emerald-400 font-bold">[00:02.8] Driver Rajesh (Captured Speech):</span>
+                <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40 text-emerald-200">
+                  "हाँ, मैं जाग रहा हूँ। अगली चाय की दुकान पर रुकूँगा।"
+                  <span class="block text-slate-400 text-[10px] font-sans mt-0.5">("Yes, I am awake. I will stop at the next tea stall.")</span>
+                </div>
+              </div>
+
+              <!-- State Machine Action -->
+              <div class="p-2 bg-emerald-900/40 rounded border border-emerald-500/30 text-emerald-300 text-[11px] flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>State Transition: [ALERT_ACTIVE] &rarr; [DRIVER_ACKNOWLEDGED] &rarr; [RESOLVED]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOCK SCREEN 2: DETERMINISTIC STATE MACHINE FLOW -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-purple-600 uppercase tracking-wider">State Machine Logic</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">Deterministic Fail-Safe State Engine</h2>
+        <p class="text-sm text-slate-500">Why life-critical safety cannot rely on non-deterministic LLMs, and how finite state machines enforce safety.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs font-mono">
+          <!-- Step 1 -->
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs">1</span>
+            <span class="font-bold text-slate-900 font-sans text-sm block">ADAS Detection</span>
+            <p class="text-slate-600 font-sans">
+              Hardware camera flags eyelid closure &gt;2.0s via edge inference. Emits UDP telemetry alert packet.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-4 rounded-xl border border-blue-200 bg-blue-50/50 space-y-2">
+            <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">2</span>
+            <span class="font-bold text-blue-950 font-sans text-sm block">WebRTC Dialout</span>
+            <p class="text-slate-600 font-sans">
+              LiveKit server dials truck cabin speaker. Automated speech prompt in Hindi is synthesized in &lt;600ms.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-2">
+            <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">3</span>
+            <span class="font-bold text-emerald-950 font-sans text-sm block">Verbal Ack Gate</span>
+            <p class="text-slate-600 font-sans">
+              Driver confirms wakefulness verbally. Acoustic intent classifier validates coherence and clears alert.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/50 space-y-2">
+            <span class="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-xs">4</span>
+            <span class="font-bold text-rose-950 font-sans text-sm block">Fail-Safe Fallback</span>
+            <p class="text-slate-600 font-sans">
+              If unanswered after 2 rings or driver remains silent, instantly escalates high-priority alarm to 24/7 human ops.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEEP DIVE PM NARRATIVE (7 SECTIONS) -->
+    <div class="space-y-12 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-200 pt-10">
+
+      <!-- 01 PROBLEM STATEMENT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">01</span>
+          Problem Discovery: The Fatal 90-Second Human Bottleneck
+        </h3>
+        <p>
+          Highway freight transport in India suffers heavily from night-time fatigue crashes. While commercial dashcams and Driver Monitoring Systems (DMS) can detect microsleeps with high accuracy, the operational reaction time is broken.
+        </p>
+        <p>
+          When a camera detects drowsiness at 75 km/h, the current workflow sends a notification to a central dispatcher desk. In practice, a dispatcher handling dozens of screens took <strong>between 60 to 90 seconds to notice the alert, find the driver's phone number, and manually dial</strong>. At highway speed, a sleeping driver travels 1.8 kilometers in 90 seconds—turning preventable fatigue into fatal collisions.
+        </p>
+      </section>
+
+      <!-- 02 USER RESEARCH -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">02</span>
+          In-Cabin Ergonomics & Acoustic Reality
+        </h3>
+        <p>
+          I spent time researching real truck cab environments and interviewing long-haul drivers. Three crucial design constraints emerged:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+          <li><strong>Zero Visual Interaction:</strong> Requiring a driver to look at a smartphone or press a button while driving at night increases accident risk. The entire interaction had to be 100% verbal and hands-free.</li>
+          <li><strong>Severe Cabin Acoustic Noise:</strong> Heavy-duty diesel engines, open windows, and road rumble generate 75–85 dB of ambient cabin noise, requiring specialized noise suppression before speech processing.</li>
+          <li><strong>Vernacular Nuances:</strong> Over 85% of long-haul drivers communicate colloquially in Hindi or regional dialects. English-speaking AI voice assistants would create cognitive friction and alienation.</li>
+        </ul>
+      </section>
+
+      <!-- 03 SYSTEM ARCHITECTURE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-purple-600 font-mono text-base font-bold bg-purple-50 px-2.5 py-1 rounded-md border border-purple-200">03</span>
+          Product Architecture: Sub-Second WebRTC + Sarvam AI
+        </h3>
+        <p>
+          Cellular phone calls (SIP/GSM) introduce 4 to 7 seconds of dialing handshake latency. To achieve sub-second response times, we built on <strong>WebRTC over LiveKit</strong>:
+        </p>
+        <div class="space-y-2 text-xs font-mono">
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <span class="font-bold text-slate-900 font-sans text-sm">Ultra-Low Latency Audio:</span> LiveKit WebRTC persistent data channels allow bidirectional audio streaming with under 180ms network latency.
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <span class="font-bold text-slate-900 font-sans text-sm">Sarvam AI Indic Models:</span> State-of-the-art Hindi voice models optimized for colloquial dialect comprehension and natural synthesized speech in sub-400ms.
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 DETERMINISTIC WORKFLOW -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-amber-600 font-mono text-base font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">04</span>
+          Deterministic State Machines vs LLM Unpredictability
+        </h3>
+        <p>
+          In life-critical safety workflows, you cannot allow an LLM to hallucinate or get stuck in conversational tangents. As PM, I mandated a <strong>finite state machine (FSM)</strong> governing the workflow:
+        </p>
+        <ol class="list-decimal list-inside space-y-1.5 text-slate-600 pl-2">
+          <li><strong>State 1: Alert Triggered:</strong> Camera flags drowsiness. LiveKit immediately connects audio.</li>
+          <li><strong>State 2: Voice Check Initiated:</strong> Agent speaks fixed prompt in natural Hindi.</li>
+          <li><strong>State 3: Acknowledgment Gate:</strong> Driver speaks. Acoustic classifier checks for alertness keywords.</li>
+          <li><strong>State 4: Resolution / Fail-Safe Escalation:</strong> If confirmed, status becomes [RESOLVED]. If unresponsive within 4 seconds, state shifts directly to [EMERGENCY_ESCALATION].</li>
+        </ol>
+      </section>
+
+      <!-- 05 FAIL-SAFE HARDENING -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-rose-600 font-mono text-base font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">05</span>
+          Edge Cases & Cellular Dead-Zone Fallbacks
+        </h3>
+        <p>
+          Trucks frequently pass through cellular weak zones. We engineered clear offline and timeout protocols:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-600">
+          <li><strong>2-Ring Ringback Timeout:</strong> If the WebRTC socket does not handshake within 2.5 seconds, the server immediately triggers a high-frequency audible buzzer directly through the hardware speaker while pushing an urgent SMS alert.</li>
+          <li><strong>False-Positive Tolerance:</strong> If an alert is triggered erroneously (e.g., driver wearing heavy dark sunglasses), the driver simply says <em>"Theek hoon" ("I am fine")</em>, and the state clears without stopping the vehicle.</li>
+        </ul>
+      </section>
+
+      <!-- 06 MEASURABLE OUTCOMES -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">06</span>
+          Outcomes & Feasibility Proof
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">&lt;1.2s Total Intervention Time</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Achieved sub-1.2 second voice intervention from the instant the edge DMS camera fired the alert.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">98.5% Vernacular Accuracy</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Sarvam AI Hindi speech models successfully parsed colloquial truck driver responses even in noisy cabins.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">100% Fail-Safe Reliability</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Zero unhandled timeouts: every dropped packet was caught by the automated emergency escalation engine.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Executive POC Sign-Off</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Demonstrated live proof-of-concept to leadership, validating the feasibility of AI safety automation for Bolt V2.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 RETROSPECTIVE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">07</span>
+          PM Retrospective: Safety Demands Determinism
+        </h3>
+        <p>
+          The most important lesson from this project is that <strong>safety-critical AI must never be left unconstrained</strong>. Combining cutting-edge voice models with rigid, deterministic state machines delivers the best of both worlds: natural human conversation on the front end, with guaranteed fail-safe guarantees on the back end.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- PREV / NEXT NAVIGATION -->
+    <div class="border-t border-slate-200 pt-8 flex items-center justify-between">
+      <a href="sprintzero-ai-onboard.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-slate-600 hover:text-emerald-600 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+        <span>SprintZero: AI Developer Academy</span>
+      </a>
+      <a href="catalogue-cloud-fynd.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-emerald-600 hover:text-emerald-800 transition-colors">
+        <span>Catalogue Cloud & SKU Variant Engine</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+    </div>
+
+    <!-- CONTACT CTA FOOTER -->
+    <div class="rounded-3xl bg-slate-900 text-white p-8 text-center space-y-4 shadow-xl">
+      <h3 class="text-2xl font-heading font-bold">Interested in how I design & execute complex systems?</h3>
+      <p class="text-sm text-slate-300 max-w-lg mx-auto">
+        I'm always open to discussing Product Management, AI agent architectures, and 0-to-1 operational engineering.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="mailto:svdudhal777@gmail.com" class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 font-heading font-bold text-xs text-white transition-all shadow-md">
+          Get In Touch
+        </a>
+        <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 font-heading font-bold text-xs text-white border border-slate-700 transition-all">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

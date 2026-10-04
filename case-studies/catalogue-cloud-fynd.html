@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Cloud & SKU Variant Engine | Shubham Dudhal</title>
+  <meta name="description" content="Case Study: How Shubham Dudhal architected SKU variant mapping and schema validation for Reliance retail brands (Netmeds, JioMart) at Fynd.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #FAFAFA;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP STICKY NAV -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html#products" class="inline-flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-600 hover:text-blue-600 transition-colors bg-slate-100 hover:bg-blue-50 px-3 py-1.5 rounded-full border border-slate-200 hover:border-blue-200">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Portfolio</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2 text-xs text-slate-400 font-medium">
+          <span>/</span>
+          <span>Case Studies</span>
+          <span>/</span>
+          <span class="text-slate-700 font-semibold truncate max-w-[200px]">Catalogue Cloud</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="../assets/Shubham_Dudhal_Product_Manager_Resume.pdf" target="_blank" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-heading font-bold bg-slate-900 hover:bg-slate-800 text-white transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12">
+
+    <!-- HERO HEADER -->
+    <div class="space-y-6">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-bold bg-blue-50 text-blue-700 border border-blue-200">
+          Fynd (Reliance Retail)
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          Netmeds • JioMart • Milkbasket
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-heading font-medium bg-slate-100 text-slate-600">
+          E-Commerce Data Architecture
+        </span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 leading-tight">
+          Catalogue Cloud & SKU Variant Relationship Engine
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+          Architected hierarchical parent-child SKU relations and schema validation for Reliance e-commerce brands, slashing catalog ingestion errors by 40% and powering Netmeds' live deployment.
+        </p>
+      </div>
+
+      <!-- METADATA GRID -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs">
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Role</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Product Manager Intern</span>
+          <span class="text-slate-500">Roadmapping & Feature PRDs</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Company</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Fynd (Reliance)</span>
+          <span class="text-slate-500">Enterprise SaaS Platform</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Timeline</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Aug – Nov 2024</span>
+          <span class="text-slate-500">Client Delivery</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 font-medium uppercase tracking-wider text-[10px]">Clients</span>
+          <span class="font-heading font-bold text-slate-900 text-sm mt-0.5 block">Netmeds, JioMart</span>
+          <span class="text-slate-500">Retail Enterprise Scale</span>
+        </div>
+      </div>
+
+      <!-- IMPACT METRICS CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">-40%</div>
+          <div class="text-xs text-blue-100 font-medium mt-1">Reduction in catalog sync & feed validation error rates</div>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">3 Clients</div>
+          <div class="text-xs text-emerald-100 font-medium mt-1">Successfully rolled out to Netmeds, JioMart & Milkbasket</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-indigo-800 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">+25%</div>
+          <div class="text-xs text-purple-100 font-medium mt-1">Searchability improvement across multi-tier product hierarchies</div>
+        </div>
+        <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-4 text-white shadow-md">
+          <div class="text-2xl sm:text-3xl font-heading font-black">-30%</div>
+          <div class="text-xs text-amber-100 font-medium mt-1">Cut in QA cycle times through exhaustive edge-case test matrices</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCK SCREEN 1: SKU RELATIONSHIP & VALIDATION WORKBENCH -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider">Mock Screen 01: Catalog Architecture</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">SKU Variant Relationship & Attribute Workbench</h2>
+        <p class="text-sm text-slate-500">Live configuration tool allowing catalog operators to link child variants to master parent SKUs with multi-channel attribute inheritance.</p>
+      </div>
+
+      <!-- Mock UI Window -->
+      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#0d1424] text-slate-200 shadow-2xl">
+        <!-- Window Chrome -->
+        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            <span class="ml-2 text-xs font-mono text-slate-400">catalogue-cloud.fynd.com / netmeds / sku-matrix / 890123</span>
+          </div>
+          <span class="text-[11px] font-mono text-blue-400 bg-blue-950/60 border border-blue-800/60 px-2.5 py-0.5 rounded-full">
+            Channel: Netmeds Live Ingestion
+          </span>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Parent SKU Header -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-blue-600/30 text-blue-300 font-mono text-xs border border-blue-500/40">PARENT MASTER</span>
+                <span class="font-heading font-bold text-white text-base">Paracetamol IP 500mg Oral Suspension</span>
+              </div>
+              <div class="text-slate-400 text-xs font-mono">
+                Brand: GlaxoSmithKline &bull; Category: Pharma &gt; Analgesics &bull; Global Tax Code: HSN 3004
+              </div>
+            </div>
+            <span class="text-xs font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-bold">
+              4 Linked Variants Active
+            </span>
+          </div>
+
+          <!-- Hierarchical Child Variants Table -->
+          <div class="space-y-2">
+            <div class="text-xs font-heading font-semibold text-slate-400 uppercase tracking-wider">
+              Child Variant Matrix & Attribute Mapping
+            </div>
+
+            <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-950/60 font-mono text-xs">
+              <div class="grid grid-cols-12 bg-slate-900/80 p-3 text-slate-400 font-bold border-b border-slate-800 text-[11px]">
+                <div class="col-span-3">SKU ID</div>
+                <div class="col-span-3">Packaging / Dosage</div>
+                <div class="col-span-2">Channel Price</div>
+                <div class="col-span-2">Inheritance</div>
+                <div class="col-span-2 text-right">Validation</div>
+              </div>
+
+              <!-- Row 1 -->
+              <div class="grid grid-cols-12 p-3 border-b border-slate-800/60 items-center hover:bg-slate-900/40">
+                <div class="col-span-3 text-white font-bold">SKU-MED-500-60ML</div>
+                <div class="col-span-3 text-slate-300">Bottle &bull; 60ml &bull; Strawberry</div>
+                <div class="col-span-2 text-emerald-400">₹42.50</div>
+                <div class="col-span-2 text-blue-400">100% Parent</div>
+                <div class="col-span-2 text-right">
+                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="grid grid-cols-12 p-3 border-b border-slate-800/60 items-center hover:bg-slate-900/40">
+                <div class="col-span-3 text-white font-bold">SKU-MED-500-100ML</div>
+                <div class="col-span-3 text-slate-300">Bottle &bull; 100ml &bull; Strawberry</div>
+                <div class="col-span-2 text-emerald-400">₹68.00</div>
+                <div class="col-span-2 text-blue-400">100% Parent</div>
+                <div class="col-span-2 text-right">
+                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="grid grid-cols-12 p-3 items-center hover:bg-slate-900/40">
+                <div class="col-span-3 text-white font-bold">SKU-MED-650-TAB-15</div>
+                <div class="col-span-3 text-slate-300">Strip &bull; 15 Tablets &bull; Plain</div>
+                <div class="col-span-2 text-emerald-400">₹31.20</div>
+                <div class="col-span-2 text-amber-400">Override Dosage</div>
+                <div class="col-span-2 text-right">
+                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOCK SCREEN 2: SCHEMA VALIDATION ENGINE -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">Validation Engine</span>
+        <h2 class="text-2xl font-heading font-extrabold text-slate-900 mt-1">Automated Feed Schema Sanity & Error Flagging</h2>
+        <p class="text-sm text-slate-500">How real-time pre-ingestion validation stopped silent database corruptions before reaching client storefronts.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/50 space-y-2">
+            <span class="font-bold text-rose-800 font-sans text-sm block">Pre-Ingestion Schema Flag</span>
+            <div class="p-2.5 bg-rose-950 text-rose-200 rounded text-[11px]">
+              &gt; ERROR [Row 8412]: "scheduled_drug_h1_flag" is NULL.<br>
+              &gt; Validation: Mandatory regulatory compliance tag for Netmeds pharmacy ingestion.
+            </div>
+            <p class="text-slate-600 font-sans">
+              Previous behavior silently uploaded rows or threw vague 500 server crashes. Our engine flags the exact row and column with remediation instructions.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-2">
+            <span class="font-bold text-emerald-800 font-sans text-sm block">Automated Remediation Output</span>
+            <div class="p-2.5 bg-emerald-950 text-emerald-200 rounded text-[11px]">
+              &gt; ACTION: Inherited default compliance flag from Parent Master SKU.<br>
+              &gt; Ingestion Status: 100% Validated &bull; 0 Manual Fixes Required.
+            </div>
+            <p class="text-slate-600 font-sans">
+              Parent-child inheritance resolved 80% of missing attribute warnings automatically without requiring catalog ops to re-upload files.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEEP DIVE PM NARRATIVE (7 SECTIONS) -->
+    <div class="space-y-12 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-200 pt-10">
+
+      <!-- 01 PROBLEM STATEMENT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">01</span>
+          Problem Discovery: Enterprise Catalog Ingestion Chaos
+        </h3>
+        <p>
+          As Reliance Retail scaled its omni-channel presence, onboarding enterprise giants like <strong>Netmeds</strong> (online pharmacy) and <strong>JioMart</strong> into Catalogue Cloud became a critical operational bottleneck.
+        </p>
+        <p>
+          Pharmaceutical catalogs consist of hundreds of thousands of complex items: medicines vary across dosages (250mg, 500mg, 650mg), packaging types (strip, bottle, blister pack), and regulatory tax schedules. Existing systems treated every SKU as an isolated flat record. When bulk CSV files were uploaded, minor column naming differences or missing mandatory drug fields caused batch uploads to fail silently or corrupt live catalog listings.
+        </p>
+      </section>
+
+      <!-- 02 USER RESEARCH -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">02</span>
+          Catalog Operations & Category Manager Pain Points
+        </h3>
+        <p>
+          I partnered with catalog operations teams to trace why onboarding a single enterprise brand was taking weeks. The root causes were clear:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+          <li><strong>No Parent-Child Hierarchy:</strong> Changing a brand description or contraindication warning required updating 40 individual variant rows manually.</li>
+          <li><strong>Opaque Error Reporting:</strong> When a 50,000-row file failed, the server returned generic error messages like <em>"Upload failed at line 1402: Type mismatch"</em>, forcing managers to comb through raw spreadsheets.</li>
+        </ul>
+      </section>
+
+      <!-- 03 PRODUCT ARCHITECTURE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-purple-600 font-mono text-base font-bold bg-purple-50 px-2.5 py-1 rounded-md border border-purple-200">03</span>
+          Product Architecture: Hierarchical SKU Variant Engine
+        </h3>
+        <p>
+          I authored the comprehensive PRDs defining the <strong>Parent-Child Variant Architecture</strong>:
+        </p>
+        <div class="space-y-2 text-xs font-mono">
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <span class="font-bold text-slate-900 font-sans text-sm">Parent Master SKU:</span> Holds brand identity, core category taxonomy, regulatory medical descriptions, and manufacturer provenance.
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <span class="font-bold text-slate-900 font-sans text-sm">Child Variants:</span> Inherits parent attributes by default, while defining only differential properties (package size, dosage, channel price, barcode/EAN).
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 THE SOLUTION -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-amber-600 font-mono text-base font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">04</span>
+          Channel-Level Attribute Management
+        </h3>
+        <p>
+          A major feature I designed was <strong>Channel-Level Attribute Overrides</strong>. Netmeds, JioMart, and Milkbasket have differing storefront specifications (e.g. JioMart requires grocery-style pack dimensions, while Netmeds requires Schedule H drug warnings).
+        </p>
+        <p>
+          Rather than duplicating SKUs across databases, our system allowed brand managers to define channel-specific attribute mappings on top of the same underlying SKU hierarchy.
+        </p>
+      </section>
+
+      <!-- 05 QA & EDGE CASES -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-rose-600 font-mono text-base font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">05</span>
+          QA Test Coverage & Circular Dependency Prevention
+        </h3>
+        <p>
+          To prevent catastrophic data corruption, I designed exhaustive edge-case test matrices covering:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+          <li><strong>Circular Variant Linking:</strong> Enforcing strict directed acyclic graph (DAG) checks to prevent SKU A referencing SKU B while SKU B references SKU A.</li>
+          <li><strong>Unicode & Special Character Sanitization:</strong> Cleaning chemical compound formulas (e.g. &beta;-blockers, &plusmn; dosages) to prevent frontend rendering crashes.</li>
+        </ul>
+      </section>
+
+      <!-- 06 MEASURABLE IMPACT -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-blue-600 font-mono text-base font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">06</span>
+          Measurable Business & Engineering Outcomes
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">Netmeds Successfully Deployed</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Catalogue Cloud was successfully deployed with Netmeds as the flagship live enterprise client.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">-40% Ingestion Errors</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Pre-validation rules cut catalog synchronization errors by 40%, saving hundreds of ops hours.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">+25% SKU Searchability</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Standardized variant taxonomy improved consumer search accuracy across linked storefronts.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="font-heading font-bold text-slate-900 text-base">-30% QA Cycle Times</span>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Automated acceptance criteria in Jira accelerated sprint velocity and reduced regression defects.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 RETROSPECTIVE -->
+      <section class="space-y-3">
+        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-emerald-600 font-mono text-base font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">07</span>
+          PM Retrospective: Enterprise Data Governance
+        </h3>
+        <p>
+          Handling data at Reliance scale taught me that <strong>clean data modeling is a foundational product moat</strong>. When your data architecture enforces logical hierarchy and rigorous validation at the point of ingestion, downstream services run faster, users experience zero silent failures, and enterprise clients trust your platform with their core revenue channels.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- PREV / NEXT NAVIGATION -->
+    <div class="border-t border-slate-200 pt-8 flex items-center justify-between">
+      <a href="driver-safety-intercom.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-slate-600 hover:text-blue-600 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+        <span>Voice AI Driver Safety Intercom</span>
+      </a>
+      <a href="mentorship-network-ux.html" class="group flex items-center gap-2 text-sm font-heading font-bold text-blue-600 hover:text-blue-800 transition-colors">
+        <span>LinkedIn Mentorship Network</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+    </div>
+
+    <!-- CONTACT CTA FOOTER -->
+    <div class="rounded-3xl bg-slate-900 text-white p-8 text-center space-y-4 shadow-xl">
+      <h3 class="text-2xl font-heading font-bold">Interested in how I design & execute complex systems?</h3>
+      <p class="text-sm text-slate-300 max-w-lg mx-auto">
+        I'm always open to discussing Product Management, AI agent architectures, and 0-to-1 operational engineering.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="mailto:svdudhal777@gmail.com" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 font-heading font-bold text-xs text-white transition-all shadow-md">
+          Get In Touch
+        </a>
+        <a href="https://linkedin.com/in/shubham-dudhal-41bb61192" target="_blank" class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 font-heading font-bold text-xs text-white border border-slate-700 transition-all">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
