@@ -161,34 +161,36 @@
       <!-- Mock UI Window -->
       <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#0b1120] text-slate-200 shadow-2xl">
         <!-- Window Chrome -->
-        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-            <span class="ml-2 text-xs font-mono text-slate-400">bolt-v2.roadcast.in / command-center / ai-fleet-query</span>
+        <div class="min-h-[40px] py-2 bg-slate-900 border-b border-slate-800 px-3 sm:px-4 flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2 min-w-0">
+            <div class="flex items-center space-x-1.5 flex-shrink-0">
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="ml-1 sm:ml-2 text-[11px] sm:text-xs font-mono text-slate-400 truncate">bolt-v2.roadcast.in<span class="hidden sm:inline"> / command-center / ai-fleet-query</span></span>
           </div>
-          <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
+          <span class="text-[10px] sm:text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 sm:px-2.5 py-0.5 rounded-full flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Redis Telemetry Sync Active (3,412 Nodes)
+            <span class="hidden sm:inline">Redis Telemetry Sync Active </span><span>(3,412 Nodes)</span>
           </span>
         </div>
 
-        <div class="p-6 space-y-6">
+        <div class="p-3.5 sm:p-6 space-y-4 sm:space-y-6">
           <!-- Query Search Bar -->
           <div class="space-y-2">
-            <div class="flex items-center gap-3 bg-slate-900/90 border border-blue-500/40 focus-within:border-blue-500 p-3 rounded-xl shadow-inner">
-              <i data-lucide="sparkles" class="w-5 h-5 text-blue-400 flex-shrink-0"></i>
-              <input type="text" readonly value="Show idle trucks in Delhi NCR Zone 2 with fuel > 40% and >35min idling" class="w-full bg-transparent text-sm text-white font-mono outline-none">
-              <span class="px-2.5 py-1 rounded bg-blue-600 text-white text-xs font-heading font-bold flex items-center gap-1">
+            <div class="flex items-center gap-2 sm:gap-3 bg-slate-900/90 border border-blue-500/40 focus-within:border-blue-500 p-2.5 sm:p-3 rounded-xl shadow-inner min-w-0">
+              <i data-lucide="sparkles" class="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0"></i>
+              <input type="text" readonly value="Show idle trucks in Delhi NCR Zone 2 with fuel > 40% and >35min idling" class="w-full min-w-0 flex-1 bg-transparent text-xs sm:text-sm text-white font-mono outline-none truncate">
+              <span class="px-2 sm:px-2.5 py-1 rounded bg-blue-600 text-white text-[10px] sm:text-xs font-heading font-bold flex items-center gap-1 flex-shrink-0">
                 <span>Enter</span>
                 <i data-lucide="corner-down-left" class="w-3 h-3"></i>
               </span>
             </div>
             
             <!-- Quick Suggestion Chips -->
-            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
-              <span class="text-slate-500">Quick queries:</span>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono text-slate-400 items-center">
+              <span class="text-slate-500 w-full sm:w-auto text-[10px] sm:text-xs">Quick queries:</span>
               <span class="bg-slate-800/70 hover:bg-slate-700 px-2 py-0.5 rounded cursor-pointer border border-slate-700 text-slate-300">"Battery voltage &lt;11.8V"</span>
               <span class="bg-slate-800/70 hover:bg-slate-700 px-2 py-0.5 rounded cursor-pointer border border-slate-700 text-slate-300">"Drivers exceeding shift hours"</span>
               <span class="bg-slate-800/70 hover:bg-slate-700 px-2 py-0.5 rounded cursor-pointer border border-slate-700 text-slate-300">"High temperature reefer alerts"</span>
@@ -196,78 +198,78 @@
           </div>
 
           <!-- MCP Execution Trace Bar -->
-          <div class="p-3 bg-slate-950/80 rounded-xl border border-slate-800 font-mono text-xs space-y-1.5 text-slate-400">
-            <div class="flex items-center justify-between text-[11px]">
+          <div class="p-3 bg-slate-950/80 rounded-xl border border-slate-800 font-mono text-xs space-y-1.5 text-slate-400 overflow-hidden">
+            <div class="flex items-center justify-between text-[10px] sm:text-[11px] gap-2 flex-wrap">
               <span class="text-blue-400 font-semibold flex items-center gap-1.5">
-                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-                MCP Agent Execution Pipeline
+                <i data-lucide="cpu" class="w-3.5 h-3.5 flex-shrink-0"></i>
+                <span>MCP Agent Execution Pipeline</span>
               </span>
               <span class="text-slate-500">Total Latency: 142ms</span>
             </div>
-            <div class="text-slate-300 text-[11px]">
-              &gt; Tool Dispatched: <code class="text-emerald-400 bg-emerald-950/80 px-1 rounded">roadcast_redis_telemetry</code> (args: { geofence: "delhi-ncr-z2", idle_min: 35, fuel_gt: 40 })
+            <div class="text-slate-300 text-[10px] sm:text-[11px] break-words leading-relaxed">
+              &gt; Tool Dispatched: <code class="text-emerald-400 bg-emerald-950/80 px-1 rounded break-all">roadcast_redis_telemetry</code> (args: { geofence: "delhi-ncr-z2", idle_min: 35, fuel_gt: 40 })
             </div>
-            <div class="text-emerald-400 text-[11px]">
+            <div class="text-emerald-400 text-[10px] sm:text-[11px] break-words leading-relaxed">
               &gt; Matched 3 active assets &bull; Status: OK (0 database queries executed against TimescaleDB)
             </div>
           </div>
 
           <!-- Resulting Dynamic Asset Cards -->
-          <div class="space-y-3">
+          <div class="space-y-2.5 sm:space-y-3">
             <div class="flex items-center justify-between text-xs font-heading font-semibold text-slate-300">
               <span>Query Results (3 Identified Assets)</span>
               <span class="text-blue-400 hover:underline cursor-pointer">Export CSV</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 text-xs">
               <!-- Asset Card 1 -->
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5">
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono font-bold text-white text-sm">DL-01-AB-4921</span>
+                  <span class="font-mono font-bold text-white text-xs sm:text-sm">DL-01-AB-4921</span>
                   <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-mono border border-rose-500/30">Idle 48m</span>
                 </div>
-                <div class="space-y-1 text-slate-400 text-[11px]">
+                <div class="space-y-0.5 text-slate-400 text-[11px]">
                   <div>Location: Kundli Hub, Gate 3</div>
                   <div>Driver: Rajesh Kumar (+91 98765...)</div>
                   <div class="text-emerald-400">Fuel: 68% (Stable) &bull; Battery: 12.6V</div>
                 </div>
                 <div class="pt-2 border-t border-slate-800 flex items-center gap-2">
-                  <button class="flex-1 py-1 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
-                  <button class="flex-1 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
+                  <button class="flex-1 py-1.5 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
+                  <button class="flex-1 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
                 </div>
               </div>
 
               <!-- Asset Card 2 -->
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5">
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono font-bold text-white text-sm">HR-55-XY-8812</span>
+                  <span class="font-mono font-bold text-white text-xs sm:text-sm">HR-55-XY-8812</span>
                   <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono border border-amber-500/30">Idle 39m</span>
                 </div>
-                <div class="space-y-1 text-slate-400 text-[11px]">
+                <div class="space-y-0.5 text-slate-400 text-[11px]">
                   <div>Location: NH48 Service Lane</div>
                   <div>Driver: Satish Sharma (+91 98112...)</div>
                   <div class="text-emerald-400">Fuel: 52% (Stable) &bull; Battery: 12.4V</div>
                 </div>
                 <div class="pt-2 border-t border-slate-800 flex items-center gap-2">
-                  <button class="flex-1 py-1 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
-                  <button class="flex-1 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
+                  <button class="flex-1 py-1.5 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
+                  <button class="flex-1 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
                 </div>
               </div>
 
               <!-- Asset Card 3 -->
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5">
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono font-bold text-white text-sm">UP-14-BT-1029</span>
+                  <span class="font-mono font-bold text-white text-xs sm:text-sm">UP-14-BT-1029</span>
                   <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono border border-amber-500/30">Idle 36m</span>
                 </div>
-                <div class="space-y-1 text-slate-400 text-[11px]">
+                <div class="space-y-0.5 text-slate-400 text-[11px]">
                   <div>Location: Ghaziabad Freight Yard</div>
                   <div>Driver: Vikram Singh (+91 97184...)</div>
                   <div class="text-emerald-400">Fuel: 44% (Stable) &bull; Battery: 12.5V</div>
                 </div>
                 <div class="pt-2 border-t border-slate-800 flex items-center gap-2">
-                  <button class="flex-1 py-1 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
-                  <button class="flex-1 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
+                  <button class="flex-1 py-1.5 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white rounded border border-blue-500/40 text-[11px] font-semibold transition">Ping GPS</button>
+                  <button class="flex-1 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 text-[11px] font-semibold transition">Call Driver</button>
                 </div>
               </div>
             </div>
@@ -284,8 +286,8 @@
         <p class="text-sm text-slate-500">Why letting an LLM run arbitrary SQL is catastrophic for IoT workloads, and how MCP tool schemas solved it.</p>
       </div>
 
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm space-y-4 sm:space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 text-xs">
           <!-- The Anti-Pattern -->
           <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/50 space-y-3">
             <div class="flex items-center gap-2 text-rose-700 font-heading font-bold text-sm">

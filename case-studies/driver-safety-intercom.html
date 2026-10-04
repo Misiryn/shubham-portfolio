@@ -168,45 +168,47 @@
       <!-- Mock UI Window -->
       <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#09111e] text-slate-200 shadow-2xl">
         <!-- Window Chrome -->
-        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-            <span class="ml-2 text-xs font-mono text-slate-400">roadcast.safety.livekit / session / call-webrtc-8192</span>
+        <div class="min-h-[40px] py-2 bg-slate-900 border-b border-slate-800 px-3 sm:px-4 flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2 min-w-0">
+            <div class="flex items-center space-x-1.5 flex-shrink-0">
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="ml-1 sm:ml-2 text-[11px] sm:text-xs font-mono text-slate-400 truncate">roadcast.safety.livekit<span class="hidden sm:inline"> / session / call-webrtc-8192</span></span>
           </div>
-          <span class="text-[11px] font-mono text-rose-400 bg-rose-950/60 border border-rose-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
-            CRITICAL ADAS ALERT IN PROGRESS
+          <span class="text-[10px] sm:text-[11px] font-mono text-rose-400 bg-rose-950/60 border border-rose-800/60 px-2 sm:px-2.5 py-0.5 rounded-full flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+            <span class="hidden sm:inline">CRITICAL ADAS </span><span>ALERT ACTIVE</span>
           </span>
         </div>
 
-        <div class="p-6 space-y-6">
+        <div class="p-3.5 sm:p-6 space-y-4 sm:space-y-6">
           <!-- Top Alert Bar -->
-          <div class="p-4 rounded-xl bg-gradient-to-r from-rose-950/80 to-slate-900 border border-rose-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div class="space-y-1">
-              <div class="text-rose-300 font-heading font-bold text-sm flex items-center gap-2">
-                <i data-lucide="eye-off" class="w-4 h-4 text-rose-400"></i>
-                <span>DMS Event: Continuous Eye Closure Detected (&gt;2.5s)</span>
+          <div class="p-3 sm:p-4 rounded-xl bg-gradient-to-r from-rose-950/80 to-slate-900 border border-rose-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
+            <div class="space-y-1 min-w-0">
+              <div class="text-rose-300 font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2">
+                <i data-lucide="eye-off" class="w-4 h-4 text-rose-400 flex-shrink-0"></i>
+                <span>DMS Event: Continuous Eye Closure (&gt;2.5s)</span>
               </div>
-              <div class="text-slate-400 text-xs font-mono">
+              <div class="text-slate-400 text-[11px] sm:text-xs font-mono break-words leading-relaxed">
                 Asset: <strong class="text-white">MH-12-RN-3940</strong> &bull; Speed: <strong class="text-white">72 km/h</strong> &bull; Geofence: Mumbai-Pune Expressway
               </div>
             </div>
-            <span class="text-xs font-mono bg-rose-500 text-white font-bold px-3 py-1 rounded-full">Severity Level 1</span>
+            <span class="text-[10px] sm:text-xs font-mono bg-rose-500 text-white font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full flex-shrink-0 self-start sm:self-auto">Severity Level 1</span>
           </div>
 
           <!-- Animated Voice Waveform & Transcript Area -->
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-6">
             <!-- Left: Waveform & Audio Meter -->
-            <div class="md:col-span-5 p-5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between items-center text-center space-y-4">
-              <div class="space-y-1">
+            <div class="md:col-span-5 p-4 sm:p-5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between items-center text-center space-y-3 sm:space-y-4">
+              <div class="space-y-0.5">
                 <div class="text-xs font-heading font-bold text-slate-300">LiveKit WebRTC Channel</div>
-                <div class="text-[11px] text-emerald-400 font-mono">Active &bull; Noise Suppression On</div>
+                <div class="text-[10px] sm:text-[11px] text-emerald-400 font-mono">Active &bull; Noise Suppression On</div>
               </div>
 
               <!-- Animated Waveform Bars -->
-              <div class="flex items-center justify-center gap-1.5 h-16 w-full">
+              <div class="flex items-center justify-center gap-1.5 h-12 sm:h-16 w-full">
                 <span class="w-1.5 bg-emerald-500 rounded-full wave-bar" style="animation-delay: 0.1s;"></span>
                 <span class="w-1.5 bg-emerald-400 rounded-full wave-bar" style="animation-delay: 0.3s;"></span>
                 <span class="w-1.5 bg-teal-400 rounded-full wave-bar" style="animation-delay: 0.2s;"></span>
@@ -217,40 +219,40 @@
                 <span class="w-1.5 bg-teal-500 rounded-full wave-bar" style="animation-delay: 0.5s;"></span>
               </div>
 
-              <div class="text-[11px] font-mono text-slate-400">
+              <div class="text-[10px] sm:text-[11px] font-mono text-slate-400">
                 Sarvam AI Indic Speech &bull; 24kHz Opus
               </div>
             </div>
 
             <!-- Right: Real-Time Bilingual Transcript -->
-            <div class="md:col-span-7 p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3 font-mono text-xs">
-              <div class="text-slate-400 text-[11px] border-b border-slate-800 pb-2 flex items-center justify-between">
-                <span>Real-Time In-Cabin Dialogue Stream</span>
+            <div class="md:col-span-7 p-3 sm:p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5 sm:space-y-3 font-mono text-xs overflow-hidden">
+              <div class="text-slate-400 text-[10px] sm:text-[11px] border-b border-slate-800 pb-2 flex items-center justify-between">
+                <span>Real-Time Dialogue Stream</span>
                 <span class="text-emerald-400">Round-Trip: 860ms</span>
               </div>
 
               <!-- AI Outbound Prompt -->
               <div class="space-y-1">
-                <span class="text-purple-400 font-bold">[00:01.2] Autonomous Voice Agent (Hindi):</span>
-                <div class="p-2.5 rounded-lg bg-purple-950/40 border border-purple-800/40 text-purple-200">
+                <span class="text-purple-400 font-bold text-[11px] sm:text-xs">[00:01.2] Autonomous Voice Agent (Hindi):</span>
+                <div class="p-2 sm:p-2.5 rounded-lg bg-purple-950/40 border border-purple-800/40 text-purple-200 text-xs sm:text-sm leading-relaxed">
                   "नमस्ते राजेश जी, सड़क पर ध्यान दें। क्या आप सतर्क हैं? कृपया जवाब दें।"
-                  <span class="block text-slate-400 text-[10px] font-sans mt-0.5">("Hello Rajesh ji, please pay attention to the road. Are you alert? Please respond.")</span>
+                  <span class="block text-slate-400 text-[10px] font-sans mt-0.5 leading-normal">("Hello Rajesh ji, please pay attention to the road. Are you alert? Please respond.")</span>
                 </div>
               </div>
 
               <!-- Driver Response -->
               <div class="space-y-1">
-                <span class="text-emerald-400 font-bold">[00:02.8] Driver Rajesh (Captured Speech):</span>
-                <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40 text-emerald-200">
+                <span class="text-emerald-400 font-bold text-[11px] sm:text-xs">[00:02.8] Driver Rajesh (Captured Speech):</span>
+                <div class="p-2 sm:p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40 text-emerald-200 text-xs sm:text-sm leading-relaxed">
                   "हाँ, मैं जाग रहा हूँ। अगली चाय की दुकान पर रुकूँगा।"
-                  <span class="block text-slate-400 text-[10px] font-sans mt-0.5">("Yes, I am awake. I will stop at the next tea stall.")</span>
+                  <span class="block text-slate-400 text-[10px] font-sans mt-0.5 leading-normal">("Yes, I am awake. I will stop at the next tea stall.")</span>
                 </div>
               </div>
 
               <!-- State Machine Action -->
-              <div class="p-2 bg-emerald-900/40 rounded border border-emerald-500/30 text-emerald-300 text-[11px] flex items-center gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span>State Transition: [ALERT_ACTIVE] &rarr; [DRIVER_ACKNOWLEDGED] &rarr; [RESOLVED]</span>
+              <div class="p-2 bg-emerald-900/40 rounded border border-emerald-500/30 text-emerald-300 text-[10px] sm:text-[11px] flex items-center gap-1.5 sm:gap-2 break-words leading-tight">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>[ALERT_ACTIVE] &rarr; [DRIVER_ACKNOWLEDGED] &rarr; [RESOLVED]</span>
               </div>
             </div>
           </div>
@@ -266,8 +268,8 @@
         <p class="text-sm text-slate-500">Why life-critical safety cannot rely on non-deterministic LLMs, and how finite state machines enforce safety.</p>
       </div>
 
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs font-mono">
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm space-y-4 sm:space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-xs font-mono">
           <!-- Step 1 -->
           <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs">1</span>

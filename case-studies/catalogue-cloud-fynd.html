@@ -161,80 +161,87 @@
       <!-- Mock UI Window -->
       <div class="rounded-2xl overflow-hidden border border-slate-800 bg-[#0d1424] text-slate-200 shadow-2xl">
         <!-- Window Chrome -->
-        <div class="h-10 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-            <span class="ml-2 text-xs font-mono text-slate-400">catalogue-cloud.fynd.com / netmeds / sku-matrix / 890123</span>
+        <div class="min-h-[40px] py-2 bg-slate-900 border-b border-slate-800 px-3 sm:px-4 flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-2 min-w-0">
+            <div class="flex items-center space-x-1.5 flex-shrink-0">
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="ml-1 sm:ml-2 text-[11px] sm:text-xs font-mono text-slate-400 truncate">catalogue-cloud.fynd.com<span class="hidden sm:inline"> / netmeds / sku-matrix / 890123</span></span>
           </div>
-          <span class="text-[11px] font-mono text-blue-400 bg-blue-950/60 border border-blue-800/60 px-2.5 py-0.5 rounded-full">
-            Channel: Netmeds Live Ingestion
+          <span class="text-[10px] sm:text-[11px] font-mono text-blue-400 bg-blue-950/60 border border-blue-800/60 px-2 sm:px-2.5 py-0.5 rounded-full flex-shrink-0">
+            Channel: Netmeds
           </span>
         </div>
 
-        <div class="p-6 space-y-6">
+        <div class="p-3.5 sm:p-6 space-y-4 sm:space-y-6">
           <!-- Parent SKU Header -->
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="p-3.5 sm:p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div class="space-y-1">
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <span class="px-2 py-0.5 rounded bg-blue-600/30 text-blue-300 font-mono text-xs border border-blue-500/40">PARENT MASTER</span>
-                <span class="font-heading font-bold text-white text-base">Paracetamol IP 500mg Oral Suspension</span>
+                <span class="font-heading font-bold text-white text-sm sm:text-base">Paracetamol IP 500mg Oral Suspension</span>
               </div>
-              <div class="text-slate-400 text-xs font-mono">
+              <div class="text-slate-400 text-[11px] sm:text-xs font-mono leading-relaxed">
                 Brand: GlaxoSmithKline &bull; Category: Pharma &gt; Analgesics &bull; Global Tax Code: HSN 3004
               </div>
             </div>
-            <span class="text-xs font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-bold">
+            <span class="text-[11px] sm:text-xs font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 sm:px-3 py-1 rounded-full font-bold flex-shrink-0">
               4 Linked Variants Active
             </span>
           </div>
 
           <!-- Hierarchical Child Variants Table -->
           <div class="space-y-2">
-            <div class="text-xs font-heading font-semibold text-slate-400 uppercase tracking-wider">
-              Child Variant Matrix & Attribute Mapping
+            <div class="flex items-center justify-between">
+              <div class="text-[11px] sm:text-xs font-heading font-semibold text-slate-400 uppercase tracking-wider">
+                Child Variant Matrix & Attribute Mapping
+              </div>
+              <span class="text-[10px] font-mono text-slate-500 sm:hidden">← Scroll horizontally →</span>
             </div>
 
-            <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-950/60 font-mono text-xs">
-              <div class="grid grid-cols-12 bg-slate-900/80 p-3 text-slate-400 font-bold border-b border-slate-800 text-[11px]">
-                <div class="col-span-3">SKU ID</div>
-                <div class="col-span-3">Packaging / Dosage</div>
-                <div class="col-span-2">Channel Price</div>
-                <div class="col-span-2">Inheritance</div>
-                <div class="col-span-2 text-right">Validation</div>
-              </div>
-
-              <!-- Row 1 -->
-              <div class="grid grid-cols-12 p-3 border-b border-slate-800/60 items-center hover:bg-slate-900/40">
-                <div class="col-span-3 text-white font-bold">SKU-MED-500-60ML</div>
-                <div class="col-span-3 text-slate-300">Bottle &bull; 60ml &bull; Strawberry</div>
-                <div class="col-span-2 text-emerald-400">₹42.50</div>
-                <div class="col-span-2 text-blue-400">100% Parent</div>
-                <div class="col-span-2 text-right">
-                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+            <div class="overflow-x-auto -mx-3.5 sm:mx-0 px-3.5 sm:px-0">
+              <div class="min-w-[560px] border border-slate-800 rounded-xl overflow-hidden bg-slate-950/60 font-mono text-xs">
+                <div class="grid grid-cols-12 bg-slate-900/80 p-3 text-slate-400 font-bold border-b border-slate-800 text-[11px]">
+                  <div class="col-span-3">SKU ID</div>
+                  <div class="col-span-3">Packaging / Dosage</div>
+                  <div class="col-span-2">Channel Price</div>
+                  <div class="col-span-2">Inheritance</div>
+                  <div class="col-span-2 text-right">Validation</div>
                 </div>
-              </div>
 
-              <!-- Row 2 -->
-              <div class="grid grid-cols-12 p-3 border-b border-slate-800/60 items-center hover:bg-slate-900/40">
-                <div class="col-span-3 text-white font-bold">SKU-MED-500-100ML</div>
-                <div class="col-span-3 text-slate-300">Bottle &bull; 100ml &bull; Strawberry</div>
-                <div class="col-span-2 text-emerald-400">₹68.00</div>
-                <div class="col-span-2 text-blue-400">100% Parent</div>
-                <div class="col-span-2 text-right">
-                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                <!-- Row 1 -->
+                <div class="grid grid-cols-12 p-3 border-b border-slate-800/60 items-center hover:bg-slate-900/40">
+                  <div class="col-span-3 text-white font-bold">SKU-MED-500-60ML</div>
+                  <div class="col-span-3 text-slate-300">Bottle &bull; 60ml &bull; Strawberry</div>
+                  <div class="col-span-2 text-emerald-400">₹42.50</div>
+                  <div class="col-span-2 text-blue-400">100% Parent</div>
+                  <div class="col-span-2 text-right">
+                    <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Row 3 -->
-              <div class="grid grid-cols-12 p-3 items-center hover:bg-slate-900/40">
-                <div class="col-span-3 text-white font-bold">SKU-MED-650-TAB-15</div>
-                <div class="col-span-3 text-slate-300">Strip &bull; 15 Tablets &bull; Plain</div>
-                <div class="col-span-2 text-emerald-400">₹31.20</div>
-                <div class="col-span-2 text-amber-400">Override Dosage</div>
-                <div class="col-span-2 text-right">
-                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                <!-- Row 2 -->
+                <div class="grid grid-cols-12 p-3 border-b border-slate-800/60 items-center hover:bg-slate-900/40">
+                  <div class="col-span-3 text-white font-bold">SKU-MED-500-100ML</div>
+                  <div class="col-span-3 text-slate-300">Bottle &bull; 100ml &bull; Strawberry</div>
+                  <div class="col-span-2 text-emerald-400">₹68.00</div>
+                  <div class="col-span-2 text-blue-400">100% Parent</div>
+                  <div class="col-span-2 text-right">
+                    <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                  </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="grid grid-cols-12 p-3 items-center hover:bg-slate-900/40">
+                  <div class="col-span-3 text-white font-bold">SKU-MED-650-TAB-15</div>
+                  <div class="col-span-3 text-slate-300">Strip &bull; 15 Tablets &bull; Plain</div>
+                  <div class="col-span-2 text-emerald-400">₹31.20</div>
+                  <div class="col-span-2 text-amber-400">Override Dosage</div>
+                  <div class="col-span-2 text-right">
+                    <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">SYNCED</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -251,11 +258,11 @@
         <p class="text-sm text-slate-500">How real-time pre-ingestion validation stopped silent database corruptions before reaching client storefronts.</p>
       </div>
 
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-3.5 sm:p-6 shadow-sm space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-          <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/50 space-y-2">
+          <div class="p-3.5 sm:p-4 rounded-xl border border-rose-200 bg-rose-50/50 space-y-2">
             <span class="font-bold text-rose-800 font-sans text-sm block">Pre-Ingestion Schema Flag</span>
-            <div class="p-2.5 bg-rose-950 text-rose-200 rounded text-[11px]">
+            <div class="p-2.5 bg-rose-950 text-rose-200 rounded text-[11px] break-words">
               &gt; ERROR [Row 8412]: "scheduled_drug_h1_flag" is NULL.<br>
               &gt; Validation: Mandatory regulatory compliance tag for Netmeds pharmacy ingestion.
             </div>
@@ -264,9 +271,9 @@
             </p>
           </div>
 
-          <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-2">
+          <div class="p-3.5 sm:p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-2">
             <span class="font-bold text-emerald-800 font-sans text-sm block">Automated Remediation Output</span>
-            <div class="p-2.5 bg-emerald-950 text-emerald-200 rounded text-[11px]">
+            <div class="p-2.5 bg-emerald-950 text-emerald-200 rounded text-[11px] break-words">
               &gt; ACTION: Inherited default compliance flag from Parent Master SKU.<br>
               &gt; Ingestion Status: 100% Validated &bull; 0 Manual Fixes Required.
             </div>
