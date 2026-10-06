@@ -1080,9 +1080,6 @@ POST /v2/ai/telemetry/query
         </div>
       </div>
       <div class="flex items-center gap-1 flex-shrink-0">
-        <button type="button" onclick="resetCopilotChat()" title="Clear conversation" class="p-1 sm:p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
-          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-        </button>
         <button type="button" onclick="closeCopilotCard()" title="Minimize to floating button" class="p-1 sm:p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
           <i data-lucide="minus" class="w-4 h-4"></i>
         </button>
@@ -1787,13 +1784,44 @@ POST /v2/ai/telemetry/query
     // ==========================================
     // CAREER COPILOT: GEMINI AI + 2-TURN RECRUITER GATE + RESEND
     // ==========================================
-    let copilotTurnCount = 0;
-    let isCopilotGated = false;
-    let leadUnlocked = false;
-    try {
-      leadUnlocked = localStorage.getItem('copilot_lead_unlocked') === 'true';
-    } catch (_) {}
+    function getStoredTurnCount() {
+      let count = 0;
+      try {
+        const fromLocal = localStorage.getItem('copilot_turn_count');
+        if (fromLocal !== null) count = parseInt(fromLocal, 10);
+        const cookieMatch = document.cookie.match(/(?:^|;\s*)copilot_turn_count=(\d+)/);
+        if (cookieMatch && !isNaN(parseInt(cookieMatch[1], 10))) {
+          count = Math.max(count, parseInt(cookieMatch[1], 10));
+        }
+      } catch (_) {}
+      return isNaN(count) ? 0 : count;
+    }
+
+    function checkIsLeadUnlocked() {
+      try {
+        return localStorage.getItem('copilot_lead_unlocked') === 'true' ||
+          document.cookie.includes('copilot_lead_unlocked=true');
+      } catch (_) {
+        return false;
+      }
+    }
+
+    let copilotTurnCount = getStoredTurnCount();
+    let leadUnlocked = checkIsLeadUnlocked();
+    let isCopilotGated = copilotTurnCount >= 2 && !leadUnlocked;
     const copilotHistory = [];
+
+    function persistCopilotState() {
+      try {
+        localStorage.setItem('copilot_turn_count', String(copilotTurnCount));
+        document.cookie = `copilot_turn_count=${copilotTurnCount};path=/;max-age=31536000;SameSite=Lax`;
+        localStorage.setItem('copilot_chat_history', JSON.stringify(copilotHistory));
+        if (leadUnlocked) {
+          localStorage.setItem('copilot_lead_unlocked', 'true');
+          document.cookie = 'copilot_lead_unlocked=true;path=/;max-age=31536000;SameSite=Lax';
+        }
+      } catch (_) {}
+    }
 
     function escapeHtml(str) {
       if (!str) return '';
@@ -1899,7 +1927,7 @@ POST /v2/ai/telemetry/query
       if (window.lucide) lucide.createIcons();
     }
 
-    function appendCopilotMessage(sender, htmlContent) {
+    function appendCopilotMessage(sender, htmlContent, shouldScroll = true) {
       const chat = document.getElementById('copilot-chat');
       if (!chat) return;
       const msgDiv = document.createElement('div');
@@ -1921,10 +1949,33 @@ POST /v2/ai/telemetry/query
         `;
       }
       chat.appendChild(msgDiv);
-      chat.scrollTop = chat.scrollHeight;
+      if (shouldScroll) {
+        chat.scrollTop = chat.scrollHeight;
+      }
 
       if (window.lucide) {
         lucide.createIcons();
+      }
+    }
+
+    function restoreCopilotChatHistory() {
+      try {
+        const raw = localStorage.getItem('copilot_chat_history');
+        if (!raw) return;
+        const saved = JSON.parse(raw);
+        if (Array.isArray(saved) && saved.length > 0) {
+          copilotHistory.length = 0;
+          for (const msg of saved) {
+            copilotHistory.push(msg);
+            if (msg.sender === 'user') {
+              appendCopilotMessage('user', escapeHtml(msg.text), false);
+            } else if (msg.sender === 'model') {
+              appendCopilotMessage('ai', formatAiResponse(msg.text), false);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('Failed restoring copilot history:', e);
       }
     }
 
@@ -2068,7 +2119,7 @@ POST /v2/ai/telemetry/query
         // Mark as unlocked regardless to ensure great recruiter UX
         leadUnlocked = true;
         isCopilotGated = false;
-        try { localStorage.setItem('copilot_lead_unlocked', 'true'); } catch (_) {}
+        persistCopilotState();
         updateCopilotCounter();
 
         // Replace the gate card with an unlocked success card
@@ -2099,6 +2150,7 @@ POST /v2/ai/telemetry/query
         // AI welcome acknowledgment
         const aiWelcome = `Great to connect, **${escapeHtml(name)}** from **${escapeHtml(company)}**! I've dispatched our conversation transcript directly to Shubham's personal email. What else can I share about his product leadership, telemetry architecture, or execution approach?`;
         copilotHistory.push({ sender: 'model', text: aiWelcome });
+        persistCopilotState();
         appendCopilotMessage('ai', formatAiResponse(aiWelcome));
 
         if (window.lucide) lucide.createIcons();
@@ -2108,7 +2160,7 @@ POST /v2/ai/telemetry/query
         // Fallback unlock so user isn't trapped
         leadUnlocked = true;
         isCopilotGated = false;
-        try { localStorage.setItem('copilot_lead_unlocked', 'true'); } catch (_) {}
+        persistCopilotState();
         updateCopilotCounter();
         const input = document.getElementById('copilot-input');
         const chatSubmitBtn = document.getElementById('copilot-submit-btn');
@@ -2145,7 +2197,9 @@ POST /v2/ai/telemetry/query
     async function askCopilot(query) {
       openCopilotCard();
 
-      if (isCopilotGated) {
+      if (isCopilotGated || (copilotTurnCount >= 2 && !leadUnlocked)) {
+        isCopilotGated = true;
+        showRecruiterGateCard();
         const gateCard = document.getElementById('copilot-gate-card');
         if (gateCard) {
           gateCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -2162,10 +2216,13 @@ POST /v2/ai/telemetry/query
       appendCopilotMessage('user', escapeHtml(query));
       copilotHistory.push({ sender: 'user', text: query });
 
-      // Increment counter & update badge
+      // Increment counter & update badge immediately
       if (!leadUnlocked) {
         copilotTurnCount++;
+        persistCopilotState();
         updateCopilotCounter();
+      } else {
+        persistCopilotState();
       }
 
       // Disable input while processing
@@ -2182,21 +2239,36 @@ POST /v2/ai/telemetry/query
           body: JSON.stringify({
             action: 'chat',
             prompt: query,
-            history: copilotHistory.slice(0, -1)
+            history: copilotHistory.slice(0, -1),
+            isUnlocked: leadUnlocked
           })
         });
 
         hideCopilotTyping();
 
+        if (res.status === 403) {
+          isCopilotGated = true;
+          persistCopilotState();
+          showRecruiterGateCard();
+          if (input) {
+            input.disabled = true;
+            input.placeholder = "Please unlock unlimited access above to continue...";
+          }
+          if (submitBtn) submitBtn.disabled = true;
+          return;
+        }
+
         if (res.ok) {
           const data = await res.json();
           const reply = data.reply || "I'm having trouble retrieving a response right now.";
           copilotHistory.push({ sender: 'model', text: reply });
+          persistCopilotState();
           appendCopilotMessage('ai', formatAiResponse(reply));
         } else {
           console.warn('API returned non-200, falling back to local intent matcher');
           const fallbackReply = matchCopilotIntent(query);
           copilotHistory.push({ sender: 'model', text: stripHtml(fallbackReply) });
+          persistCopilotState();
           appendCopilotMessage('ai', fallbackReply);
         }
       } catch (err) {
@@ -2204,12 +2276,14 @@ POST /v2/ai/telemetry/query
         hideCopilotTyping();
         const fallbackReply = matchCopilotIntent(query);
         copilotHistory.push({ sender: 'model', text: stripHtml(fallbackReply) });
+        persistCopilotState();
         appendCopilotMessage('ai', fallbackReply);
       }
 
       // Check 2-message gating condition
       if (copilotTurnCount >= 2 && !leadUnlocked) {
         isCopilotGated = true;
+        persistCopilotState();
         showRecruiterGateCard();
         if (input) {
           input.disabled = true;
@@ -2220,6 +2294,9 @@ POST /v2/ai/telemetry/query
         if (submitBtn) submitBtn.disabled = false;
         if (input) {
           input.disabled = false;
+          input.placeholder = copilotTurnCount === 1 
+            ? "1 free preview question remaining..." 
+            : "Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers...";
           input.focus();
         }
       }
@@ -2232,39 +2309,6 @@ POST /v2/ai/telemetry/query
       if (!val) return;
       input.value = '';
       askCopilot(val);
-    }
-
-    function resetCopilotChat() {
-      const chat = document.getElementById('copilot-chat');
-      chat.innerHTML = `
-        <div class="flex gap-2.5 sm:gap-3 text-xs sm:text-sm">
-          <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs shadow-xs">AI</div>
-          <div class="p-3.5 sm:p-4 rounded-2xl rounded-tl-none bg-white border border-slate-200/90 text-slate-700 max-w-xl shadow-xs leading-relaxed text-xs sm:text-sm space-y-1.5">
-            <p>Hey! I'm Shubham's Career Copilot, powered by Google Gemini. I have complete context on Shubham's product leadership at Roadcast, 0-to-1 startup scale at Mummy Ki Rasoi (16x orders), catalogue engines at Fynd, and his technical Computer Science foundation.</p>
-            <p class="text-[11px] text-slate-500 font-mono">You have <strong class="text-slate-800">${leadUnlocked ? 'unlimited' : '2 free'}</strong> questions. Ask me anything or click a suggestion below!</p>
-          </div>
-        </div>
-      `;
-      const input = document.getElementById('copilot-input');
-      const submitBtn = document.getElementById('copilot-submit-btn');
-      
-      if (!leadUnlocked) {
-        copilotTurnCount = 0;
-        isCopilotGated = false;
-      }
-      copilotHistory.length = 0;
-      updateCopilotCounter();
-
-      if (input) {
-        input.value = '';
-        input.disabled = false;
-        input.placeholder = leadUnlocked ? "Ask Shubham anything (unlimited mode)..." : "Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers...";
-        input.focus();
-      }
-      if (submitBtn) submitBtn.disabled = false;
-      if (window.lucide) {
-        lucide.createIcons();
-      }
     }
 
     function openCopilotCard() {
@@ -2319,16 +2363,53 @@ POST /v2/ai/telemetry/query
       }
     });
 
-    // Initialize counter on load
+    function initCopilotSystem() {
+      leadUnlocked = checkIsLeadUnlocked();
+      copilotTurnCount = getStoredTurnCount();
+
+      restoreCopilotChatHistory();
+      updateCopilotCounter();
+
+      const input = document.getElementById('copilot-input');
+      const submitBtn = document.getElementById('copilot-submit-btn');
+
+      if (leadUnlocked) {
+        isCopilotGated = false;
+        if (input) {
+          input.disabled = false;
+          input.placeholder = "Ask Shubham anything (unlimited mode)...";
+        }
+        if (submitBtn) submitBtn.disabled = false;
+      } else if (copilotTurnCount >= 2) {
+        isCopilotGated = true;
+        showRecruiterGateCard();
+        if (input) {
+          input.disabled = true;
+          input.placeholder = "Please unlock unlimited access above to continue...";
+        }
+        if (submitBtn) submitBtn.disabled = true;
+      } else {
+        isCopilotGated = false;
+        if (input) {
+          input.disabled = false;
+          input.placeholder = copilotTurnCount === 1 
+            ? "1 free preview question remaining..." 
+            : "Ask about MCP, Roadcast, Fynd, SprintZero, or how I work with engineers...";
+        }
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    }
+
+    // Initialize copilot system on load
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        updateCopilotCounter();
+        initCopilotSystem();
         if (new URLSearchParams(window.location.search).has('copilot_open')) {
           openCopilotCard();
         }
       });
     } else {
-      updateCopilotCounter();
+      initCopilotSystem();
       if (new URLSearchParams(window.location.search).has('copilot_open')) {
         openCopilotCard();
       }

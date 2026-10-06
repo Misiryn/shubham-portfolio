@@ -154,6 +154,17 @@ module.exports = async (req, res) => {
     }
 
     // ACTION 2: LIVE CHAT VIA GEMINI WITH MULTI-MODEL FAILOVER
+    const isClientUnlocked = body.isUnlocked === true;
+    if (!isClientUnlocked && Array.isArray(history)) {
+      const pastUserTurns = history.filter(h => h.sender === 'user' || h.role === 'user');
+      if (pastUserTurns.length >= 2) {
+        return res.status(403).json({
+          error: 'LIMIT_REACHED',
+          reply: "You have reached your 2-question preview limit. Please complete the VIP unlock form below to continue chatting with Shubham's Career Copilot!"
+        });
+      }
+    }
+
     const contents = [];
     
     // Add conversation history if available
