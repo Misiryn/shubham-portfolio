@@ -35,7 +35,7 @@ Core Facts About Shubham Dudhal:
    - Scoped offline-first DAQ mobile app architecture with local encrypted SQLite storage and idempotent sync daemon for remote warehouse audits. Developed Node.js features and SEO analytics matrices.
 
 6. Education & Tech Fluency:
-   - B.Sc. in Computer Science from Mulund College of Commerce, University of Mumbai (8.81 / 10 CGPA).
+   - Bachelors in Computer Science from University of Mumbai.
    - Deep technical empathy: understands caching vs DB reads, API contracts, latency budgets, and speaks fluently with engineers without translation loss.
 
 7. Personal Details:
