@@ -1061,7 +1061,7 @@ POST /v2/ai/telemetry/query
   </div>
 
   <!-- Expanded Floating Dynamic Card (Companion Modal/Card) -->
-  <div id="copilot-dynamic-card" class="hidden fixed bottom-3 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-6 z-50 w-auto sm:w-[420px] max-w-[440px] h-[580px] max-h-[85vh] bg-white/95 backdrop-blur-xl border border-slate-300/90 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300" style="z-index: 10000;">
+  <div id="copilot-dynamic-card" class="hidden fixed bottom-3 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-6 z-50 w-auto sm:w-[420px] max-w-[440px] h-[580px] max-h-[85vh] bg-white/95 backdrop-blur-xl border border-slate-300/90 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 overscroll-contain" style="z-index: 10000; overscroll-behavior: contain; overscroll-behavior-y: contain;">
     <!-- Card Header -->
     <div class="px-3.5 py-2.5 sm:px-4 sm:py-3.5 border-b border-slate-200/90 bg-gradient-to-r from-slate-50 via-white to-slate-50 flex items-center justify-between gap-1.5 sm:gap-2 flex-shrink-0">
       <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
@@ -1090,7 +1090,7 @@ POST /v2/ai/telemetry/query
     </div>
 
     <!-- Chat Body (scrollable) -->
-    <div id="copilot-chat" class="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-3 scroll-smooth text-xs sm:text-sm bg-gradient-to-b from-slate-50/50 via-white to-slate-50/30">
+    <div id="copilot-chat" class="flex-1 overflow-y-auto overscroll-contain p-3.5 sm:p-4 space-y-3 scroll-smooth text-xs sm:text-sm bg-gradient-to-b from-slate-50/50 via-white to-slate-50/30" style="overscroll-behavior: contain; overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch;">
       <div class="flex gap-2.5 text-xs">
         <div class="w-6 h-6 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-[10px] shadow-xs">AI</div>
         <div class="p-3 rounded-2xl rounded-tl-none bg-slate-100/90 border border-slate-200/80 text-slate-700 max-w-[88%] shadow-2xs leading-relaxed space-y-1">
@@ -1116,7 +1116,7 @@ POST /v2/ai/telemetry/query
     <!-- Input Bar pinned at bottom -->
     <div class="p-2.5 sm:p-3 border-t border-slate-200 bg-white flex-shrink-0">
       <form onsubmit="handleCopilotSubmit(event)" class="flex gap-2">
-        <input type="text" id="copilot-input" placeholder="Ask about MCP, Roadcast, Fynd, SprintZero..." class="flex-1 min-w-0 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 focus:bg-white transition-colors shadow-2xs">
+        <input type="text" id="copilot-input" onclick="if(isCopilotGated) showRecruiterGateCard(true);" placeholder="Ask about MCP, Roadcast, Fynd, SprintZero..." class="flex-1 min-w-0 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800 focus:bg-white transition-colors shadow-2xs">
         <button type="submit" id="copilot-submit-btn" class="flex-shrink-0 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-heading font-bold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer">
           <span>Send</span>
           <i data-lucide="send" class="w-3 h-3"></i>
@@ -1929,7 +1929,7 @@ POST /v2/ai/telemetry/query
 
     function appendCopilotMessage(sender, htmlContent, shouldScroll = true) {
       const chat = document.getElementById('copilot-chat');
-      if (!chat) return;
+      if (!chat) return null;
       const msgDiv = document.createElement('div');
       msgDiv.className = 'flex gap-2.5 sm:gap-3 text-xs sm:text-sm animate-fade-in';
       
@@ -1950,12 +1950,13 @@ POST /v2/ai/telemetry/query
       }
       chat.appendChild(msgDiv);
       if (shouldScroll) {
-        chat.scrollTop = chat.scrollHeight;
+        msgDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       if (window.lucide) {
         lucide.createIcons();
       }
+      return msgDiv;
     }
 
     function restoreCopilotChatHistory() {
@@ -2005,10 +2006,50 @@ POST /v2/ai/telemetry/query
       }
     }
 
-    function showRecruiterGateCard() {
-      if (document.getElementById('copilot-gate-card')) return;
+    function showCopilotLimitNotice() {
+      if (document.getElementById('copilot-limit-banner')) return;
       const chat = document.getElementById('copilot-chat');
       if (!chat) return;
+      const banner = document.createElement('div');
+      banner.id = 'copilot-limit-banner';
+      banner.className = 'p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100/60 border border-amber-300 text-slate-800 shadow-2xs space-y-2.5 my-3 animate-fade-in';
+      banner.innerHTML = `
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 font-bold text-xs text-amber-950">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>Free Preview Limit Reached (2/2)</span>
+          </div>
+          <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-amber-200 text-amber-900 border border-amber-300">2 of 2 Used</span>
+        </div>
+        <p class="text-xs text-slate-700 leading-relaxed">
+          Hope that helped! You've used both free preview questions. To ask more questions or connect directly with Shubham, share your details below to unlock unlimited access.
+        </p>
+        <button type="button" onclick="showRecruiterGateCard(true)" class="w-full py-2.5 px-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs flex items-center justify-center gap-2 shadow-2xs transition cursor-pointer">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-slate-950"></i>
+          <span>Fill Quick Form to Unlock Unlimited Chat</span>
+        </button>
+      `;
+      chat.appendChild(banner);
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function showRecruiterGateCard(autoScroll = false) {
+      const existing = document.getElementById('copilot-gate-card');
+      if (existing) {
+        if (autoScroll) {
+          setTimeout(() => {
+            existing.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            existing.classList.add('ring-2', 'ring-amber-400');
+            setTimeout(() => existing.classList.remove('ring-2', 'ring-amber-400'), 1500);
+            const firstInput = existing.querySelector('input');
+            if (firstInput) firstInput.focus();
+          }, 80);
+        }
+        return;
+      }
+      const chat = document.getElementById('copilot-chat');
+      if (!chat) return;
+
       const gateDiv = document.createElement('div');
       gateDiv.id = 'copilot-gate-card';
       gateDiv.className = 'p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white border border-slate-700/80 shadow-xl space-y-4 my-3 animate-fade-in transition-all';
@@ -2016,8 +2057,8 @@ POST /v2/ai/telemetry/query
         <div class="flex items-start justify-between gap-3">
           <div class="space-y-1">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-400 text-slate-950 uppercase tracking-wider">Free Preview Limit (2/2)</span>
-              <span class="text-xs text-slate-300 font-medium hidden sm:inline">Enjoying the discussion?</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-400 text-slate-950 uppercase tracking-wider">Unlock Unlimited Access</span>
+              <span class="text-xs text-slate-300 font-medium hidden sm:inline">Connect with Shubham</span>
             </div>
             <h4 class="text-sm sm:text-base font-heading font-bold text-white">Unlock Unlimited Copilot & Connect with Shubham</h4>
             <p class="text-xs text-slate-300 leading-relaxed">
@@ -2069,8 +2110,17 @@ POST /v2/ai/telemetry/query
         </form>
       `;
       chat.appendChild(gateDiv);
-      chat.scrollTop = chat.scrollHeight;
       if (window.lucide) lucide.createIcons();
+
+      if (autoScroll) {
+        setTimeout(() => {
+          gateDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          gateDiv.classList.add('ring-2', 'ring-amber-400');
+          setTimeout(() => gateDiv.classList.remove('ring-2', 'ring-amber-400'), 1500);
+          const firstInput = document.getElementById('lead-name');
+          if (firstInput) firstInput.focus();
+        }, 80);
+      }
     }
 
     async function handleLeadSubmit(e) {
@@ -2121,6 +2171,10 @@ POST /v2/ai/telemetry/query
         isCopilotGated = false;
         persistCopilotState();
         updateCopilotCounter();
+
+        // Remove limit banner if present
+        const limitBanner = document.getElementById('copilot-limit-banner');
+        if (limitBanner) limitBanner.remove();
 
         // Replace the gate card with an unlocked success card
         const gateCard = document.getElementById('copilot-gate-card');
@@ -2199,13 +2253,7 @@ POST /v2/ai/telemetry/query
 
       if (isCopilotGated || (copilotTurnCount >= 2 && !leadUnlocked)) {
         isCopilotGated = true;
-        showRecruiterGateCard();
-        const gateCard = document.getElementById('copilot-gate-card');
-        if (gateCard) {
-          gateCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          gateCard.classList.add('ring-2', 'ring-amber-400');
-          setTimeout(() => gateCard.classList.remove('ring-2', 'ring-amber-400'), 1500);
-        }
+        showRecruiterGateCard(true);
         return;
       }
 
@@ -2232,6 +2280,8 @@ POST /v2/ai/telemetry/query
       // Show typing indicator
       showCopilotTyping();
 
+      let aiMsgNode = null;
+
       try {
         const res = await fetch('/api/copilot', {
           method: 'POST',
@@ -2249,7 +2299,7 @@ POST /v2/ai/telemetry/query
         if (res.status === 403) {
           isCopilotGated = true;
           persistCopilotState();
-          showRecruiterGateCard();
+          showRecruiterGateCard(true);
           if (input) {
             input.disabled = true;
             input.placeholder = "Please unlock unlimited access above to continue...";
@@ -2263,13 +2313,13 @@ POST /v2/ai/telemetry/query
           const reply = data.reply || "I'm having trouble retrieving a response right now.";
           copilotHistory.push({ sender: 'model', text: reply });
           persistCopilotState();
-          appendCopilotMessage('ai', formatAiResponse(reply));
+          aiMsgNode = appendCopilotMessage('ai', formatAiResponse(reply));
         } else {
           console.warn('API returned non-200, falling back to local intent matcher');
           const fallbackReply = matchCopilotIntent(query);
           copilotHistory.push({ sender: 'model', text: stripHtml(fallbackReply) });
           persistCopilotState();
-          appendCopilotMessage('ai', fallbackReply);
+          aiMsgNode = appendCopilotMessage('ai', fallbackReply);
         }
       } catch (err) {
         console.warn('Fetch failed, falling back to local intent matcher', err);
@@ -2277,19 +2327,31 @@ POST /v2/ai/telemetry/query
         const fallbackReply = matchCopilotIntent(query);
         copilotHistory.push({ sender: 'model', text: stripHtml(fallbackReply) });
         persistCopilotState();
-        appendCopilotMessage('ai', fallbackReply);
+        aiMsgNode = appendCopilotMessage('ai', fallbackReply);
       }
 
       // Check 2-message gating condition
       if (copilotTurnCount >= 2 && !leadUnlocked) {
         isCopilotGated = true;
         persistCopilotState();
-        showRecruiterGateCard();
+
+        // Show the limit notice banner directly below the 2nd answer
+        showCopilotLimitNotice();
+
+        // CRITICAL: Ensure the AI's answer is in view so the user reads their answer first!
+        if (aiMsgNode) {
+          setTimeout(() => {
+            aiMsgNode.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 60);
+        }
+
         if (input) {
           input.disabled = true;
-          input.placeholder = "Please unlock unlimited access above to continue...";
+          input.placeholder = "Free preview limit reached (2/2) — Tap to unlock unlimited chat...";
         }
-        if (submitBtn) submitBtn.disabled = true;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+        }
       } else {
         if (submitBtn) submitBtn.disabled = false;
         if (input) {
@@ -2304,6 +2366,10 @@ POST /v2/ai/telemetry/query
 
     function handleCopilotSubmit(e) {
       e.preventDefault();
+      if (isCopilotGated || (copilotTurnCount >= 2 && !leadUnlocked)) {
+        showRecruiterGateCard(true);
+        return;
+      }
       const input = document.getElementById('copilot-input');
       const val = input.value.trim();
       if (!val) return;
@@ -2321,6 +2387,11 @@ POST /v2/ai/telemetry/query
       if (trigger) {
         trigger.classList.add('hidden');
       }
+      // Lock background page scroll on mobile so the website never scrolls behind chat
+      if (window.innerWidth < 640) {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      }
       setTimeout(() => {
         const input = document.getElementById('copilot-input');
         if (input && !input.disabled) input.focus();
@@ -2335,6 +2406,9 @@ POST /v2/ai/telemetry/query
         card.classList.add('hidden');
         card.classList.remove('flex');
       }
+      // Restore background page scrolling
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       if (trigger) {
         trigger.classList.remove('hidden');
         trigger.classList.add('scale-105');
@@ -2363,6 +2437,49 @@ POST /v2/ai/telemetry/query
       }
     });
 
+    function setupScrollIsolation() {
+      const chatEl = document.getElementById('copilot-chat');
+      if (chatEl && !chatEl.__scrollIsolated) {
+        chatEl.__scrollIsolated = true;
+        let startY = 0;
+        chatEl.addEventListener('touchstart', (e) => {
+          if (e.touches && e.touches.length > 0) startY = e.touches[0].pageY;
+        }, { passive: true });
+
+        chatEl.addEventListener('touchmove', (e) => {
+          if (e.touches && e.touches.length > 0) {
+            const currentY = e.touches[0].pageY;
+            const isAtTop = chatEl.scrollTop <= 0;
+            const isAtBottom = chatEl.scrollTop + chatEl.clientHeight >= chatEl.scrollHeight - 1;
+            const isDraggingDown = currentY > startY;
+            const isDraggingUp = currentY < startY;
+
+            if ((isAtTop && isDraggingDown) || (isAtBottom && isDraggingUp)) {
+              if (e.cancelable) e.preventDefault();
+            }
+          }
+        }, { passive: false });
+
+        chatEl.addEventListener('wheel', (e) => {
+          const isAtTop = chatEl.scrollTop <= 0;
+          const isAtBottom = chatEl.scrollTop + chatEl.clientHeight >= chatEl.scrollHeight - 1;
+          if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+      }
+
+      const cardEl = document.getElementById('copilot-dynamic-card');
+      if (cardEl && !cardEl.__touchIsolated) {
+        cardEl.__touchIsolated = true;
+        cardEl.addEventListener('touchmove', (e) => {
+          if (!e.target.closest('#copilot-chat')) {
+            if (e.cancelable) e.preventDefault();
+          }
+        }, { passive: false });
+      }
+    }
+
     function initCopilotSystem() {
       leadUnlocked = checkIsLeadUnlocked();
       copilotTurnCount = getStoredTurnCount();
@@ -2382,12 +2499,13 @@ POST /v2/ai/telemetry/query
         if (submitBtn) submitBtn.disabled = false;
       } else if (copilotTurnCount >= 2) {
         isCopilotGated = true;
-        showRecruiterGateCard();
+        showCopilotLimitNotice();
+        showRecruiterGateCard(false);
         if (input) {
           input.disabled = true;
-          input.placeholder = "Please unlock unlimited access above to continue...";
+          input.placeholder = "Free preview limit reached (2/2) — Tap to unlock unlimited chat...";
         }
-        if (submitBtn) submitBtn.disabled = true;
+        if (submitBtn) submitBtn.disabled = false;
       } else {
         isCopilotGated = false;
         if (input) {
@@ -2398,6 +2516,8 @@ POST /v2/ai/telemetry/query
         }
         if (submitBtn) submitBtn.disabled = false;
       }
+
+      setupScrollIsolation();
     }
 
     // Initialize copilot system on load
